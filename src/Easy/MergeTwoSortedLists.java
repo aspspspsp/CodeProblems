@@ -1,3 +1,6 @@
+package Easy;
+import Dependencies.ListNode;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -6,7 +9,7 @@
  *     ListNode(int x) { val = x; }
  * }
  */
-public class Solution {
+public class MergeTwoSortedLists {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode head = new ListNode(0);
         ListNode cur = head;

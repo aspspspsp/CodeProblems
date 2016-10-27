@@ -1,4 +1,5 @@
-public class Solution {
+package Easy;
+public class RomanToInteger {
     public int romanToInt(String s) {
         int ans = 0;
         

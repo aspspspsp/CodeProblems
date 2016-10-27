@@ -1,3 +1,7 @@
+package Easy;
+
+import Dependencies.ListNode;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -6,7 +10,7 @@
  *     ListNode(int x) { val = x; }
  * }
  */
-public class Solution {
+public class SwapNodesInPairs {
     public ListNode swapPairs(ListNode head) {
         if(head == null)
             return null;

@@ -1,3 +1,5 @@
+package Medium;
+
 /*
 	使用2分法快速求出冪
 为了减少时间的消耗，我们可以使用二分法。
@@ -15,7 +17,7 @@ result = 2^8
 那么 result3 = result1 * 2^3
 2^3 = 2^2 *2^1
 */
-public class Solution {
+public class PowXAndN {
     public double myPow(double x, int n) {
         if(n == 0)
             return 1;

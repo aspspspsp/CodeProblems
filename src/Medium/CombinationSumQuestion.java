@@ -1,3 +1,9 @@
+package Medium;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /*
 本题采用回溯算法。
 1. 基本思路是先排好序，这样做的目的是为了对数组后面不可能出现的情况进行排除，有利于减少查找时间，即剪枝操作
@@ -5,7 +11,7 @@
 3. 然后每次递归中把剩下的元素一一加到结果集合中，并且把目标减去加入的元素，然后把剩下元素（包括当前加入的元素）放到下一层递归中解决子问题。
 */
 
-public class Solution {
+public class CombinationSumQuestion {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         
         //對候選數組進行排序

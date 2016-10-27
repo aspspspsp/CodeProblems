@@ -1,3 +1,5 @@
+package Medium;
+
 /*
 
 The key observation is pow(a,b)%1337 = pow(1337*k+a,b) % 1337
@@ -7,7 +9,7 @@ The key observation is pow(a,b)%1337 = pow(1337*k+a,b) % 1337
 b的表示方式為[1,0] = 10
 */
 
-public class Solution {
+public class SuperPow {
     public int superPow(int a, int[] b) {
         int result = 1;
         for(int i = 0; i < b.length; i ++) {
