@@ -1,5 +1,11 @@
 package Easy;
-
+/*
+ * 思路分析：典型的动态规划，和求最大和子数组有点类似，
+ * ansTable[i] 表示num[0...i]之间的最优解，那么DP方程可以写作
+ * ansTable[i] = Max(global[i-2] +  num[i], global[i-1])
+ * ,分别对应于取num[i]（此时不能取num[i-1]）和不取num[i]的最优
+ * 解，然后取max即可。是一个一维DP，时间和空间复杂度都是O（n）。
+ */
 public class HouseRobber {
     public int rob(int[] nums) {
         int n = nums.length; //房屋總數
