@@ -11,7 +11,7 @@ import java.util.List;
 3. 然后每次递归中把剩下的元素一一加到结果集合中，并且把目标减去加入的元素，然后把剩下元素（包括当前加入的元素）放到下一层递归中解决子问题。
 */
 
-public class CombinationSumQuestion {
+public class CombinationSum {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         
         //對候選數組進行排序
