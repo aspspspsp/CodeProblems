@@ -1,4 +1,4 @@
-package Easy;
+package Medium;
 
 import Dependencies.TreeNode;
 
