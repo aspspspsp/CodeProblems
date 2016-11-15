@@ -10,13 +10,13 @@ import Dependencies.ListNode;
  *     ListNode(int x) { val = x; }
  * }
  * init:
- * 1->2->3
+ *   1->2->3
  * 1.
- * 1  2->3
+ * <-1  2->3
  * 2.
- * 1<-2  3
+ * <-1<-2  3
  * 3.
- * 1<-2<-3
+ * <-1<-2<-3
  */
 public class ReverseLinkedList {
     public ListNode reverseList(ListNode head) {
