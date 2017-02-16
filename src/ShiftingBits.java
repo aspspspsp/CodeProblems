@@ -1,17 +1,9 @@
 //移位練習
 public class ShiftingBits {
 	public static void main(String args[]) {
-		//System.err.println(rightArthmeticShifting(-8, 3));
-		//System.err.println(rightLogicalShifting(-4, 1));
-		//
-		//System.err.println(leftArthmeticShifting(8, 1));
 		
-		//System.err.print(2^4);
-		
-		int a=2;
-		int b=2;
-		System.out.println("a 和b 与的结果是："+(a&b));
-		System.out.println("a 非的结果是："+(~a));
+		int a = 1;
+		System.err.println(a << 1);
 
 	}
 	
