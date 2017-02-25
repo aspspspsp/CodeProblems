@@ -36,7 +36,7 @@ public class BinaryTreePreorderTraversal {
             //將目前經歷的節點排出
             TreeNode node = stack.pop();
             
-            //將目前經歷的節點放入結果lost內
+            //將目前經歷的節點放入結果lost內(中)
             ans.add(node.val);
             
             //將右節點放入stack(右節點先訪問)
