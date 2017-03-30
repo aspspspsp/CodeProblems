@@ -24,6 +24,7 @@ Hint:
         int i = 0;
         int j = 0;
         int k = 0;
+        
      
         while(list.size() < n){
             int m2 = list.get(i) * 2;
@@ -38,7 +39,7 @@ Hint:
      
             if(min == m3)
                 j ++;
-     
+      
             if(min == m5)
                 k ++;
         }
