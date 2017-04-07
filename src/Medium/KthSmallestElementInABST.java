@@ -12,7 +12,7 @@ import Dependencies.TreeNode;
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
- * åˆ©ç”¨ä¸­åºæ­·éä¾†æ‰¾åˆ°ç¬¬kå°çš„æ•¸
+ * ßMĞĞÖĞĞòšv±é£¬µ½µÚk‚€•r¾ÍÊÇµ½µÚkĞ¡µÄ”µ
  */
 public class KthSmallestElementInABST {
     public int kthSmallest(TreeNode root, int k) {
@@ -25,12 +25,13 @@ public class KthSmallestElementInABST {
             } else {
                 TreeNode temp = stack.pop();
                 k --;
+                //µ½µÚkĞ¡µÄ•rºò
                 if(k == 0)
                     return temp.val;
                 cur = temp.right;
             }
         }
-        //æ²’æœ‰ç­”æ¡ˆçš„æ™‚å€™
+        //›]ÓĞÕÒµ½½Y¹û
         return -1;
     }
 }
