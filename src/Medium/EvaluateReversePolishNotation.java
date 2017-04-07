@@ -3,41 +3,48 @@ package Medium;
 import java.util.Stack;
 
 public class EvaluateReversePolishNotation {
+    /*
+     * 
+     * å°‡éç¬¦è™Ÿçš„æ•¸å­—æ”¾å…¥æ£§ç•¶ä¸­ï¼Œè‹¥é‡åˆ°ç¬¦è™Ÿä¾¿æ’å‡ºï¼Œé€²è¡Œé‹ç®—å¾Œå†æ”¾å…¥æ£§ä¸­
+     * 
+    æ³¨æ„å…ˆé€²å¾Œå‡ºï¼Œæ•…bæœƒæ¯”aæ—©æ’å‡º
+    */
     public int evalRPN(String[] tokens) {
-        int returnValue = 0;
-        String operators = "+-*/";
+        if(tokens == null || tokens.length == 0)
+            return 0;
         
-        Stack<String> stack = new Stack<>();
+        Stack stack = new Stack<Integer>();
         
-        for(String token : tokens) {
-            //ÈôÊÇß\Ëã·û„tÈë¶Ñ—£
-            if(operators.contains(token) == false) {
-                stack.push(token);
-                
-            //Èô²»ÊÇß\Ëã·û„tŒ¢¶Ñ—£ÍÆ³öaÅcb£¬ÔÙ×öß\Ëã£¬ÔÙÈë¶Ñ—£
-            } else {
-                int a = Integer.valueOf(stack.pop());
-                int b = Integer.valueOf(stack.pop());
-                
-                switch(token) {
-                    case "+":
-                        stack.push(String.valueOf(a + b));
-                        break;
-                    case "-":
-                        stack.push(String.valueOf(a - b));
-                        break;
-                    case "*":
-                        stack.push(String.valueOf(a * b));
-                        break;
-                    case "/":
-                        stack.push(String.valueOf(b / a));
-                        break;
-                }
+        for(int i = 0; i < tokens.length; i ++) {
+            if(tokens[i].equals("+")) {
+                int b = (int) stack.pop();
+                int a = (int) stack.pop();
+                stack.push(a + b);
+            } else if(tokens[i].equals("-")) {
+                int b = (int) stack.pop();
+                int a = (int) stack.pop();
+                stack.push(a - b);
+            } else if(tokens[i].equals("*")) {
+                int b = (int) stack.pop();
+                int a = (int) stack.pop();
+                stack.push(a * b);
+            } else if(tokens[i].equals("/")) {
+                int b = (int) stack.pop();
+                int a = (int) stack.pop();
+                //æ³¨æ„è™•ä»¥é›¶çš„å•é¡Œ
+                if(b == 0)
+                    return 0;
+                stack.push(a / b);
+             } else {
+                int num = Integer.parseInt(tokens[i]);
+                stack.push(num);
             }
         }
         
-        //ÍÆ³ö×îáá½Y¹û
-        returnValue = Integer.valueOf(stack.pop());
-        return returnValue;
+        int result = (int) stack.pop();
+        if(stack.isEmpty() == false)
+            return 0;
+        
+        return result;
     }
 }
