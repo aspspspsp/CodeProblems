@@ -16,11 +16,11 @@ import Dependencies.TreeNode;
  * }
  */
 public class MostFrequentSubtreeSum {
-    /*
-      5       子樹為:2,-3,  5      故子樹和為[2, -3, 4]
-     / \                   / \
-    2  -3                 2  -5
-    */
+  /*
+    5       子樹為:2,-3,  5      故子樹和為[2, -3, 4]
+   / \                   / \
+  2  -3                 2  -5
+  */
     HashMap<Integer, Integer> sums = new HashMap<Integer, Integer>();
     int max = 0;
     public int[] findFrequentTreeSum(TreeNode root) {

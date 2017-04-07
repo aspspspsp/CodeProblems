@@ -22,42 +22,42 @@ public class ValidParentheses {
     Stack<String> stack = new Stack<String>();
     public boolean isValid(String s) {
         
-        //對整個String逐步檢查
+        //灏嶆暣鍊婼tring閫愭妾㈡煡
         for(int i = 0; i < s.length(); i ++) {
             String token = s.substring(i, i + 1);
             
-            // 如果遇到前括号(Ex: "(", "[", "{")就压入栈  
+            // 濡傛灉閬囧埌鍓嶆嫭鍙�(Ex: "(", "[", "{")灏卞帇鍏ユ爤  
             if(token.equals("(") || token.equals("[") || token.equals("{")) {
                 stack.push(token);
             
-            // 如果遇到後括号(Ex: ")", "]", "]")就排出栈
+            // 濡傛灉閬囧埌寰屾嫭鍙�(Ex: ")", "]", "]")灏辨帓鍑烘爤
             } else if(token.equals(")") || token.equals("]") || token.equals("}")) {
                 
-                //若stack為空，表示左右括號並不均等，故為false
+                //鑻tack鐐虹┖锛岃〃绀哄乏鍙虫嫭铏熶甫涓嶅潎绛夛紝鏁呯偤false
                 if(stack.isEmpty() == true)
                     return false;
                 
                 if(stack.isEmpty() == false) {
-                    //只排出一個括号
+                    //鍙帓鍑轰竴鍊嬫嫭鍙�
                     String check = stack.pop();
                     
-                    //若(,)則這個是正確的
+                    //鑻�(,)鍓囬�欏�嬫槸姝ｇ⒑鐨�
                     if(check.equals("(") == true && token.equals(")") == true)
                         continue;
-                    //若[,]則這個是正確的 
+                    //鑻,]鍓囬�欏�嬫槸姝ｇ⒑鐨� 
                     else if(check.equals("[") == true && token.equals("]") == true)
                         continue;
-                    //若{,}則這個是正確的
+                    //鑻,}鍓囬�欏�嬫槸姝ｇ⒑鐨�
                     else if(check.equals("{") == true && token.equals("}") == true)
                         continue;
-                    //都不是表示括號匹配錯誤
+                    //閮戒笉鏄〃绀烘嫭铏熷尮閰嶉尟瑾�
                     else
                         return false;
                 }
             }
         }
         
-        //因為括號都是兩兩相對的，若還有剩餘的話表示左右括號並不均等，則為false
+        //鍥犵偤鎷櫉閮芥槸鍏╁叐鐩稿皪鐨勶紝鑻ラ倓鏈夊墿椁樼殑瑭辫〃绀哄乏鍙虫嫭铏熶甫涓嶅潎绛夛紝鍓囩偤false
         if(stack.isEmpty() == true)
             return true;
         else 
