@@ -44,7 +44,16 @@ public class MinHeap {
 		if(left > this.count)
 			return;
 		
-		int smallest = right > this.count?left:h[left].val > h[right].val?right:left;
+		int smallest;
+		if(right > this.count) {
+			smallest = left;
+		} else {
+			if(h[left].val > h[right].val)
+				smallest = right;
+			else
+				smallest = left;
+		}
+		
 		if(this.h[k].val > this.h[smallest].val) {
 			swap(k, smallest);
 			siftDown(smallest);
