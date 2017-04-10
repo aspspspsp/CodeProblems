@@ -1,4 +1,6 @@
-package Dependencies;
+package BasicAlg;
+
+import Dependencies.ListNode;
 
 public class MinHeap {
 	
