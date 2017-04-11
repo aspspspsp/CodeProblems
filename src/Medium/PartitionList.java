@@ -12,32 +12,33 @@ import Dependencies.ListNode;
  */
 public class PartitionList {
     public ListNode partition(ListNode head, int x) {
-        ListNode p1 = new ListNode(0); //´æ·ÅĞ¡ì¶xµÄListNode
-        ListNode p1_first = p1;
-        ListNode p2 = new ListNode(0); //´æ·Å´óì¶µÈì¶xµÄListNode
-        ListNode p2_first = p2;
+        if(head == null)
+            return head;
         
-        ListNode cur = head;
-        
-        //ÒÔ´Ë±éÀúÔ­Á´±í£¬Èç¹û½ÚµãµÄÖµ´óì¶µÈì¶x£¬¾ÍßBµ½p2ÏÂÃæ£¬·´Ö®Ôò·Åµ½p1
-        while(cur != null) {
-            if(cur.val >= x) {
-                p2.next = cur;
-                p2 = p2.next; //Ö¸á˜ÒÆµ½ÏÂÒ»‚€£¬±ÜÃâ³ÌĞòÖ»Œ‘ÈëÒ»‚€µØ·½
+
+        //åˆ†æˆå…©åŠ ä¸€é‚Šæ¯”xå¤§ ä¸€é‚Šæ¯”x_å°
+        // 1->4->3->2->5->2, x = 3
+        //----------------------------
+        // 1->2->2->4->3->5
+        //       <x,x>=  
+        ListNode p = new ListNode(0); //æ¯”xå°
+        ListNode p_dummy = p;
+        ListNode q = new ListNode(0); //å¤§æ–¼ç­‰æ–¼x
+        ListNode q_dummy = q;
+        while(head != null) {
+            if(head.val >= x) {
+                q.next = head;
+                q = q.next;
             } else {
-                p1.next = cur;
-                p1 = p1.next;
+                p.next = head;
+                p = p.next;
             }
-            cur = cur.next;
+            head = head.next;
         }
         
-        //Œ¢p2ááÃæ”àÇ¬œQ
-        p2.next = null;
-        
-        //Œ¢p2·ÅÔÚp1ááÃæ
-        p1.next = p2_first.next;
-        
-        return p1_first.next;
-        
+        //æŠŠå…©å€‹listNodeæ¥å†ä¸€èµ·
+        p.next = q_dummy.next;
+        q.next = null; //é—œé–‰å°¾ç¯€é»ï¼Œé¿å…éŒ¯èª¤
+        return p_dummy.next;
     }
 }
