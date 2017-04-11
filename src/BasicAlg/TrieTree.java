@@ -25,29 +25,29 @@ public class TrieTree {
 	    HashMap<String, Integer> map = trie.getAllWords();  
       
 	    for(String key:map.keySet()){  
-	        System.out.println(key+" ³öÏÖ: "+ map.get(key)+"´Î");  
+	        System.out.println(key+" å‡ºç°: "+ map.get(key)+"æ¬¡");  
 	    }  
 	      
 	    map=trie.getWordsForPrefix("chin");  
 	      
-	    System.out.println("\n\n°üº¬chin£¨°üÀ¨±¾Éí£©Ç°×ºµÄµ¥´Ê¼°³öÏÖ´ÎÊı£º");  
+	    System.out.println("\n\nåŒ…å«chinï¼ˆåŒ…æ‹¬æœ¬èº«ï¼‰å‰ç¼€çš„å•è¯åŠå‡ºç°æ¬¡æ•°ï¼š");  
 	    for(String key:map.keySet()){  
-	        System.out.println(key+" ³öÏÖ: "+ map.get(key)+"´Î");  
+	        System.out.println(key+" å‡ºç°: "+ map.get(key)+"æ¬¡");  
 	    }  
 	      
 	    if(trie.isExist("xiaoming")==false){  
-	        System.out.println("\n\n×ÖµäÊ÷ÖĞ²»´æÔÚ£ºxiaoming ");  
+	        System.out.println("\n\nå­—å…¸æ ‘ä¸­ä¸å­˜åœ¨ï¼šxiaoming ");  
 	    }  
       
       
     }  
 	
 	public class Node {
-		private int dupli_num; //¸Ã×Ö´®µÄÖØ¸´ÊıÄ¿£¬¸ÃÊôĞÔÍ³¼ÆÖØ¸´´ÎÊıµÄÊ±ºòÓĞÓÃ,È¡ÖµÎª0¡¢1¡¢2¡¢3¡¢
+		private int dupli_num; //è¯¥å­—ä¸²çš„é‡å¤æ•°ç›®ï¼Œè¯¥å±æ€§ç»Ÿè®¡é‡å¤æ¬¡æ•°çš„æ—¶å€™æœ‰ç”¨,å–å€¼ä¸º0ã€1ã€2ã€3ã€
 		
-		private int prefix_num; //ÒÔ¸Ã×Ö´®ÎªÇ°×ºµÄ×Ö´®Êı£¬ Ó¦¸Ã°üÀ¨¸Ã×Ö´®±¾Éí
-		private Node childs[]; //´Ë´¦ÓÃÊı×éÊµÏÖ£¬µ±È»Ò²¿ÉÒÔmap»òlistÊµÏÖÒÔ½ÚÊ¡¿Õ¼ä
-		private boolean isLeaf; //ÊÇ·ñÎªµ¥´Ê½Úµã(×îááÒ»‚€¹üc)
+		private int prefix_num; //ä»¥è¯¥å­—ä¸²ä¸ºå‰ç¼€çš„å­—ä¸²æ•°ï¼Œ åº”è¯¥åŒ…æ‹¬è¯¥å­—ä¸²æœ¬èº«
+		private Node childs[]; //æ­¤å¤„ç”¨æ•°ç»„å®ç°ï¼Œå½“ç„¶ä¹Ÿå¯ä»¥mapæˆ–listå®ç°ä»¥èŠ‚çœç©ºé—´
+		private boolean isLeaf; //æ˜¯å¦ä¸ºå•è¯èŠ‚ç‚¹(æœ€å¾Œä¸€å€‹ç¯€é»)
 		
 		public Node() {
 			this.dupli_num = 0;
@@ -57,13 +57,13 @@ public class TrieTree {
 		}
 	}
 	
-	private Node root; //Ê÷¸ù 
+	private Node root; //æ ‘æ ¹ 
 	public TrieTree() {
-		root = new Node(); //³õÊ¼»¯trie Ê÷  
+		root = new Node(); //åˆå§‹åŒ–trie æ ‘  
 	}
 	
 	/** 
-     * ²åÈë×Ö´®£¬ÓÃÑ­»·´úÌæµü´úÊµÏÖ 
+     * æ’å…¥å­—ä¸²ï¼Œç”¨å¾ªç¯ä»£æ›¿è¿­ä»£å®ç° 
      * @param words 
      */  
 	public void insert(String words) {
@@ -77,30 +77,30 @@ public class TrieTree {
 		for(int i = 0; i < chars.length; i ++) {
 			int length = chars.length;
 			
-			//ÓÃÏà¶ÔÓÚa×ÖÄ¸µÄÖµ×÷ÎªÏÂ±êË÷Òı£¬Ò²ÒşÊ½µØ¼ÇÂ¼ÁË¸Ã×ÖÄ¸µÄÖµ(index ¼´é ascii code)
+			//ç”¨ç›¸å¯¹äºaå­—æ¯çš„å€¼ä½œä¸ºä¸‹æ ‡ç´¢å¼•ï¼Œä¹Ÿéšå¼åœ°è®°å½•äº†è¯¥å­—æ¯çš„å€¼(index å³ç‚º ascii code)
 			int index = chars[i] - 'a';
 			if(root.childs[index] != null) {
-				//ÒÑ¾­´æÔÚÁË£¬¸Ã×Ó½Úµãprefix_num++  
+				//å·²ç»å­˜åœ¨äº†ï¼Œè¯¥å­èŠ‚ç‚¹prefix_num++  
 				root.childs[index].prefix_num ++;
 			} else {
-				//Èç¹û²»´æÔÚ£¬„tĞÂÔöÒ»‚€¹üc
+				//å¦‚æœä¸å­˜åœ¨ï¼Œå‰‡æ–°å¢ä¸€å€‹ç¯€é»
 				root.childs[index] = new Node();
 				root.childs[index].prefix_num ++;
 			}
 			
-			//Èç¹ûµ½ÁË×Ö´®½áÎ²£¬Ôò×ö±ê¼Ç
+			//å¦‚æœåˆ°äº†å­—ä¸²ç»“å°¾ï¼Œåˆ™åšæ ‡è®°
 			if(i == length - 1) {
 				root.childs[index].isLeaf = true;
 				root.childs[index].dupli_num ++;
 			}
 			
-			//rootÖ¸Ïò×Ó½Úµã£¬¼ÌĞø´¦ÀíÏÂ Ò»‚€char
+			//rootæŒ‡å‘å­èŠ‚ç‚¹ï¼Œç»§ç»­å¤„ç†ä¸‹ ä¸€å€‹char
 			root = root.childs[index];
 		}
 	}
 	
 	/** 
-     * ±éÀúTrieÊ÷£¬²éÕÒËùÓĞµÄwordsÒÔ¼°³öÏÖ´ÎÊı 
+     * éå†Trieæ ‘ï¼ŒæŸ¥æ‰¾æ‰€æœ‰çš„wordsä»¥åŠå‡ºç°æ¬¡æ•° 
      * @return HashMap<String, Integer> map 
      */  
 	public HashMap<String, Integer> getAllWords() {
@@ -108,16 +108,16 @@ public class TrieTree {
 	}
 	
 	 /** 
-     * Ç°Ğò±éÀú¡£¡£¡£ 
-     * @param root      ×ÓÊ÷¸ù½Úµã 
-     * @param prefixs   ²éÑ¯µ½¸Ã½ÚµãÇ°Ëù±éÀú¹ıµÄÇ°×º 
+     * å‰åºéå†ã€‚ã€‚ã€‚ 
+     * @param root      å­æ ‘æ ¹èŠ‚ç‚¹ 
+     * @param prefixs   æŸ¥è¯¢åˆ°è¯¥èŠ‚ç‚¹å‰æ‰€éå†è¿‡çš„å‰ç¼€ 
      * @return 
      */  
 	public HashMap<String, Integer> preTraversal(Node root, String prefixs) {
 		HashMap<String, Integer> map = new HashMap<>();
 		
 		if(root != null) {
-			//µ±Ç°(root¹üc)¼´ÎªÒ»¸öµ¥´Ê 
+			//å½“å‰(rootç¯€é»)å³ä¸ºä¸€ä¸ªå•è¯ 
 			if(root.isLeaf == true) {
 				map.put(prefixs, root.dupli_num);
 			}
@@ -128,7 +128,7 @@ public class TrieTree {
 			 		
 			 		String tempStr = prefixs + _char;
 			 		
-			 		//µİ¹éµ÷ÓÃÇ°Ğò±éÀú  
+			 		//é€’å½’è°ƒç”¨å‰åºéå†  
 			 		map.putAll(preTraversal(root.childs[i], tempStr));
 			 	}
 			}
@@ -139,7 +139,7 @@ public class TrieTree {
 	}
 	
 	/** 
-     * ÅĞ¶ÏÄ³×Ö´®ÊÇ·ñÔÚ×ÖµäÊ÷ÖĞ 
+     * åˆ¤æ–­æŸå­—ä¸²æ˜¯å¦åœ¨å­—å…¸æ ‘ä¸­ 
      * @param word 
      * @return true if exists ,otherwise  false  
      */  
@@ -148,7 +148,7 @@ public class TrieTree {
 	}
 	
 	 /** 
-     * ²éÑ¯Ä³×Ö´®ÊÇ·ñÔÚ×ÖµäÊ÷ÖĞ 
+     * æŸ¥è¯¢æŸå­—ä¸²æ˜¯å¦åœ¨å­—å…¸æ ‘ä¸­ 
      * @param word 
      * @return true if exists ,otherwise  false  
      */  
@@ -157,10 +157,10 @@ public class TrieTree {
 		for(int i = 0; i < chars.length; i ++) {
 			int index = chars[i] - 'a';
 			if(root.childs[index] == null) {
-				//Èç¹û²»´æÔÚ£¬Ôò²éÕÒÊ§°Ü  
+				//å¦‚æœä¸å­˜åœ¨ï¼Œåˆ™æŸ¥æ‰¾å¤±è´¥  
 				return false;
 			}
-			//Œ¢Ö¸á˜ÇĞ“Qµ½ÁíÒ»‚€nodeÒÔÀ^Àm
+			//å°‡æŒ‡é‡åˆ‡æ›åˆ°å¦ä¸€å€‹nodeä»¥ç¹¼çºŒ
 			root = root.childs[index];
 		}
 		
@@ -168,19 +168,19 @@ public class TrieTree {
 	}
 	
 	/** 
-     * µÃµ½ÒÔÄ³×Ö´®ÎªÇ°×ºµÄ×Ö´®¼¯£¬°üÀ¨×Ö´®±¾Éí£¡ ÀàËÆµ¥´ÊÊäÈë·¨µÄÁªÏë¹¦ÄÜ 
-     * @param prefix ×Ö´®Ç°×º 
-     * @return ×Ö´®¼¯ÒÔ¼°³öÏÖ´ÎÊı£¬Èç¹û²»´æÔÚÔò·µ»Ønull 
+     * å¾—åˆ°ä»¥æŸå­—ä¸²ä¸ºå‰ç¼€çš„å­—ä¸²é›†ï¼ŒåŒ…æ‹¬å­—ä¸²æœ¬èº«ï¼ ç±»ä¼¼å•è¯è¾“å…¥æ³•çš„è”æƒ³åŠŸèƒ½ 
+     * @param prefix å­—ä¸²å‰ç¼€ 
+     * @return å­—ä¸²é›†ä»¥åŠå‡ºç°æ¬¡æ•°ï¼Œå¦‚æœä¸å­˜åœ¨åˆ™è¿”å›null 
      */  
 	public HashMap<String, Integer> getWordsForPrefix(String prefix) {
 		return getWordsForPrefix(this.root, prefix);
 	}
 	
 	/** 
-     * µÃµ½ÒÔÄ³×Ö´®ÎªÇ°×ºµÄ×Ö´®¼¯£¬°üÀ¨×Ö´®±¾Éí£¡ 
+     * å¾—åˆ°ä»¥æŸå­—ä¸²ä¸ºå‰ç¼€çš„å­—ä¸²é›†ï¼ŒåŒ…æ‹¬å­—ä¸²æœ¬èº«ï¼ 
      * @param root 
      * @param prefix 
-     * @return ×Ö´®¼¯ÒÔ¼°³öÏÖ´ÎÊı 
+     * @return å­—ä¸²é›†ä»¥åŠå‡ºç°æ¬¡æ•° 
      */  
 	public HashMap<String, Integer> getWordsForPrefix(Node root, String prefix) {
 		char [] chars = prefix.toLowerCase().toCharArray();
@@ -194,8 +194,8 @@ public class TrieTree {
 			root = root.childs[index];
 		}
 		
-        //½á¹û°üÀ¨¸ÃÇ°×º±¾Éí  
-        //´Ë´¦ÀûÓÃÖ®Ç°µÄÇ°ĞòËÑË÷·½·¨½øĞĞËÑË÷ 
+        //ç»“æœåŒ…æ‹¬è¯¥å‰ç¼€æœ¬èº«  
+        //æ­¤å¤„åˆ©ç”¨ä¹‹å‰çš„å‰åºæœç´¢æ–¹æ³•è¿›è¡Œæœç´¢ 
 		return preTraversal(root, prefix);
 	}
 

@@ -3,10 +3,20 @@ package BasicAlg;
 import Dependencies.ListNode;
 
 public class MinHeap {
-	
+	/* 1 2 3 4 5 6 
+	 * ----------------
+	 * 0 2 1 5 3 4
+	 * 
+	 *          0(1)
+	 *         / \
+	 *     (2)1   2(3)
+	 *       / \  /
+	 *      3   45 (6)
+	 *     (4) (5)
+	 */     
 	public static void main(String[] args) {
 		MinHeap heap = new MinHeap(15);
-		for(int i = 14; i >= 0; i --) {
+		for(int i = 5; i >= 0; i --) {
 			heap.put(new ListNode(i));
 		}
 		
@@ -46,6 +56,7 @@ public class MinHeap {
 		if(left > this.count)
 			return;
 		
+		//找出兩個兒子中最小的
 		int smallest;
 		if(right > this.count) {
 			smallest = left;
@@ -56,6 +67,7 @@ public class MinHeap {
 				smallest = left;
 		}
 		
+		//若兒子節點比父節點小則兒子往上浮，再進入下一個節點
 		if(this.h[k].val > this.h[smallest].val) {
 			swap(k, smallest);
 			siftDown(smallest);
