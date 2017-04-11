@@ -20,7 +20,7 @@ public class PartitionList {
         // 1->4->3->2->5->2, x = 3
         //----------------------------
         // 1->2->2->4->3->5
-        //       <x,x>=  
+        //     <x  ,  x>=  
         ListNode p = new ListNode(0); //比x小
         ListNode p_dummy = p;
         ListNode q = new ListNode(0); //大於等於x
