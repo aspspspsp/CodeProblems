@@ -8,8 +8,13 @@ public class SingletonDoubleCheckLocking {
 	
 	private static SingletonDoubleCheckLocking getInstance() {
 		if(instance == null)
-			instance = new SingletonDoubleCheckLocking();
-		
+			if(instance == null)
+				synchronized (SingletonDoubleCheckLocking.class) {
+					if(instance == null) {
+						instance = new SingletonDoubleCheckLocking();
+					}
+				}
+					
 		return instance;
 	}
 	
