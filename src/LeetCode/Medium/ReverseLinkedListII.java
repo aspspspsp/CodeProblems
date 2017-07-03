@@ -9,24 +9,29 @@ import LeetCode.Dependencies.ListNode;
  *     ListNode next;
  *     ListNode(int x) { val = x; }
  * }
-1. 找到原链表中第m-1个节点start：反转后的部分将接回改节点后。
+反转整个链表的变种，指定了起点和终点。由于m=1时会变动头节点，所以加入一个dummy头节点
+ 
+1.找到原链表中第m-1个节点start：反转后的部分将接回改节点后。
 从dummy开始移动m-1步
+
 D->1->2->3->4->5->NULL
-       |
-      st
-2. 将从p = start->next开始，长度为L = n-m+1的部分链表反转。
+   |
+  st
+
+2.将从p = start->next开始，长度为L = n-m+1的部分链表反转。
             __________
-            |                  |
-            |                 V
+            |         |
+            |         V
 D->1->2<-3<-4    5->NULL             
-       |     |           | 
-      st    p          h0         
-3. 最后接回
-            __________
-            |                  |
-            |                 V
+   |     |           | 
+   st    p          h0         
+ 
+3.最后接回
+       _______________
+       |              |
+       |              V
 D->1   2<-3<-4    5->NULL             
-       |________|                
+   |_______|                       
  */
 public class ReverseLinkedListII {
     public ListNode reverseBetween(ListNode head, int m, int n) {
