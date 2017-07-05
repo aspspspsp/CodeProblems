@@ -3,6 +3,8 @@ package LeetCode.Medium;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import LeetCode.Dependencies.UndirectedGraphNode;
+
 /**
  * Definition for undirected graph.
  * class UndirectedGraphNode {
