@@ -33,6 +33,7 @@ public class Combinations {
         for(int i = m; i <= n; i ++) {
             temp.add(i);
             dfs(result, temp, n, k - 1, i + 1);
+            //每次做dfs後都要去掉最後一個
             temp.remove(temp.size() - 1);
         }
     }
