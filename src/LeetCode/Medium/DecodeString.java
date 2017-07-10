@@ -3,11 +3,17 @@ package LeetCode.Medium;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * 先将']' 之前的信息（要重复的部分及重复次数）压到stack里，
+ * 等到了']'再一个一个推出还原。思路非常清晰，但是实现起来并
+ * 不简单。得注意细节及其处理方式，比如数字可能出现两位及以上
+ * ; 并列关系［］,［］和包含关系［［］］如何巧妙区分。另外发
+ * 现大循环用while而不是for可能更方便一些。
+ */
 public class DecodeString {
 	public static String decodeString(String s) {
 		Stack<Integer> count = new Stack<>();
-		Stack<String> result = new Stack<>();
+		Stack<String> result = new Stack<>(); //用Stack处理包含关系
 	
 		result.push("");
 		int i = 0;
