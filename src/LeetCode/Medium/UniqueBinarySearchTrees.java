@@ -29,7 +29,7 @@ public class UniqueBinarySearchTrees {
 		//result[0]是有0个数的时候
 		//result[1]是有1个数的时候
 		int[] result = new int[n + 1];
-		
+		 
         result[0] = 1;
 		for(int i = 1; i <= n; i ++) {
 			for(int j = 0; j < i; j ++) {
