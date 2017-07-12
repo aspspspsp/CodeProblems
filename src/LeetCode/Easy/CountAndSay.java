@@ -1,31 +1,17 @@
 package LeetCode.Easy;
-/*
-1, 11, 21, 1211, 111221, ...
 
-n = 1Ê±£¬´òÓ¡Ò»¸ö1
-n = 2Ê±£¬¿´n=1ÄÇÒ»ÐÐ£¬Äî£º1¸ö1£¬ËùÒÔ´òÓ¡£º11
-n = 3Ê±£¬¿´n=2ÄÇÒ»ÐÐ£¬Äî£º2¸ö1£¬ËùÒÔ´òÓ¡£º21
-n = 4Ê±£¬¿´n=3ÄÇÒ»ÐÐ£¬Äî£º1¸ö2, 1¸ö1£¬ËùÒÔ´òÓ¡£º1211
-     ÒÔ´ËÀàÍÆ¡£(×¢ÒâÕâÀïnÊÇ´Ó1¿ªÊ¼µÄ£©
-     
-    ËùÒÔ¹¹½¨µ±Ç°ÐÐµÄ×Ö·û´®ÒªÒÀ¾ÝÉÏÒ»ÐÐµÄ×Ö·û´®¡£
-¡°Ð¡ÏÝÚå¾ÍÊÇÅÜÍêÑ­»·Ö®ºó¼ÇµÃ°Ñ×îºóÒ»¸ö×Ö·ûÒ²¼ÓÉÏ£¬ÒòÎªÖ®Ç°
-   Ö»ÊÇ¼ÆÊý¶øÒÑ¡£¡±
-   
-   ±ÈÈçÎÒÃÇÔÙÉ¨Ãè1211µÄÊ±ºò£¬¿´1ºóÃæÊÇ2£¬Ôò1µÄcount = 1£¬
-   Ôò½«count + 1Ð´Èë×Ö·û´®ÖÐ£¬2Ò²Ò»Ñù£¬2ºóÃæµÄ1,1ºóÃæ»¹ÊÇ1£¬
-   Ôòcount++£¬µÚ¶þ¸ö1ºóÃæÃ»ÓÐÁË£¬Ôò½«count+1Ð´Èë×Ö·û´®£¬
-   ÊäÈëÍê±Ï¡£
-   Òò´Ë´òÓ¡µÄ¾ÍÊÇ11+12+21¼´111221¡£
-*/
 public class CountAndSay {
+    /*
+     n = 1æ—¶ï¼Œæ‰“å°ä¸€ä¸ª1
+     n = 2æ—¶ï¼Œçœ‹n=1é‚£ä¸€è¡Œï¼Œå¿µï¼š1ä¸ª1ï¼Œæ‰€ä»¥æ‰“å°ï¼š11
+     n = 3æ—¶ï¼Œçœ‹n=2é‚£ä¸€è¡Œï¼Œå¿µï¼š2ä¸ª1ï¼Œæ‰€ä»¥æ‰“å°ï¼š21
+     n = 4æ—¶ï¼Œçœ‹n=3é‚£ä¸€è¡Œï¼Œå¿µï¼šä¸€ä¸ª2ä¸€ä¸ª1ï¼Œæ‰€ä»¥æ‰“å°ï¼š1211
+     ä»¥æ­¤ç±»æŽ¨ã€‚(æ³¨æ„è¿™é‡Œnæ˜¯ä»Ž1å¼€å§‹çš„ï¼‰
+    */
     public String countAndSay(int n) {
         if(n <= 0)
             return "";
-        
         String curResult = "1";
-        
-        //start = 1 Ä1é_Ê¼Ëã
         for(int start = 1; start < n; start ++) {
             StringBuilder result = new StringBuilder();
             
@@ -39,7 +25,6 @@ public class CountAndSay {
                     count = 1;
                 }
             }
-            
             result.append(count);
             result.append(curResult.charAt(curResult.length() - 1));
             curResult = result.toString();
