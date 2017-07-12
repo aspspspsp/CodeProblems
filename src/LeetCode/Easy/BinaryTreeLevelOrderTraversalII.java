@@ -21,10 +21,10 @@ public class BinaryTreeLevelOrderTraversalII {
         if(root == null)
             return result;
             
-        //�v���@�Ø�
+        //歷遍這棵樹
         TraversalTree(root, 0);
         
-        //���Y������
+        //將結果倒反
         Collections.reverse(result);
         
         return result;
