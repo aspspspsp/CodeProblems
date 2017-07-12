@@ -1,45 +1,44 @@
 package LeetCode.Easy;
+
+import LeetCode.Dependencies.GuessGame;
+
 /* The guess API is defined in the parent class GuessGame.
    @param num, your guess
    @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
       int guess(int num); */
 
-import LeetCode.Dependencies.GuessGame;
-
-//��1~n����һ������
+//猜1~n鍾任一個數字
 public class GuessNumberHigherOrLower extends GuessGame {
     public int guessNumber(int n) {
-        //��n��0�͛]�б�Ҫ����
+        //若n為0就沒有必要猜了
         if(guess(n) == 0)
             return n;
         
-        //���ö����ь�����
+        //利用二分搜尋法猜
         int left = 1;
         int right = n;
         
         while(left < right) {
-            //ȡ�����g
+            //取得中間
             int mid = left + (right - left) / 2;
             
-            //guess�����Д�µ��Ĕ��Ƿ����_(���Ǳ��^�󡢱��^С)
+            //guess可以判斷猜到的數是否正確(或是比較大、比較小)
             int t = guess(mid);
             
-            //������t=0�t���ش�
+            //若猜中t=0則返回答案
             if(t == 0) {
                 return mid;
                 
-            //���µĔ����^��t����߅�_ʼ��
+            //若猜的數比較大則從左邊開始猜
             } else if(t == 1) {
                 left = mid;
             
-            //���µĔ����^С�t����߅�_ʼ��
+            //若猜的數比較小則從右邊開始猜
             } else {
                 right = mid;
             }
         }
         
-        //����return ��߅������߅��һ��(�������ֻ��ʣ��һ����left = right)
         return right;
     }
 }
-
