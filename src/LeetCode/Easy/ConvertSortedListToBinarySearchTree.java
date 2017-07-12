@@ -1,3 +1,5 @@
+package LeetCode.Easy;
+
 import LeetCode.Dependencies.ListNode;
 import LeetCode.Dependencies.TreeNode;
 
