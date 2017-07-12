@@ -1,7 +1,7 @@
 package LeetCode.Easy;
 /*
  * 
- * �^��1~120���ֵĸ����l�F������Ҏ��
+ * 下面是1到20的所有的树根：
  * n    mod
  * ======================================
  * 1     1
@@ -25,7 +25,7 @@ package LeetCode.Easy;
  * 19    1
  * 20    2
 */
-public class AddDigis {
+public class AddDigits {
     public int addDigits(int num) {
         return (num - 1) % 9 + 1;
     }
