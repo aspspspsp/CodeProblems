@@ -8,7 +8,7 @@ public class NumberOfIslands {
     public int numIslands(char[][] grid) {
         int result = 0;
         
-        //�v�������؈D
+        //將拜訪過的點標記為0
         for(int i = 0; i < grid.length; i ++) {
             for(int j = 0; j < grid[0].length; j ++) {
                 //���ҵ�1�r���t�M����ȃ����������������u�Z׃��0
@@ -23,20 +23,20 @@ public class NumberOfIslands {
     }
     
     void searchIslands(char[][] grid, int x, int y) {
-        //�����L�^���c��ӛ��0
+        //搜尋右邊(若為1則拜訪)
         grid[x][y] = '0';
         
-        //�ь���߅(����1�t���L)�Ƿ�����'1'
+        //搜尋左邊(若為1則拜訪)
         if(x + 1 < grid.length && grid[x + 1][y] == '1') {
             searchIslands(grid, x + 1, y);
         }
         
-        //�ь���߅(����1�t���L)�Ƿ�����'1'
+        //搜尋上面(若為1則拜訪)
         if(x - 1 >= 0 && grid[x - 1][y] == '1') {
             searchIslands(grid, x - 1, y);
         }
         
-        //�ь�����(����1�t���L)�Ƿ�����'1'
+      //搜尋下面(若為1則拜訪)
         if(y - 1 >= 0 && grid[x][y - 1] == '1') {
             searchIslands(grid, x, y - 1);
         }
