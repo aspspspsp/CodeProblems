@@ -32,26 +32,26 @@ import LeetCode.Dependencies.TreeNode;
 public class InvertBinaryTree {
     public TreeNode invertTree(TreeNode root) {
         
-        //�����Ø��null�t����null
+    	//若整棵樹為null則返回null
         if(root == null)
             return null;
         
-        //�M�Ю��ӵķ��D
+        //進行當層的翻轉
         TreeNode tmp = root.right;
         root.right = root.left;
         root.left = tmp;
         
-        //�����Ә䲻��Մt�M�����Ә�ķ��D
+        //若右子樹不為空則進行右子樹的翻轉
         if(root.right != null) {
             invertTree(root.right);
         }
         
-        //�����Ә䲻��Մt�M�����Ә�ķ��D
+        //左右子樹不為空則進行左子樹的翻轉
         if(root.left != null) {
             invertTree(root.left);
         }
         
-        //���ش�
+        //返回答案
         return root;
     }
 }
