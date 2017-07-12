@@ -1,5 +1,3 @@
-package LeetCode.Easy;
-
 import LeetCode.Dependencies.ListNode;
 import LeetCode.Dependencies.TreeNode;
 
@@ -21,7 +19,7 @@ import LeetCode.Dependencies.TreeNode;
  * }
  */
 public class ConvertSortedListToBinarySearchTree {
-    //�@�Ø�������湝�c
+    //這棵樹的最上面節點
     ListNode visitedListNode;
     public TreeNode sortedListToBST(ListNode head) {
         if(head == null) {
@@ -31,7 +29,7 @@ public class ConvertSortedListToBinarySearchTree {
         //
         visitedListNode = head;
         
-        //�ҵ�List node���L��
+        //找到List node的長度
         int len = 0;
         ListNode temp = head;
         while(temp != null) {
@@ -39,7 +37,7 @@ public class ConvertSortedListToBinarySearchTree {
             temp = temp.next;
         }
         
-        //���ö��ַ��혋��BST
+        //利用二分法來構建BST
         TreeNode treeTop = constructBST(0, len - 1);
         return treeTop;
     } 
@@ -50,22 +48,19 @@ public class ConvertSortedListToBinarySearchTree {
             return null;
         }
         
-        //���ҳ��˅^�g�����g�c
+        //先找出此區間的中間點
         int middle = (start + end) / 2;
         
-        //*****������Ϙ�����(��(С) -> �� -> ��(��))*****
-        //���Ҫ�S��ÿ���f�w��Ҫ����С�д�Ĵ��򣬹�С�Y�cҪ��һ����
-        //�ҳ��Ә�����Ә�(������BST -- С)
+        //*****自頂向上構建樹(左中右)*****
+        //找出子樹的左子樹(構建左BST)
         TreeNode left = constructBST(start, middle - 1);
-        //���Ҫ�S��ÿ���f�w��Ҫ����С�д�Ĵ��򣬹��нY�cҪ�ڶ�����
-        //��Ŀǰ���L�Ĺ��c����һ���九�c(��)
+        //將目前拜訪的節點構建一個樹節點(中)
         TreeNode root = new TreeNode(visitedListNode.val);
         visitedListNode = visitedListNode.next;
-        //���Ҫ�S��ÿ���f�w��Ҫ����С�д�Ĵ��򣬹ʴ�Y�cҪ��������
-        //�ҳ��Ә�����Ә�(������BST -- ��)
+        //找出子樹的右子樹(構建右BST)
         TreeNode right = constructBST(middle + 1, end);
         
-        //�������Ә��c֮ǰ�����Ę九�c�B��
+        //將左右子樹與之前建構的樹節點連接
         root.left = left;
         root.right = right;
         
