@@ -2,34 +2,34 @@ package LeetCode.Easy;
 public  class UglyNumber {
 	public boolean isUgly(int num) {
 	    
-	    //��num>=2�t�^�m����ֱ��num < 2
+	    //若num>=2則繼續除，直到num < 2
 	    while(num >= 2) {
-	        //���˔���2�N����0
+	        //若此數除2餘數為0
 	        if(num % 2 == 0) {
-	            //���˔���2
+	            //將此數除2
 	            num = num / 2;
 	        }
-	        //���˔���3�N����0
+	        //若此數除3餘數為0
 	        else if(num % 3 == 0) {
-	            //���˔���3
+	            //將此數除3
 	            num = num / 3;
 	        }
-	        //���˔���5�N����0
+	        //若此數除5餘數為0
 	        else if(num % 5 == 0) {
-	            //���˔���3
+	            //將此數除3
 	            num = num / 5;
 	        }
-	        //���˔����������������N���Բ���0(��ʾ�ɱ�����������)�t����ugly number
+	        //若此數除以以上三個數餘數皆不為0(表示可被其他數整除)則不是ugly number
 	        else {
 	            return false;
 	        }
 	    }
 	    
-	    //���˔������������t��true
+	    //若此數完整被整除則為true
 	    if(num == 1) {
 	        return true;
 	    } 
-	    //���]���������|���r(����ؓ���r�����ugly numberֻ������)
+	    //考慮若為其他質數時(或是負數時，因為ugly number只為正數)
 	    else {
 	    	return false;
 	    }

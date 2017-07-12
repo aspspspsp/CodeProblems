@@ -21,8 +21,8 @@ public class SymmetricTree {
     }
     
     public boolean isSymmetric(TreeNode left, TreeNode right) {
-        //��left�ѽ��]��ֵ��right�]��ֵ���R���
-        //��left�ѽ��]��ֵ��right��ֵ�Ͳ����R���
+        //若left已經沒有值且right沒有值是鏡像樹
+        //若left已經沒有值且right有值就不是鏡像樹
         if(left == null) {
             if(right == null)
                 return true;
@@ -30,7 +30,7 @@ public class SymmetricTree {
                 return false;
         }
         
-        //��left�ѽ���ֵ��right�]��ֵ,�@Ȼ�˘䲻���R���
+        //若left已經有值而right沒有值,顯然此樹不是鏡像樹
         if(right == null)
             return false;
             
@@ -47,9 +47,9 @@ public class SymmetricTree {
         */
         
         
-        //�z����һ�ӵ���һ�ӵ������c�����Ƿ�һ�� ex:3,3
+        //檢查下一層的下一層的最左與最右是否一樣 ex:3,3
         boolean cond1 = isSymmetric(left.left, right.right);
-        //�z����һ�ӵ���һ�ӵĵڶ����c�ڶ����Ƿ�һ�� ex:4,4 
+        //檢查下一層的下一層的第二左與第二右是否一樣 ex:4,4 
         boolean cond2 = isSymmetric(left.right, right.left);
         
         return cond1 & cond2;
