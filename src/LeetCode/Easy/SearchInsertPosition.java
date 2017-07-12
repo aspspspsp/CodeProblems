@@ -9,7 +9,7 @@ public class SearchInsertPosition {
         if(target > nums[length - 1])
             return length;
         
-        //���ö��ֲ��ҷ���Ҫ�����λ��
+        //利用二分查找法找要插入的位置
         int left = 0;
         int right = length;
         while(left <= right) {
