@@ -17,22 +17,22 @@ public class RemoveDuplicatesFromSortedList {
         if(head == null || head.next == null)
             return head;
         
-        //��head�O���һ�����L���c
+        //將head設為第一個拜訪的點
         ListNode visit_node = head;
         
-        //��һ���L�������cֱ���Y�c���
+        //逐一拜訪其他節點直到結點為空
         while(visit_node != null) {
             
-            //�z��˹��c����Ĺ��c�Ƿ������}�����и����c�����}�t���^
+            //檢查此節點後面的節點是否有重複，若有跟此點有重複則略過
             ListNode tmp = visit_node.next;
             while(tmp != null && tmp.val == visit_node.val) {
                 tmp = tmp.next;
             }
             
-            //����ȥ�ص�����һ�����c���ϰ��L���c
+            //將以去重的最後一個節點接上拜訪的點
             visit_node.next = tmp;
             
-            //���L��һ���c
+            //拜訪下一個點
             visit_node = visit_node.next;
         }
         
