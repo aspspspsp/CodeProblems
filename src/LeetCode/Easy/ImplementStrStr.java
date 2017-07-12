@@ -1,31 +1,32 @@
 package LeetCode.Easy;
-//strstr()�������������Ӵ����ַ������״γ��ֵ�λ�ã���ԭ��Ϊ��
+
+//strstr()函数用来检索子串在字符串中首次出现的位置，其原型为：
 public class ImplementStrStr {
     public int strStr(String haystack, String needle) {
-        //haystack(�����ҵ��ַ���)�Ĵ�С
+        //haystack(被查找的字符串)的大小
         int length1 = haystack.length();
-        //needle(Ҫ���ҵ��ַ���)�Ĵ�С
+        //needle(要查找的字符串)的大小
         int length2 = needle.length();
         
-        //haystack���L��С�needle���L�ȱ�ʾhaystack�Q�����ܰ���needle
+        //haystack的長度小於needle的長度表示haystack決不可能包含needle
         if(length1 < length2)
             return -1;
-        //��needle���L�Ȟ�0�����Ա�ʾ��һ�_ʼ��ƥ��
+        //若needle的長度為0，可以表示在一開始就匹配
         else if(length2 == 0)
             return 0;
         
-        //�_ʼƥ���ַ���
+        //開始匹配字符串
         
-        //����ƥ�䳬�^haystack���L�Ȍ����e�`
+        //避免匹配超過haystack的長度導致錯誤
         int matching_threshold = length1 - length2;
         
         for(int i = 0; i <= matching_threshold; i ++) {
-            //��ƥ��
+            //逐步匹配
             if(haystack.substring(i, i + length2).equals(needle))
                 return i;
         }
         
-        //ƥ�䲻���t����-1
+        //匹配不到則返回-1
         return -1;
     }
 }
