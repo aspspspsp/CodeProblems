@@ -1,12 +1,13 @@
 package LeetCode.Medium;
-/*
-�ݹ飨Recursive�����취
-���Ƚ����ֳ�10���������ĩλ��9�����ǽ����ּ�1
-�ݹ�ʽ�����ڶ��������ȸ�����
-*/
 
 import java.util.ArrayList;
 import java.util.List;
+
+/*
+递归（Recursive）构造法
+优先将数字乘10；如果数字末位＜9，考虑将数字加1
+递归式类似于二叉树的先根遍历
+*/
 
 public class LexicographicalNumbers {
     int _n;
@@ -15,22 +16,22 @@ public class LexicographicalNumbers {
         result = new ArrayList<Integer>();
         _n = n;
         
-        //��1�_ʼ
+        //從1開始
         slove(1);
         return result;
     }
     
     void slove(int m) {
-        //����Y��
+        //放入結果
         result.add(m);
         
-        //���Ƚ����ֳ�10�����M�Кv��
+        //优先将数字乘10，再進行歷遍
         if(m * 10 <= _n) {
             slove(m * 10);
         }
         
-        //�������ĩλ<9�����ǽ����ּ�1
-        //(m % 10ȡ��ĩβ����)
+        //如果数字末位<9，考虑将数字加1
+        //(m % 10取得末尾數字)
         if(m < _n && m % 10 < 9) {
             slove(m + 1);
         }
