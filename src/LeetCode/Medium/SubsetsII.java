@@ -8,10 +8,10 @@ public class SubsetsII {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         
-        //������(�����ִ��g�ı��^)
+        //用來儲存每一次dfs的結果
         Arrays.sort(nums);
         
-        //�Á탦��ÿһ��dfs�ĽY��
+        //利用dfs來探索整個數組，來產生排列
         ArrayList<Integer> temp_list = new ArrayList<>();
         
         subsetHelper(result, temp_list, nums, 0);
@@ -22,9 +22,9 @@ public class SubsetsII {
     void subsetHelper(List<List<Integer>> result,
         ArrayList<Integer> temp_list, int[] nums, int start_position) {
             
-        //����dfs��̽���������M����a������
+        //对于当前字符，如果上一个字符与之相等，则过滤掉。
         for(int i = start_position; i < nums.length; i ++) {
-            //���ڵ�ǰ�ַ��������һ���ַ���֮��ȣ�����˵���
+            //对于当前字符，如果上一个字符与之相等，则过滤掉。
             if(i > start_position && nums[i] == nums[i - 1]) {
                 continue;
             }
@@ -32,14 +32,14 @@ public class SubsetsII {
             //���뮔ǰ����
             temp_list.add(nums[i]);
             
-            //�M����һ��λ�õ�dfs
+            //進行下一個位置的dfs
             subsetHelper(result, temp_list, nums, i + 1);
             
-            //dfs��ÿһ݆һ��Ҫ��temp������һ��Ԫ�؄h�����Ų��������e�`
+            //dfs在每一輪一定要將temp的最後一個元素刪除，才不會導致錯誤
             temp_list.remove(temp_list.size() - 1);
         }
         
-        //��ÿ��dfs�ĽY������
+        //把每次dfs的結果存入
         result.add(new ArrayList<Integer>(temp_list));
     }
 }

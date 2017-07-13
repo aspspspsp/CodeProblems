@@ -33,11 +33,11 @@ post-order: 4 5 2  6 7 8 3  (1)
 ���@���f�w�İ�������Ĳ��E�����ɘ���һ���Ø�
 */
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        //���x��ֵ
-        int in_start = 0; //����(������)�_ʼ��λ��
-        int in_end = inorder.length - 1; //����(������)�Y����λ��
-        int post_start = 0; //����(������)�_ʼ��λ��
-        int post_end = postorder.length - 1; //����(������)�Y����λ��
+        //定義初值ֵ
+        int in_start = 0; //中序(左中右)開始的位置
+        int in_end = inorder.length - 1; //中序(左中右)結束的位置
+        int post_start = 0; //後序(左右中)開始的位置
+        int post_end = postorder.length - 1; //後序(左右中)結束的位置
         
         TreeNode result = buildTree(inorder, in_start, in_end, postorder, post_start, post_end);
         return result;
@@ -49,10 +49,10 @@ post-order: 4 5 2  6 7 8 3  (1)
         if(in_start > in_end || in_start > in_end)
             return null;
         
-        int root_val = postorder[post_end]; //�ҵ�Ŀǰ�Ә�ĸ��Y�c��ֵ **����(������)������һ�����Y�c
+        int root_val = postorder[post_end]; //找到目前子樹的根結點的值 **後序(左右中)的最後一個根結點
         TreeNode root = new TreeNode(root_val);
         
-        //����Ŀǰ�Ә�ĸ����c�������λ��
+        //尋找目前子樹的根節點在中序的位置
         int root_index_in_inorder = 0;
         for(int i = 0; i < inorder.length; i ++) {
             if(inorder[i] == root_val) {
@@ -61,14 +61,14 @@ post-order: 4 5 2  6 7 8 3  (1)
             }
         }
         
-        //�������Ә�
-        //��� root_index_in_inorder �K�������Ә���L��, ����Ҫ��-(in_start + 1)��õ����Ә���L��
+        //構建左子樹
+        //因為 root_index_in_inorder 並不是數組的長度, 故需要以-(in_start + 1)來得到長度
         root.left = buildTree(inorder, in_start, root_index_in_inorder - 1,
                             postorder, post_start, post_start + root_index_in_inorder - (in_start + 1));
                             
-        //�������Ә�
+        //構建右子樹
         /* post_start + root_index_in_inorder - in_start =
-           post_start + root_index_in_inorder - (in_start + 1) + 1  */          
+           post_start + root_index_in_inorder - (in_start + 1) + 1  */      
         root.right = buildTree(inorder, root_index_in_inorder + 1, in_end,
                             postorder, post_start + root_index_in_inorder - in_start, post_end - 1);
                             
