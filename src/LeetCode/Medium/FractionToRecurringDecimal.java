@@ -6,56 +6,56 @@ public class FractionToRecurringDecimal {
 	/* Given numerator = 1, denominator = 2, return "0.5".
        Given numerator = 2, denominator = 1, return "2".
        Given numerator = 2, denominator = 3, return "0.(6)". 
-               Œ¢Ñ­­hµÄ²¿·ÖÀ¨Ì–Æğí
+               å°‡å¾ªç’°çš„éƒ¨åˆ†æ‹¬è™Ÿèµ·ä¾†
 	 */
     public String fractionToDecimal(int numerator, int denominator) {
-        //±»³ı”µé0Ö±½Ó·µ»Ø0
+        //è¢«é™¤æ•¸ç‚º0ç›´æ¥è¿”å›0
         if(numerator == 0)
             return "0";
         
-        //³ı”µé0„t›]ÓĞ½Y¹û
+        //é™¤æ•¸ç‚º0å‰‡æ²’æœ‰çµæœ
         if(denominator == 0)
             return "";
         
         String result = "";
-        //ÌÀí½Y¹ûéØ“”µµÄÇé›r
+        //è™•ç†çµæœç‚ºè² æ•¸çš„æƒ…æ³
         if((numerator < 0) ^ (denominator < 0))
             result += "-";
         
-        //Œ¢intĞÍ„eŞD“Qélong£¬KŒ¢Ëû‚ƒÈ«²¿ÒÔÕı”µíÌÀí
+        //å°‡intå‹åˆ¥è½‰æ›ç‚ºlongï¼Œä¸¦å°‡ä»–å€‘å…¨éƒ¨ä»¥æ­£æ•¸ä¾†è™•ç†
         long num = numerator;
         long den = denominator;
         num = Math.abs(num);
         den = Math.abs(den);
         
-        //ÇóÉÌ
+        //æ±‚å•†
         long res = num / den;
         result += String.valueOf(res);
         
-        //ÇóğN”µ
+        //æ±‚é¤˜æ•¸
         long remainder = (num % den) * 10;
         
-        //ÈôğN”µé0¿ÉÒÔÖ±½Ó·µ»Ø½Y¹û
+        //è‹¥é¤˜æ•¸ç‚º0å¯ä»¥ç›´æ¥è¿”å›çµæœ
         if(remainder == 0)
             return result;
         
-        //ßMĞĞĞ¡”µµÄ²¿·Ö
+        //é€²è¡Œå°æ•¸çš„éƒ¨åˆ†
         HashMap<Long, Integer> map = new HashMap<>();
         result += ".";
         while(remainder > 0) {
-            //ÈôÓĞÑ­­hĞ¡”µ
+            //è‹¥æœ‰å¾ªç’°å°æ•¸
             if(map.containsKey(remainder)) {
-            	//È¡µÃÑ­­hĞ¡”µµÄÎ»”µ
+            	//å–å¾—å¾ªç’°å°æ•¸çš„ä½æ•¸
                 int beg = map.get(remainder);
                 
-                //Œ¢Ñ­­hĞ¡”µÅc·ÇÑ­­hµÄ²¿·ÖÆ´½ÓÆğí
+                //å°‡å¾ªç’°å°æ•¸èˆ‡éå¾ªç’°çš„éƒ¨åˆ†æ‹¼æ¥èµ·ä¾†
                 String part1 = result.substring(0, beg);
                 String part2 = result.substring(beg, result.length());
                 result = part1 + "(" + part2 + ")";
                 return result;
             }
             
-            //Èô›]ÓĞ„tÀ^Àm£¬ÇÒğN”µ²»éÁã„tÀ^Àm
+            //è‹¥æ²’æœ‰å‰‡ç¹¼çºŒï¼Œä¸”é¤˜æ•¸ä¸ç‚ºé›¶å‰‡ç¹¼çºŒ
             map.put(remainder, result.length());
             res = remainder / den;
             result += String.valueOf(res);

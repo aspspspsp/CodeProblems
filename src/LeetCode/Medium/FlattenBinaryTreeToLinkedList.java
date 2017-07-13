@@ -18,15 +18,15 @@ import LeetCode.Dependencies.TreeNode;
  * ��root��lt�е�x����root��rt�ӵ�x���������ϣ�x��������Ϊ�գ���root���������������Ϊ��������root�����������ա� 
  */
 public class FlattenBinaryTreeToLinkedList {
-    //�o���һ�����v������һ�����c
+    //紀錄上一個經歷的最後一個節點
     private TreeNode lastNode = null;
     public void flatten(TreeNode root) {
-        //̎��������r
+        //̎處理特殊情況
         if(root == null) {
             return;
         }
         
-        //������һ�����c����һ�����c(Ŀǰ���c)����������
+        //將最後一個節點的下一個節點(目前節點)從左移至右
         if(lastNode != null) {
             lastNode.left = null;
             lastNode.right = root;
@@ -35,7 +35,7 @@ public class FlattenBinaryTreeToLinkedList {
         //���^��һ�����E�ᣬ���^�m����һ��
         lastNode = root;
         
-        //���ʹ�ô˷N�v�鷽ʽ���������գ���Ȼ�����e
+        //經過上一個步驟後，再繼續往下一層
         TreeNode left = root.left;
         TreeNode right = root.right;
         
