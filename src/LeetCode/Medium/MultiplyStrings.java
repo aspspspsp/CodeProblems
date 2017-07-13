@@ -10,51 +10,51 @@ package LeetCode.Medium;
  */
 public class MultiplyStrings {
 	public String multiply(String num1, String num2) {
-		// �����ֵ���(����StringBuilder)
+		// 將數字倒反(利用StringBuilder)
 		num1 = new StringBuilder(num1).reverse().toString();
 		num2 = new StringBuilder(num2).reverse().toString();
 
-		//�𰸵�λ��
+		//答案的位數
 		int digis[] = new int[num1.length() + num2.length()];
 
-		//�քe��ÿһλ���
+		//分別對每一位相乘
 		for (int i = 0; i < num1.length(); i++) {
-			//͸�^�p����char�D�Q��int(-'0'�������p�κΔ���)
+			//透過減法將char轉換為int(-'0'代表都不減任何數字)
 			int n1 = num1.charAt(i) - '0';
 			for(int j = 0; j < num2.length(); j ++) {
-				//͸�^�p����char�D�Q��int(-'0'�������p�κΔ���)
+				//透過減法將char轉換為int(-'0'代表都不減任何數字)
 				int n2 = num2.charAt(j) - '0';
 				
-				//����ѽ������ֶ����^���ˣ�����͸�^n1�cn2Ŀǰ��λ�������Եõ��µĔ���λ��
+				//因為已經將數字都倒過來了，所以透過n1與n2目前的位數，可以得到新的數的位數
 				digis[i + j] = digis[i + j] + n1 * n2;
 				
-				//�����ÿһλ����ˣ������Ĕ���81
+				//因為是每一位數相乘，故最大的數為81
 			}
 		}
 		
-		//��
+		//答案
 		StringBuilder ans = new StringBuilder();
 		
-		//�����ĵ�0λ�_ʼ���؁�
+		//將數從第0位開始倒回來
 		for(int i = 0; i < digis.length; i ++) {
-			//�õ���λ�Ĕ�
+			//得到此位的數
 			int digi = digis[i] % 10;
 			
-			//��Ҫ�Mλ�Ĕ�
+			//進行進位
 			int carry = digis[i] / 10;
 			
-			//�M���Mλ
+			//進行進位
 			if(i < digis.length - 1) {
 				digis[i + 1] = digis[i + 1] + carry; 
 			}
 			
-			//�����ֲ����sb.insert(0(offset), "Ҫ����Ė|��");
+			//將數字插入答案sb.insert(0(offset), "要插入的東西");
 			ans.insert(0, digi);
 		}
 		
-		//��ǰ������0ȥ��
+		//將前面多出的0去掉
 		while(ans.length() > 0 && ans.charAt(0) == '0') {
-			//�h����ǰ���cahr
+			//刪除最前面的char
 			ans.deleteCharAt(0);
 		}
 		
