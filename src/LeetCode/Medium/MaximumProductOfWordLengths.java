@@ -5,7 +5,7 @@ public class MaximumProductOfWordLengths {
         if(words == null || words.length == 0)
             return 0;
         
-        //��ÿ��word�����A̎��(�Զ��M�ƃ���)
+        //將每個word先做預處理(以二進制儲存)
         int[] preprocessed_words = new int[words.length];
         for(int i = 0; i < words.length; i ++) {
             preprocessed_words[i] = 0;
@@ -19,11 +19,11 @@ public class MaximumProductOfWordLengths {
             }
         }
         
-        //��ÿ��word���������^
+        //對每個word逐個做比較
         int max_product = 0;
         for(int i = 0; i < words.length; i ++) {
             for(int j = 0; j < words.length; j ++) {
-                //���փɂ����a(���M��)�M��and�\�㣬����0(��ʾ���]��һ������ͬ)
+                //對字兩個編碼進行and運算，若為0(表示都沒有一個字相同)
                 if((preprocessed_words[i] & preprocessed_words[j]) == 0) {
                     if(words[i].length() * words[j].length() > max_product)
                         max_product = words[i].length() * words[j].length();
