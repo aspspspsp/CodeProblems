@@ -119,34 +119,34 @@ case 3. If A[i] is in between, we will find a list with
 */
 public class LongestIncreasingSubsequence {
 	public int lengthOfLIS(int[] nums) {
-		int len = 0; //�o�ĿǰtailTable���M����ֹ�c(Ex:12345 len = 2)
-		             //                            -  ����3��ֹ
+		int len = 0; //紀錄目前tailTable數組的中止點(Ex:12345 len = 2)
+		             //                          -  代表到3為止ֹ
 		int size = nums.length;
 		
 		if(size == 0)
 		    return len;
 		
-		//�o�Ŀǰ��f����̓��
+		//若新加入的元素(nums[i])最小
 		int tailTable[] = new int [size];
 		
 		tailTable[0] = nums[0];
 		len = 1;
 		for(int i = 1; i < size; i ++) {
 			if(nums[i] < tailTable[0]) {
-				//���¼����Ԫ��(nums[i])��С case 1
+				//則將最新加入的元素放到最前面 case 1
 				
-				//�t�����¼����Ԫ�طŵ���ǰ��
+				//則將最新加入的元素放到最前面
 				tailTable[0] = nums[i];
 			} else if(nums[i] > tailTable[len - 1]) {
-				//���¼����Ԫ��(nums[i])��� case 2
+				//若新加入的元素(nums[i])最大 case 2
 				
-				//����Ԫ�؞�tailTable������һ��Ԫ��
+				//最大的元素為tailTable的最後一個元素
 				tailTable[len] = nums[i];
 				
-				//��չtailTable
-				len = len + 1; //����ֹ�c����һλ
+				//則延展tailTable
+				len = len + 1; //將中止點往後一位
 			} else {
-				//������r(�¼����Ԫ�������ֵ�c��Сֵ֮�g) case 3
+				//其他情況(新加入的元素在最大值與最小值之間) case 3
 				
 				//��tailTable�ҵ��˔�������λ�ÁKӛ���
 				tailTable[ceilIndex(tailTable, -1, len - 1, nums[i])] = nums[i];
@@ -156,21 +156,21 @@ public class LongestIncreasingSubsequence {
 		return len;
 	}
 	
-	//���ز�С�key��С����ֵ��index
+	//返回不小於key最小整數值的index
 	int ceilIndex(int[] tailTable, int left, int right, int key) {
-		//�����ь���
+		//二分搜尋法
 		while(right - left > 1) {
-			//���ь������ܴ��1(��߅-��߅�����1)
+			//若搜尋範圍能大於1(右邊-左邊會大於1)
 			
-			//�ҵ����c
+			//找到中點
 			int mid = left + ((right - left) / 2);
 			
 			if(tailTable[mid] >= key) {
-				//Ԫ�������c����߅
+				//元素在中點的右邊
 				
 				right = mid;
 			} else {
-				//Ԫ�������c����߅
+				//元素在中點的左邊
 				
 				left = mid;
 			}

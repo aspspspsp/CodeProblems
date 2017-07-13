@@ -11,23 +11,23 @@ package LeetCode.Medium;
  */
 public class LongestPalindromicSubstring {
     public String longestPalindrome(String s) {
-    	//�L�Ȟ������r��
+    	//長度為零的情況下
     	if(s == null || s.length() == 0)
     		return "";
     	    	
     	
-    	//��ʼ�������ִ�(Ex: abc => a) �Ϊ�һ����ĸҲ�����
+    	//初始最大回文字串(Ex: abc => a)
     	String longestPalindrome = s.substring(0, 1);
     	
-    	//��ÿһ���ַ�����
+    	//對每一個字符掃描
     	for(int i = 0; i < s.length(); i ++) {
-    		//���]���gֻ��һ����ĸ������(abcba)�Ġ�r
+    		//考慮中間只有一個字母，例如(abcba)的狀況
     		String tmp = getPalindrome(s, i, i);
     		if(tmp.length() > longestPalindrome.length()) {
     			longestPalindrome = tmp;
     		}
     		
-    		//���]���g�Ѓɂ���ĸһ�ӣ�����(abccba)�Ġ�r
+    		//考慮中間有兩個字母一樣，例如(abccba)的狀況
     		tmp = getPalindrome(s, i, i + 1);
     		if(tmp.length() > longestPalindrome.length()) {
     			longestPalindrome = tmp;
@@ -39,15 +39,15 @@ public class LongestPalindromicSubstring {
     
     //�˷���ȡ�û����ִ�
     String getPalindrome(String s, int begin, int end) {
-    	//��׌�Xȡ���ַ����^�ִ�����Ȼ�Ⴭ��׌�^β���ִ�һ��(�_�����ĵ�Ч��)�����^β��һ�ӄt���ǻ��Ąt����
+    	//不讓擷取的字符超過字串本身，然後儘量讓頭尾的字串一樣(達到回文的效果)
     	while(begin >= 0 && end <= s.length() - 1 && s.charAt(begin) == s.charAt(end)) {
     		
-    		//�ִ���u����߅�����_
+    		//字串逐漸往兩邊蔓延開
     		begin --;
     		end ++;
     	}
     	
-    	//�؂�Ŀǰ���ĵ��ִ�
+    	//回傳目前回文的字串
     	return s.substring(begin + 1, end);
     }
 }
