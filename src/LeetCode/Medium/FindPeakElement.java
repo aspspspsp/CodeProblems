@@ -21,7 +21,7 @@ public class FindPeakElement {
                 break;
             }
             
-            //���ҵ�ɽ프t����ƫб
+            //若找到山頂則不是偏斜
             if(nums[i - 1] < nums[i] && nums[i] > nums[i + 1]) {
                 peak_index = i;
                 isSkew = false;
@@ -29,7 +29,7 @@ public class FindPeakElement {
             }
         }
         
-        //̎��ƫб�Ĳ���
+        //̎處理偏斜的部分
         if(isSkew == true && nums.length > 1) {
             if(nums[0] > nums[1]) {
                 peak_index = 0;

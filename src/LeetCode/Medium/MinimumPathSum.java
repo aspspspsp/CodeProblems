@@ -26,20 +26,20 @@ public class MinimumPathSum {
         
         int[][] res = new int[row][col];
         
-        //������С·����ꇵ�����߅
+        //構造最小路徑矩陣的左上邊
         res[0][0] = grid[0][0];
         
-        //������С·����ꇵ�����߅����
+        //構造最小路徑矩陣的最左邊的列
         for(int i = 1; i < row; i ++) {
             res[i][0] = res[i - 1][0] + grid[i][0];
         }
         
-        //������С·����ꇵ����������
+        //構造最小路徑矩陣的最上面的行
         for(int j = 1; j < col; j ++) {
             res[0][j] = res[0][j - 1] + grid[0][j];
         }
         
-        //������С·����ꇵ����N����
+        //構造最小路徑矩陣的其餘部分
         for(int i = 1; i < row; i ++) {
             for(int j = 1; j < col; j ++) {
                 int perv_top = res[i - 1][j];

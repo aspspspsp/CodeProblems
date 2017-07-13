@@ -35,20 +35,20 @@ import java.util.List;
 
 public class MinimumHeightTrees {
 	public List<Integer> findMinHeightTrees(int n, int[][] edges) {
-		// ��ֻ��ݔ��һ����(n = 1)�t�]�����^����С�߶�Ԫ��
+		//若只有輸入一個數(n = 1)則沒有所謂的最小高度元素
 		if (n == 1) {
 			List<Integer> result = new ArrayList<Integer>();
 			result.add(0);
 			return result;
 		}
 
-		// �Ƚ���һ���P����й��c�����ӱ�
+		//先建立一個關於所有節點的鄰接表
 		List[] adjacencyList = new List[n];
 		for (int i = 0; i < n; i++) {
 			adjacencyList[i] = new ArrayList<Integer>();
 		}
 		
-		// �������е�߅�팢���ӱ�����
+		//根據所有的邊來將鄰接表填入
 		for (int[] edge : edges) {
 
 			// n0 -> n1
@@ -63,11 +63,11 @@ public class MinimumHeightTrees {
 			adjacencyList[node_from].add(node_to);
 		}
 
-		// ��������ܵ�root���c��rootList
+		//先填入可能的root節點至rootList
 		List<Integer> highest1List = new ArrayList<Integer>();
 		for (int i = 0; i < n; i++) {
 
-			// �߶�(size)��t��root���c
+			//高度(size)為則為root節點
 			if (adjacencyList[i].size() == 1) {
 				highest1List.add(i);
 			}
@@ -79,12 +79,12 @@ public class MinimumHeightTrees {
 			//��С�߶ȹ��c�б�
 			List<Integer> minimumHighList = new ArrayList<Integer>();
 
-			// ��ootList�e����L���е��c
+			//從ootList裡面拜訪所有的點
 			for (Integer i : highest1List) {
 
-				// �cj���ci������һ�������c(i->j)
+				//點j為點i的最後一個鄰接點(i->j)
 				int j = (int) adjacencyList[i].iterator().next();
-				// ���cj���ci��·���h��(i-j)
+				//將點j到點i的路徑刪除(i-j)
 				adjacencyList[j].remove(i);
 				
 				//��h�����c����ĸ߶Ȟ�1,�t������С�߶ȹ��c�б�

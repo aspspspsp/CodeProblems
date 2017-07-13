@@ -5,35 +5,34 @@ import java.util.List;
 
 public class Combinations {
     public List<List<Integer>> combine(int n, int k) {
-        //½Y¹û
+        //çµæœ
         List<List<Integer>> result = new ArrayList<>();
         
-        //•º´æ½Y¹û
+        //æš«å­˜çµæœ
         List<Integer> temp = new ArrayList<>();
         
-        //ßMĞĞÉî¶ÈËÑË÷
+        //é€²è¡Œæ·±åº¦æœç´¢
         dfs(result, temp, n, k, 1);
         
         return result;
     }
     /*
-    temp •º´æ½Y¹û
-    n ¹²¶àÉÙ‚€
-    k nÈ¡k‚€
-    m Ä¿Ç°Äm‚€é_Ê¼
+    temp æš«å­˜çµæœ
+    n å…±å¤šå°‘å€‹
+    k nå–kå€‹
+    m ç›®å‰å¾må€‹é–‹å§‹
     */
     void dfs(List<List<Integer>> result, List<Integer> temp, int n, int k, int m) {
-        //½Y¹û¿ÉÒÔÁËex:[1,2]£¬¼ÓÈë½Y¹û
+        //çµæœå¯ä»¥äº†ex:[1,2]ï¼ŒåŠ å…¥çµæœ
         if(k == 0) {
             result.add(new ArrayList<Integer>(temp));
             return;
         }
         
-        //îËÆì¶ÅÅÁĞ£¬Öğ‚€”µ×Ö°İÔL
+        //é¡ä¼¼æ–¼æ’åˆ—ï¼Œé€å€‹æ•¸å­—æ‹œè¨ª
         for(int i = m; i <= n; i ++) {
             temp.add(i);
             dfs(result, temp, n, k - 1, i + 1);
-            //Ã¿´Î×ödfsáá¶¼ÒªÈ¥µô×îááÒ»‚€
             temp.remove(temp.size() - 1);
         }
     }
