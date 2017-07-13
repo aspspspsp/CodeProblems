@@ -14,40 +14,40 @@ import java.util.List;
 public class CombinationSum {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         
-        //�����x���M�M������
+        //對候選數組進行排序
         Arrays.sort(candidates);
         
-        //��ŽY�����M
+        //存放結果數組
         List<List<Integer>> result = new ArrayList<>();
         
-        //������g�Y��
+        //存放中間結果s
         List<Integer> temp = new ArrayList<>();
         
-        //�M�л��ݲ���
+        //進行回溯查找
         result = dfs(result, temp, target, candidates, 0);
         
-        //���ؽY��
+        //返回結果
         return result;
     }
     
     List<List<Integer>> dfs(List<List<Integer>> result, List<Integer> temp, int target, 
         int[] candidates, int j) {
         
-        //��target == 0��ʾtemp�ȵĽY����������target(���������������g�Y������Y�����M)
+        //若target == 0表示temp內的結果加起來等於target(满足条件，将中間結果加入結果數組)
         if(target == 0) {
             result.add(new ArrayList<>(temp));
         }
         
-        //��candidates�����ҷ��ϗl�������g����target>=candidates[i]�Ǽ�֦����
+        //從candidates串中找符合條件的中間集，target>=candidates[i]是剪枝操作
         for(int i = j; i < candidates.length && target >= candidates[i]; i ++) {
             
-            //�����ϗl����candidates�������g�Y��
+            //將符合條件的candidates放入中間結果
             temp.add(candidates[i]);
             
-            //�M���f�w
+            //進行遞歸
             result = dfs(result, temp, target - candidates[i], candidates, i);
             
-            //��鄂���ĕ���Y���ѽ��M�����f�w����Ҫ���ѽ��f�w��Ĕ��ĕ���Y���Єhȥ(����Y���г��F���}�Ĕ��M)
+            //因為剛剛的暫存結果已經進行了遞歸，故要將已經遞歸後的數從暫存結果中刪去(避免結果中出現重複的數組)
             temp.remove(temp.size() - 1);
         }
         
