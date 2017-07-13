@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package LeetCode.Easy;
 /*
 �����������ͣ���������͵����ֵ
 
@@ -23,14 +23,14 @@ public class MaximumSubarray {
         int [] globalSum = new int[nums.length + 1];
         int [] localSum = new int[nums.length + 1];
         
-        //��ʼ��
+        //初始化
         localSum[0] = nums[0];
         globalSum[0] = nums[0];
         
         for(int i = 1; i < nums.length; i ++) {
-            //��localSum�Ȯ�ǰ�v��Ĕ��MС�r�t����(�ஔ춒Η�֮ǰ�����к�)
+            //若localSum為負數則重置(相當於捨棄之前的序列和)
             localSum[i] = Math.max(nums[i], localSum[i - 1] + nums[i]);
-            //��global�M�и���
+            //將global進行更新
             globalSum[i] = Math.max(globalSum[i - 1], localSum[i]);
         }
         

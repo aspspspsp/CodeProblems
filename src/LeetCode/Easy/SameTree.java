@@ -13,27 +13,27 @@ import LeetCode.Dependencies.TreeNode;
  */
 public class SameTree {
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        //���~�ӹ��c���ttrue
+        //到葉子節點，則true
         if(p == null && q == null)
             return true;
         
-        //���У��қ]�У��˘䲻��ͬ
+        //左有，右沒有，此樹不相同
         if(p == null && q != null)
             return false;
-        //��]�У����У��˘䲻��ͬ    
+        //左沒有，右有，此樹不相同
         if(p != null && q == null)
             return false;
         
-        //��߅�Ĺ��cֵ��һ�ӣ��˘䲻��ͬ
+        //兩邊的節點值不一樣，此樹不相同
         if(p.val != q.val)
             return false;
         
-        //�v����߅
+        //歷遍右邊
         boolean isRightSame = isSameTree(p.right, q.right);
         if(isRightSame == false)
             return false;
         
-        //�v����߅
+        //歷遍左邊
         boolean isLeftSame = isSameTree(p.left, q.left);
         if(isLeftSame == false)
             return false;
