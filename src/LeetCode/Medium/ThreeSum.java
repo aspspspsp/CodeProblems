@@ -6,30 +6,30 @@ import java.util.List;
 
 public class ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
-        //�Ȍ����M�M������(�Է����M�ЊA��)
+        //先將數組進行排序(以方便進行夾逼)
         Arrays.sort(nums);
         
         List<List<Integer>> result = new ArrayList<>();
         
         /*
-        i �M��ѭ��v��
-        j ��i�M�����ҊA��
-        k �ɔ��M����һ���M������A��
+        i 進行循序歷遍
+        j 由i進行向右夾逼
+        k 由數組最後一個進行向左夾逼
         
-        ��nums[i] + nums[j] + nums[k] == 0
-        �t����ԓ�Y��
-        �K��׌i�cjָᘸ�����(����ѽ��д��ˣ��ʿ��Ԍ�ָ����)
+                若nums[i] + nums[j] + nums[k] == 0
+                則加入該結果
+                並且讓i與j指針更靠近(因為已經有答案了，故可以將指針向內)
         
-        ��nums[i] + nums[j] + nums[k] > 0
-        �Ƅ���ָ�k
+                若nums[i] + nums[j] + nums[k] > 0
+                移動右指針k
         
-        ��nums[i] + nums[j] + nums[k] < 0
-        �Ƅ���ָ�j
+                若nums[i] + nums[j] + nums[k] < 0
+                移動左指針j
         
         */
         
         for(int i = 0; i < nums.length; i ++) {
-            //����iָ��Ƶ����}Ԫ��
+            //避免i重複的情形
             if(i == 0 || nums[i] > nums[i - 1]) {
                 int j = i + 1;
                 int k = nums.length - 1;
@@ -45,7 +45,7 @@ public class ThreeSum {
                         j ++;
                         k --;
                         
-                        //����jָ��Ƶ����}Ԫ��
+                        //避免指針移到重複元素
                         while(j < k && nums[j] == nums[j - 1]) {
                             j ++;
                         }
