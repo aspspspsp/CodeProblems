@@ -6,13 +6,13 @@ public class SearchForARange {
         
         int maxIndex = nums.length - 1;
         
-        //�������index
+        //找最左的index
         int leftmostIndex = findLeftmostIndex(nums, 0, maxIndex, target);
-        //�����ҵ�index
+        //找最右的index
         int rightmostIndex = findRightmostIndex(nums, 0, maxIndex, target);
         
-        //̎���Ҳ���ԓ������r
-        //��� leftIndex�crightIndex�п��ܲ���ָ��Ŀ�˔�(�Ҳ�������r)�������@�eҪ�M�Йz��
+        //̎處理找不到該數的情況
+        //因為 leftIndex與rightIndex有可能不是指向目標數(找不到的情況)，故在這裡要進行檢查
         if(leftmostIndex >  nums.length - 1 || nums[leftmostIndex] != target) {
             return result;
         }
@@ -23,13 +23,13 @@ public class SearchForARange {
         return result;
     }   
     
-    //���ֲ��ҷ����ҵ�����߅�Ĕ���index
+    //二分查找法，找到最左邊的數的index
     int findLeftmostIndex(int [] nums, int leftIndex, int rightIndex, int target) {
         while(leftIndex <= rightIndex) {
-            //Ӌ����λ��
+            //計算中位數
             int midIndex = (leftIndex + rightIndex) / 2;
             
-            //��������߅�Ĕ�
+            //優先找左邊的數
             if(nums[midIndex] < target) {
                 leftIndex = midIndex + 1;
             } else {
@@ -40,13 +40,13 @@ public class SearchForARange {
         return leftIndex;
     }
     
-    //���ֲ��ҷ����ҵ�����߅�Ĕ���index
+    //二分查找法，找到最右邊的數的index
     int findRightmostIndex(int [] nums, int leftIndex, int rightIndex, int target) {
         while(leftIndex <= rightIndex) {
-            //Ӌ����λ��
+            //計算中位數
             int midIndex = (leftIndex + rightIndex) / 2;
             
-            //��������߅�Ĕ�
+            //優先找右邊的數
             if(nums[midIndex] > target) {
                 rightIndex = midIndex - 1;
             } else {

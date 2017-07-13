@@ -1,7 +1,7 @@
 package LeetCode.Medium;
 public class SearchA2DMatrix {
 	   public boolean searchMatrix(int[][] matrix, int target) {
-	        //̎������
+	        //̎處理例外
 	        if(matrix == null || matrix.length == 0) 
 	            return false;
 	        if(matrix[0] == null || matrix[0].length == 0) 
@@ -13,9 +13,9 @@ public class SearchA2DMatrix {
 	        int start = 0;
 	        int end = row * col - 1;
 	        
-	        //start + 1 ��Ҫͨ�^����case
+	        //start + 1 是要通過特殊case
 	        while(start + 1 < end) {
-	            //���ĳ���
+	            //核心程序
 	            int mid = start + (end - start) / 2;
 	            int num = matrix[mid / col][mid % col];
 	            
@@ -27,7 +27,7 @@ public class SearchA2DMatrix {
 	                end = mid - 1;
 	        }
 	        
-	        //̎��߅�H��r
+	        //̎處理邊際情況
 	        int num_1 = matrix[start / col][start % col];
 	        int num_2 = matrix[end / col][end % col];
 	        if(target == num_1 || target == num_2)

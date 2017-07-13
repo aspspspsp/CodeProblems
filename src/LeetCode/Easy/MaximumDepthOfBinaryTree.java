@@ -20,17 +20,17 @@ public class MaximumDepthOfBinaryTree {
     }
     
     public int findMaxDepth(TreeNode root, int depth) {
-        //����߅�c��߅ͬ�r��գ���ʾ���~�ӹ��c������ֱ�ӷ��خ�ǰ���
+        //若左邊與右邊同時為空，表示為葉子節點，可以直接返回當前深度
         if(root.left == null && root.right == null)
             return depth;
             
         int leftDepth = 0;
         int rightDepth = 0;
-        //���L���Ә�
+        //拜訪左子樹
         if(root.left != null)
             leftDepth = findMaxDepth(root.left, depth + 1);
         
-        //���L���Ә�
+        //拜訪右子樹
         if(root.right != null)
             rightDepth = findMaxDepth(root.right, depth + 1);
             

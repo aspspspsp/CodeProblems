@@ -17,13 +17,13 @@ sumΪ����A������ֵ�ĺͣ�
 public class RotateFunction {
     public int maxRotateFunction(int[] A) {
         int sum = 0;
-        // �����sum
+        // 计算出sum
         for (int i = 0; i < A.length; i++) {
             sum += A[i];
         }
     
         int base = 0;
-        // �����F(0)��ֵ
+        // 计算出F[0]的值ֵ
         for (int i = 0; i < A.length; i++) {
             base += i * A[i];
         }
@@ -31,7 +31,7 @@ public class RotateFunction {
         int max = base;
         for (int i = 1; i < A.length; i++) {
             int sumIndex = A.length - i;
-            // ��ʽչ���󣬵ó�����
+            // 公式展开后，得出如下
             base += sum - A.length * A[sumIndex];   // base += (sum - A[sumIndex]) - (A.length - 1) * A[sumIndex]; 
             max = Math.max(max, base);
         }
