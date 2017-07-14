@@ -4,27 +4,27 @@ import java.util.HashSet;
 
 public class ReverseVowelsOfAString {
     /*
-    hint:�a��һ�Mһģһ�ӵĔ����Թ����Q
+    hint:產生一組一模一樣的數據以供交換
     */
     public String reverseVowels(String s) {
-        //�o�ĸ����HashSet
+        //紀錄母音的HashSet
         HashSet<Character> vowels = new HashSet<>();
         
-        //С����ĸ��
+        //小寫的母音
         vowels.add('a');
         vowels.add('e');
         vowels.add('i');
         vowels.add('o');
         vowels.add('u');
         
-        //�󌑵�ĸ��
+        //大寫的母音
         vowels.add('A');
         vowels.add('E');
         vowels.add('I');
         vowels.add('O');
         vowels.add('U');
         
-        //�o�Ҫ���Q��ĸ��λ��
+        //紀錄要交換的母音位置
         int[] position = new int[s.length()];
         int counter = 0;
         for(int i = 0; i < s.length(); i ++) {
@@ -34,17 +34,17 @@ public class ReverseVowelsOfAString {
             }
         }
         
-        //answer�Ǽo䛴𰸵�char
+        //answer是紀錄答案的char
         char[] answer = new char[s.length()];
         
-        //�Ȍ�s�D��char���M�K����answer(�a���csһ�ӵĔ���)
+        //先將s轉成char數組並放入answer(產生與s一樣的數據)
         answer = s.toCharArray();
-        //���Qĸ����λ��
+        //交換母音
         for(int i = 0; i < counter; i ++) {
             answer[position[i]] = s.charAt(position[counter - i - 1]);
         }
         
-        //��char���M�D��string
+        //將char數組轉成string
         return String.valueOf(answer);
     }
 }
