@@ -21,21 +21,21 @@ public class BinaryTreePaths {
         if(root == null)
             return answer;
         
-        //���Lroot���c
+        //拜訪root節點
         findBinaryTreePaths(root, String.valueOf(root.val));
 
         return answer;
     }
     
     public void findBinaryTreePaths(TreeNode root, String path) {
-        //��ԓ���c�ă�߅���]���ӹ��c�r�t��ʾ����K�~�ӹ��c�ˣ��t�����
+        //若該節點的兩邊都沒有子節點時則表示到最終葉子節點了，則放入答案
         if(root.left == null && root.right == null)
             answer.add(path);
-        //���L��߅
+        //拜訪左邊
         if(root.left != null)
             findBinaryTreePaths(root.left, path + "->" + root.left.val);
         
-        //���L��߅
+        //拜訪右邊
         if(root.right != null)
             findBinaryTreePaths(root.right, path + "->" + root.right.val);
         

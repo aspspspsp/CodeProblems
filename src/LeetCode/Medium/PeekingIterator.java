@@ -5,14 +5,14 @@ import java.util.Iterator;
 // Java Iterator interface reference:
 // https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
 class PeekingIterator implements Iterator<Integer> {
-    Iterator iterator; //������е�ֵ
-    Integer nextElement; //�����һ��ֵ
+    Iterator iterator; //存放所有的值
+    Integer nextElement; //存放下一個值
     
-    //��ʼ��
+    //初始化
 	public PeekingIterator(Iterator<Integer> iterator) {
 	    // initialize any member here.
 	    
-	    //ȡ��ݔ������д�ŵ�ֵ��Ȼ����Minterator
+	    //取出輸入內所有存放的值，然後存進interator
 	    this.iterator = iterator;
 	    
 	    if(iterator.hasNext() == true) {
@@ -22,13 +22,13 @@ class PeekingIterator implements Iterator<Integer> {
 	    }
 	}
 
-    //ȡ����һ��ֵ����ָᘲ��Ƶ���һ��ֵ
+    //取出下一個值，但指針不移到下一個值ֵ
     // Returns the next element in the iteration without advancing the iterator.
 	public Integer peek() {
         return this.nextElement;
 	}
     
-    //ȡ����һ��,�K��ָ��Ƶ���һ��ֵ
+    //取出下一個,並將指針移到下一個ֵ
 	// hasNext() and next() should behave the same as in the Iterator interface.
 	// Override them if needed.
 	@Override
@@ -41,7 +41,7 @@ class PeekingIterator implements Iterator<Integer> {
 	    return currentNext;
 	}
     
-    //�Д��Ƿ�����һ��ֵ
+    //判斷是否有下一個ֵ
 	@Override
 	public boolean hasNext() {
 	    if(this.nextElement == null)

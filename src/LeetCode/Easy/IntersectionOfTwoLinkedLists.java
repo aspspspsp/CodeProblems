@@ -13,10 +13,10 @@ import LeetCode.Dependencies.ListNode;
  *     }
  * }
  * 
-1. �õ�2�������ĳ��ȡ�
-2. ������������ǰ�ƶ���ֵ��len1 - len2��
-3. ����ָ��һ��ǰ����������ͬ�ļ��ǽ��㣬���û�ҵ�������null.
-�൱ֱ�۵Ľⷨ���ռ临�Ӷ�O(1)�� ʱ�临�Ӷ�O(m+n)
+1. 得到2个链表的长度，假設list1長度為5，list2長度為2
+2. 将长的链表(list1)的指針向前移动(len1 - len2)=3
+3. 两个表的指针一起前进，遇到相同的即是交点，如果没找到，返回null.
+相当直观的解法。空间复杂度O(1)， 时间复杂度O(m+n)
 
  */
 public class IntersectionOfTwoLinkedLists {
@@ -27,7 +27,7 @@ public class IntersectionOfTwoLinkedLists {
         int sizeOfListNodeA = getSize(headA);
         int sizeOfListNodeB = getSize(headB);
         
-        //��ɂ�listNode�L�Ȳ�ͬ�t���ɂ�listNode�L��׃��һ��
+        //若兩個listNode長度不同則將兩個listNode長度變得一樣
         if(sizeOfListNodeA > sizeOfListNodeB) {
             while(sizeOfListNodeA > sizeOfListNodeB) {
                 headA = headA.next;
@@ -40,23 +40,23 @@ public class IntersectionOfTwoLinkedLists {
             }
         }
         
-        //��������^�̣�����headA���L��=headB���L��,�ʿ���ֱ���M��ListNode�Ăz�z���^
+        //因為以上過程，所以headA的長度=headB的長度,故可以直接進行ListNode的倆倆比較
         while(headA != null) {
-            //��ɂ�listNodeһ���Ǆt��ʾ�Ĵ��_ʼ��intersection���Ϳ��Է��ؽ��e�Ĳ���
+            //若兩個listNode一樣是則表示從此開始為intersection，就可以返回交錯的部分
             if(headA == headB) {
                 return headA;
             }
             
-            //������^ListNode��Ԫ��
+            //依序比較ListNode的元素
             headA = headA.next;
             headB = headB.next;
         }
         
-        //���]�н��e�Ĳ��քt����null
+        //若沒有交錯的部分則返回null
         return null;
     }
     
-    //ȡ��ListNode���L�ȴ�С
+    //取得ListNode的長度大小
     int getSize(ListNode node) {
         int size = 0;
         while(node != null) {

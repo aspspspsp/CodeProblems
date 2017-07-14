@@ -10,7 +10,7 @@ public class RestoreIPAddresses {
         
         dfs(result, tempIP, s, 0);
         
-        //���^�K�M��IP
+        //將區塊組成IP
         List<String> finalResult = new ArrayList<>();
         for(List<String> res : result) {
             StringBuilder sb = new StringBuilder();
@@ -24,45 +24,45 @@ public class RestoreIPAddresses {
         return finalResult;
     }
     
-    //tempIP����IP�ȵĔ��֣���4���^�K
+    //tempIP暫存IP內的數字，分4個區塊
     void dfs(List<List<String>> result, List<String> tempIP, String s, int start) {
-        //�����r��IP��ַ�^�K>4,ex:123.123.123.123.123,�t����
+        //若暫時的IP地址區塊>4,ex:123.123.123.123.123,則跳出
         if(tempIP.size() > 4) 
             return;
             
-        //�_�Jtemp�Ĵ�С�cʣ�µ��ִ�Ҫ���>=4����t����
+        //確認temp的大小與剩下的字串要大於>=4，否則跳出
         if(tempIP.size() + s.length() - start + 1 < 4)
             return;
         
-        //���a��IP��(�v����)���t���Y������
+        //若產生IP完(歷遍完)，則將結果加入
         if(tempIP.size() == 4 && start == s.length()) {
             List<String> t = new ArrayList<>(tempIP);
             result.add(t);
             return;
         }
         
-        //һ��ip�^�K���ֻ��3������0~255
+        //一個ip區塊最多只有3個數字0~255
         for(int i = 1; i <= 3; i ++) {
-            //�_�J�ִ��ڹ�����
+            //確認字串在範圍內
             if(i + start > s.length())
                 break;
             
             String sub = s.substring(start, start + i);
-            //̎����001֮�case�����L��>1(�����^0.0.0.0֮���r)�����ַ���0�t���^
+            //處理如001之類的case，若長度>1(避略過0.0.0.0之類的情況)且首字符為0則略過
             if(i > 1 && s.charAt(start) == '0') 
                 break;
                 
-            //̎����255֮�case�����˅^�K>255�t���^
+            //處理如255之類的case，若此區塊>255則略過
             if(Integer.valueOf(sub) > 255)
                 break;
             
-            //���땺��
+            //加入暫存
             tempIP.add(sub);
             
-            //�M����һ݆dfs
+            //進行下一輪dfs
             dfs(result, tempIP, s, start + i);
             
-            //�hȥ����һ���Y�����M��3�����ֵĚv��
+            //刪去最後一個結果以進行3個數字的歷遍
             tempIP.remove(tempIP.size() - 1);
         }
     }

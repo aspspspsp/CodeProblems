@@ -23,40 +23,40 @@ public class SortList {
         ListNode walker = head;
         ListNode runner = head;
         
-        //��runner�v������ListNode��,walker����ListNode�����g(walker�������c)
+        //當runner歷遍整個ListNode後,walker會到ListNode的中間(walker就是中點)
         while(runner.next != null && runner.next.next != null) {
             walker = walker.next;
             runner = runner.next.next;
         }
         
-        //������������
+        //将链表拆成两半
         ListNode right = walker.next;
         walker.next = null;
         ListNode left = head;
         
-        //��������ֱ�����
+        //左右两半分别排序
         right = margeSort(right);
         left = margeSort(left);
         
-        //�ρ����҃�߅
+        //合併左右兩邊
         return marge(left, right);
     }
     
-    //�ρ����҃�߅
+    //合併左右兩邊
     ListNode marge(ListNode left, ListNode right) {
         ListNode dummy = new ListNode(0);
         dummy.next = left;
         ListNode previous = dummy;
         
-        //�M������(��������)
+        //進行排序(插入排序法)
         /*
-        ���Y�Ϸֳ�������δ����ɲ���
-        ������δ�����еĵ�һ�P(��̎���ֵ)�����뵽�������е��m��λ��
-        ����r���Ҷ�����^��ֱ��������һ������̎���ֵС��ֵ���ٲ���
-        ���^�r����������ֵ����̎���ֵ�����ȣ��t��ֵ������
+	將資料分成已排序、未排序兩部份
+	依序由未排序中的第一筆(正處理的值)，插入到已排序中的適當位置
+	插入時由右而左比較，直到遇到第一個比正處理的值小的值，再插入
+	比較時，若遇到的值比正處理的值大或相等，則將值往右移
         */
         while(left != null && right != null) {
-            //�@߅���M���������
+            //這邊是進行順序排序
             if(left.val < right.val) {
                 left = left.next;
             } else {
@@ -69,7 +69,7 @@ public class SortList {
             previous = previous.next;
         }
         
-        //����©������һ��
+        //避免漏掉最後一個
         if(right != null) {
             previous.next = right;
         }

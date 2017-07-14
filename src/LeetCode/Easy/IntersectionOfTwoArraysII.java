@@ -12,17 +12,17 @@ public class IntersectionOfTwoArraysII {
             n1_list.add(num);
         }
         
-        //���Ԫ���ѽ��ź���(�Ҵ𰸲����]���)�����Բ��ÿ��]����[1, 2, 2, 1]�Ġ�r
+        //因為元素已經排好序(且答案不考慮順序)，所以不用考慮像是[1, 2, 2, 1]的狀況
         for(int i = 0; i < nums2.length; i ++) {
             if(n1_list.contains(nums2[i])) {
-                //�����ཻ��
+                //加入相交集
                 intersect.add(nums2[i]);
-                //���ѽ������ཻ����Ԫ��ȥ��
+                //把已經加入相交集的元素去掉
                 n1_list.remove(n1_list.indexOf(nums2[i]));
             }
         }
         
-        //����ݔ���锵�M
+        //將答案輸出為數組
         int [] answer = new int[intersect.size()];
         for(int i = 0; i < intersect.size(); i ++) {
             answer[i] = intersect.get(i);
