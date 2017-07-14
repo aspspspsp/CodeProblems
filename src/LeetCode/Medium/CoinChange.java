@@ -21,27 +21,27 @@ public class CoinChange {
     public int coinChange(int[] coins, int amount) {
         int [] d = new int[amount + 1];
         
-        //�M��0��ֻ��0�N��Ӳ���x��
+        //組成0，只有0種的硬幣選擇
         d[0] = 0;
         
-        //1~amount���O��o�޴�(��ʾ�ȼ��O���еĔ�����Ŀǰ��Ӳ�şo���_����)
+        //1~amount都設為無限大(表示先假設所有的數都是目前的硬幣無法達到的)
         for(int i = 1; i <= amount; i ++) {
             d[i] = Integer.MAX_VALUE;
         }
         
-        //��1~amount�������еĔ��^һ��
+        //從1~amount，將所有的數過一遍
         for(int i = 1; i <= amount; i ++) {
-            //ÿ��iѭ�h�r����Ҫ�����е�Ӳ���^һ��
+            //每次i循環時，都要將所有的硬幣過一遍
             for(int j = 0; j < coins.length; j ++) {
-                //d[i - coins[j]] == Integer.MAX_VALUE ��ʾԓi-coins[j]�����o��
+                //d[i - coins[j]] == Integer.MAX_VALUE 表示該i-coins[j]個數無解
                 if(i >= coins[j] && d[i - coins[j]] != Integer.MAX_VALUE) {
-                    //���^d[i]�o��,�cd[i - coins[j]] + 1�Ă�С
+                    //比較d[i]無解,與d[i - coins[j]] + 1哪個小
                     d[i] = Math.min(d[i], d[i - coins[j]] + 1);
                 }
             }
         }
         
-        //��d[amount] == Integer.MAX_VALUE�����Ǜ]�н�
+        //若d[amount] == Integer.MAX_VALUE，就是沒有解
         if(d[amount] != Integer.MAX_VALUE)
             return d[amount];
         else

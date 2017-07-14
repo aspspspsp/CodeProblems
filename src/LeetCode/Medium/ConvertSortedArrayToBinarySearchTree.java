@@ -25,16 +25,16 @@ public class ConvertSortedArrayToBinarySearchTree {
             return null;
         }
         
-        //��Ŀǰ���L��ֵ����Ŀǰ�Ę九�c��
+        //將目前拜訪的值放入目前的樹節點中
         int curNodeIndex = (start + end) / 2;
         int curNodeVal = nums[curNodeIndex];
         TreeNode treeNode = new TreeNode(curNodeVal);
         
-        //�������Ә�
+        //建立左子樹
         int leftEnd = curNodeIndex - 1;//�����������g
         treeNode.left = buildTree(nums, start, leftEnd);
         
-        //�������Ә�
+        //建立右子樹
         int rightStart = curNodeIndex + 1;//�����������g
         treeNode.right = buildTree(nums, rightStart, end);
         

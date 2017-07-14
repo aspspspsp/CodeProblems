@@ -25,17 +25,17 @@ public class CountingBits {
 	public int[] countBits(int num) {
 		int[] result = new int[num + 1];
 		
-		int powOf2 = 1; //�z�y��(�Ƿ�ɱ�2�����Ĕ�)һ�_ʼ��2��0�η�
-		int before = 1; //��׃�����Á��ȡǰ��Y��(1�Ă���)
+		int powOf2 = 1; //檢測數(是否可被2整除的數)一開始為2的0次方
+		int before = 1; //此變量是用來存取前面結果(1的個數)
 		for(int i = 1; i <= num; i ++) {
-			if(i == powOf2) { //���˔���2�Ĵη�
-				result[i] = 1; //���˔��ɱ�2�����r��ֻ��һ��1
-				powOf2 <<= 1; //���z�y������һλ(��2��Ч��)
+			if(i == powOf2) { //若此數為2的次方
+				result[i] = 1; //當此數可被2整除時，只有一個1
+				powOf2 <<= 1; //將檢測數右移一位(乘2的效果)
 				
-				before = 1; //���ã���ʾ1�Ă���������ǰ��ĽY������
-			} else { //��t
-				result[i] = result[before] + 1; //1�Ă����Ǹ���ǰ��1�Ă��� + 1
-				before = before + 1; //����׃����ǰŲ
+				before = 1; //重置，表示1的個數會依據前面的結果而定
+			} else { //否則
+				result[i] = result[before] + 1; //1的個數是根據前面1的個數 + 1
+				before = before + 1; //將此變量往前挪
 			}
 		}
 	    return result;

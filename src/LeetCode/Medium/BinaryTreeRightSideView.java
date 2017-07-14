@@ -17,6 +17,7 @@ import LeetCode.Dependencies.TreeNode;
  * ���}Ҫ�c
  * 1.�����ӱ�v�����
  * 2.����v��ĽY��������һ��Ԫ��(������߅)����Y����
+ * 求一棵二叉树的右视图。用BFS的方式遍历二叉树，取每层的最后一个节点。
  */
 public class BinaryTreeRightSideView {
     int current_layer;
