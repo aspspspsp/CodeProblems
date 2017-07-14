@@ -12,7 +12,7 @@ public class ClimbingStairs {
     public int climbStairs(int n) {
         int[] ways = new int[n + 1];
         
-        ways[0] = 1; //��0�Aֻ��һ�N��ʽ
+        ways[0] = 1; //爬0階只有一種方式
         ways[1] = 1;
 
         for(int i = 2; i <= n; i ++) {
