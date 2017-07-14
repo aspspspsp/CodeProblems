@@ -10,12 +10,12 @@ public class ExcelSheetColumnNumber {
             
         HashMap<Character, Integer> alphabetMap = new HashMap<>();
         
-        //������ĸ���ұ�
+        //建立字母查找表
         char alphabet = 'A';
         for(int i = 1; i <= 26; i ++) {
             alphabetMap.put(alphabet, i);
             
-            //��char + 1������׌��ĸ"����" ex:A->B
+            //對char + 1，可以讓字母"增加" ex:A->B
             alphabet += 1;
         }
         
@@ -24,7 +24,7 @@ public class ExcelSheetColumnNumber {
         for(int i = s.length() - 1; i >= 0; i --) {
             char cur_alphabet = s.charAt(i);
             
-            //������ĸ���ұ��ҵ�ԓ��ĸ������ֵ
+            //利用字母查找表找到該字母對應的值ֵ
             int char_id = alphabetMap.get(cur_alphabet);
             number = number + char_id * (int)Math.pow(26, d);
             

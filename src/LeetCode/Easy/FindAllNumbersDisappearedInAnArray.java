@@ -6,10 +6,10 @@ import java.util.List;
 public class FindAllNumbersDisappearedInAnArray {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         int length = nums.length;
-        //hash�Ǽo�ÿ�������F�^�ĴΔ�
+        //hash是紀錄每個數出現過的次數
         int [] hash = new int[length + 1];
         
-        //�v��һ��num���M���o�ÿ�������F�^�ĴΔ�(��1�_ʼ)
+        //歷遍一次num數組，紀錄每個數出現過的次數(從1開始)
         for(int i = 0; i < length; i ++) {
             hash[nums[i]] ++;
         }

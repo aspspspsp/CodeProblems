@@ -39,11 +39,11 @@ public class PathSumII {
         
         if(root.left != null) {
             temp.add(root.left.val);
-            //ע��sum����Ӱ푵���һ����B
+            //注意sum不能影響到下一個狀態
             int nextSum = sum - root.left.val;
             dfs(root.left, nextSum, temp);
             
-            //�ظ���һ����B
+            //回復上一個狀態
             temp.remove(temp.size() - 1);
         }
         
@@ -52,7 +52,7 @@ public class PathSumII {
             int nextSum = sum - root.right.val;
             dfs(root.right, nextSum, temp);
             
-            //�ظ���һ����B
+            //回復上一個狀態
             temp.remove(temp.size() - 1);
         }
         
