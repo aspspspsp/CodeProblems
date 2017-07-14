@@ -2,6 +2,11 @@ package LeetCode.Medium;
 
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * 
+ * @author zihanxu
+ *
+ */
 
 public class SummaryRanges {
     class Range {
