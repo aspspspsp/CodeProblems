@@ -1,36 +1,36 @@
 package LeetCode.Medium;
 /*
-ÓëÖ®Ç°µÄ³óÊýî}Ä¿²»Í¬µÄÊÇ£¬Ö®Ç°Çó³óÊýÊÇ´Ó2£¬3£¬5ÖÐÕÒ£¬¶ø±¾ÌâÊÇ¸ø¶¨µÄÖÊÊý£¬Çó³öËûÃÇµÄ±¶ÊýµÄ³¬¼¶³óÊý
-ÖÊÊý¼¯ºÏ¿ÉÒÔÈÎÒâ¸ø¶¨£¬ÓÉÓÚÎÒÃÇ²»ÖªµÀÖÊÊýµÄ¸öÊý£¬ÎÒÃÇ¿ÉÒÔÓÃÒ»¸öidxÊý×éÀ´±£´æµ±Ç°µÄÎ»ÖÃ£¬È»ºóÎÒÃÇ´Ó
-Ã¿¸ö×ÓÁ´ÖÐÈ¡³öÒ»¸öÊý£¬ÕÒ³öÆäÖÐ×îÐ¡Öµ£¬È»ºó¸üÐÂidxÊý×é¶ÔÓ¦Î»ÖÃ£¬×¢ÒâÓÐ¿ÉÄÜ×îÐ¡Öµ²»Ö¹Ò»¸ö£¬Òª¸üÐÂËù
-ÓÐ×îÐ¡ÖµµÄÎ»ÖÃ
+ä¸Žä¹‹å‰çš„ä¸‘æ•°é¡Œç›®ä¸åŒçš„æ˜¯ï¼Œä¹‹å‰æ±‚ä¸‘æ•°æ˜¯ä»Ž2ï¼Œ3ï¼Œ5ä¸­æ‰¾ï¼Œè€Œæœ¬é¢˜æ˜¯ç»™å®šçš„è´¨æ•°ï¼Œæ±‚å‡ºä»–ä»¬çš„å€æ•°çš„è¶…çº§ä¸‘æ•°
+è´¨æ•°é›†åˆå¯ä»¥ä»»æ„ç»™å®šï¼Œç”±äºŽæˆ‘ä»¬ä¸çŸ¥é“è´¨æ•°çš„ä¸ªæ•°ï¼Œæˆ‘ä»¬å¯ä»¥ç”¨ä¸€ä¸ªidxæ•°ç»„æ¥ä¿å­˜å½“å‰çš„ä½ç½®ï¼Œç„¶åŽæˆ‘ä»¬ä»Ž
+æ¯ä¸ªå­é“¾ä¸­å–å‡ºä¸€ä¸ªæ•°ï¼Œæ‰¾å‡ºå…¶ä¸­æœ€å°å€¼ï¼Œç„¶åŽæ›´æ–°idxæ•°ç»„å¯¹åº”ä½ç½®ï¼Œæ³¨æ„æœ‰å¯èƒ½æœ€å°å€¼ä¸æ­¢ä¸€ä¸ªï¼Œè¦æ›´æ–°æ‰€
+æœ‰æœ€å°å€¼çš„ä½ç½®
 */
 public class SuperUglyNumber {
     public int nthSuperUglyNumber(int n, int[] primes) {        
         int[] dp = new int[n];
         
-        //µÚÒ»‚€áh”µÊÇ1
+        //ç¬¬ä¸€å€‹é†œæ•¸æ˜¯1
         dp[0] = 1;
                 
         int[] idxPrimes = new int[primes.length];
         int counter = 1;
         while(counter < n) {
-            //¼oä›×îÐ¡Öµ
+            //ç´€éŒ„æœ€å°å€¼
             int min = Integer.MAX_VALUE;
             
             for(int i = 0; i < primes.length; i ++) {
-                //idxPrimes[i] ´ú±íÃ¿‚€áh”µµÄ‚€”µ
-                //ÀýÈç:áh”µÓÐ2,3,5
-                //idxPrimes[0] => 2µÄÏÂ˜Ë
-                //idxPrimes[1] => 3µÄÏÂ˜Ë
-                //idxPrimes[2] => 5µÄÏÂ˜Ë
+                //idxPrimes[i] ä»£è¡¨æ¯å€‹é†œæ•¸çš„å€‹æ•¸
+                //ä¾‹å¦‚:é†œæ•¸æœ‰2,3,5
+                //idxPrimes[0] => 2çš„ä¸‹æ¨™
+                //idxPrimes[1] => 3çš„ä¸‹æ¨™
+                //idxPrimes[2] => 5çš„ä¸‹æ¨™
                 int temp = dp[idxPrimes[i]] * primes[i];
                 
-                //ÄtempÖÐÕÒµ½×îÐ¡”µ
+                //å¾žtempä¸­æ‰¾åˆ°æœ€å°æ•¸
                 if(temp < min)
                     min = temp;
             }
-            //Èç¹ûmin == dp[idxPrimes[i]] * primes[i]£¬„tŒ¦‘ªÆäÏÂ˜Ë
+            //å¦‚æžœmin == dp[idxPrimes[i]] * primes[i]ï¼Œå‰‡å°æ‡‰å…¶ä¸‹æ¨™
             for(int i = 0; i < primes.length; i ++) {
                 if(min == dp[idxPrimes[i]] * primes[i]) {
                     idxPrimes[i] ++;

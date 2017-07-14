@@ -12,12 +12,12 @@ import LeetCode.Dependencies.TreeNode;
  * }
  */
  
- /*
-  ��������⣬�ɸ��ڵ���Ҷ�ڵ㷽���ߣ����ǴӸ�λ����λ�Ӻ͵ķ���
-  Ҳ����˵���������Ľڵ���Ҷ�ڵ㷽����һ���ʱ�򣬸ýڵ��ֵӦΪ:
-    ���ڵ��ֵ*10+��ǰ�ڵ��ֵ��
+/*
+分析这道题，由根节点往叶节点方向走，就是从高位往地位加和的方向。
+也就是说，当遍历的节点往叶节点方向走一层的时候，该节点的值应为:
+  父节点的值*10+当前节点的值。
 
- */
+*/
 public class SumRootToLeafNumbers {
     public int sumNumbers(TreeNode root) {
         if(root == null)

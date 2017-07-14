@@ -10,16 +10,16 @@ import LeetCode.Dependencies.ListNode;
  *     ListNode(int x) { val = x; }
  * }
  *  
- * 1) �ÿ���ָ���ҵ��м�ڵ㣬������ֳ������֡�
- * 2) �Ժ���һ��������������Ҳ�ǳ�����������(����ת)��
- * 3) �ϲ���������
+ * 1) 用快慢指针找到中间节点，将链表分成两部分。
+ * 2) 对后面一半的链表逆序，这个也是常见的问题了(链表反转)。
+ * 3) 合并两个链表。
  */
 public class ReorderList {
     public void reorderList(ListNode head) {
         if(head == null || head.next == null)
             return;
             
-        //�ÿ���ָ���ҵ��м�ڵ㣬������ֳ������֡�
+        //用快慢指针找到中间节点，将链表分成两部分。
         ListNode walker = head;
         ListNode runner = head;
         while(runner.next != null && runner.next.next != null) {
@@ -27,7 +27,7 @@ public class ReorderList {
             walker = walker.next;
         }
         
-        //�����g���c������һ��ı��M������
+        //從中間節點將後面一半的表進行逆序
         ListNode cur = walker;
         ListNode perv = null;
         while(cur != null) {
@@ -38,7 +38,7 @@ public class ReorderList {
             cur = nxt;
         }
         
-        //�������朱�ρ㵽ǰ���朱�
+        //將後面的鏈表合併到前面的鏈表
         ListNode first = head;
         ListNode second = perv;
         while(first != null && second != null && first != second) {
@@ -47,10 +47,10 @@ public class ReorderList {
             second.next = first.next;
             first.next = second;
             
-            //��first ��ָ��Ƶ���һ��
+            //將first 的指針移到下一個
             first = second.next;
             
-            //second ListNode��ָ��Ƶ���һ��
+            //second ListNode的指針移到下一個
             second = temp;
         }
     }
