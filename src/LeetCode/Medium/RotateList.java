@@ -10,9 +10,9 @@ import LeetCode.Dependencies.ListNode;
  *     ListNode(int x) { val = x; }
  * }
  * 
- * ������ͷβ������һ������Ȼ����
- * (size - (k % size))��
- * ������Ľڵ�Ͽ�������λ�ƺ���б�
+ * 将链表头尾相接组成一个环，然后走
+ * (size - (k % size))步
+ * ，后面的节点断开，就是位移后的列表
  *    0.0.0.0.0
  *    0       0
  *    0.0.0.0.0
@@ -29,19 +29,19 @@ public class RotateList {
         int size = 1;
         ListNode node = head;
         
-        //�v�������c��Ӌ��ListNode�Ĵ�С
+        //歷遍所有點，計算ListNode的大小
         while(node.next != null) {
             node = node.next;
             size = size + 1;
         }
         
-        //���^β���B
+        //將頭尾相連
         node.next = head;
         
         //Ӌ����Ҫ��size - (k % size)��(�ஔ�[size - [size - k]])
         int n = size - (k % size);
         
-        //�_ʼ��size - (k % size)��
+        //計算需要走size - (k % size)步
         for(int i = 0; i < n; i ++) {
             node = node.next;
         }
@@ -49,7 +49,7 @@ public class RotateList {
         //����n���ᵽ��β���c��������β���c֮������µ��^
         ListNode newHead = node.next;
         
-        //���Y�c���_
+        //將結點斷開
         node.next = null;
         
         return newHead;

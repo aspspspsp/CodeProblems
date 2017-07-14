@@ -18,52 +18,52 @@ public class CloneGraph {
         if(node == null)
             return null;
         
-        //ß@‚€ÊÇÓÃíƒ¦´æcloneß^µÄˆDµÄ½Y¹û(Ò²ÊÇcloneß^µÄˆDµÄµÚÒ»‚€½Yüc)
+        //é€™å€‹æ˜¯ç”¨ä¾†å„²å­˜cloneéçš„åœ–çš„çµæœ(ä¹Ÿæ˜¯cloneéçš„åœ–çš„ç¬¬ä¸€å€‹çµé»)
         UndirectedGraphNode clone = new UndirectedGraphNode(node.label);
         
-        //ÓÃÒ»‚€Mapí±£´æÒÑ½›¿ËÂ¡µÄĞÂ½Yüc
+        //ç”¨ä¸€å€‹Mapä¾†ä¿å­˜å·²ç¶“å…‹éš†çš„æ–°çµé»
         HashMap<Integer, UndirectedGraphNode> map = new HashMap<>();
         map.put(node.label, clone);
         
-        //ÓÃÒ»‚€ê ÁĞí±£´æ›]ÓĞÔL†–ß^µÄ½Yüc
+        //ç”¨ä¸€å€‹éšŠåˆ—ä¾†ä¿å­˜æ²’æœ‰è¨ªå•éçš„çµé»
         LinkedList<UndirectedGraphNode> queue = new LinkedList<>();
-        queue.add(node); //°ÑµÚÒ»‚€½Yüc·ÅÈëê ÁĞ®”ÖĞ(Ê×ÏÈ°İÔL)
+        queue.add(node); //æŠŠç¬¬ä¸€å€‹çµé»æ”¾å…¥éšŠåˆ—ç•¶ä¸­(é¦–å…ˆæ‹œè¨ª)
         
         while(queue.isEmpty() == false) {
-            //°İÔL•r¶¼ÏÈŒ¢ê ÁĞÖĞµÄµÚÒ»‚€È¡³öí(Ô­±¾µÄˆD)
+            //æ‹œè¨ªæ™‚éƒ½å…ˆå°‡éšŠåˆ—ä¸­çš„ç¬¬ä¸€å€‹å–å‡ºä¾†(åŸæœ¬çš„åœ–)
             UndirectedGraphNode originalNode = queue.remove();
             
-            //ÕıÔÚ¿ËÂ¡µÄüc
+            //æ­£åœ¨å…‹éš†çš„é»
             UndirectedGraphNode cloneNode = map.get(originalNode.label);
             
-            //°İÔLß@‚€ücµÄËùÓĞà¾Ó
+            //æ‹œè¨ªé€™å€‹é»çš„æ‰€æœ‰é„°å±…
             for(int i = 0; i < originalNode.neighbors.size(); i ++) {
-                //Œ¢ÕıÔÚ°İÔLµÄücµÄà¾ÓÈ¡³ö
+                //å°‡æ­£åœ¨æ‹œè¨ªçš„é»çš„é„°å±…å–å‡º
                 UndirectedGraphNode neighbor = originalNode.neighbors.get(i);
                 
-                //Èç¹ûÔ“à¾Ó½YücÒÑ½›±»¿ËÂ¡
+                //å¦‚æœè©²é„°å±…çµé»å·²ç¶“è¢«å…‹éš†
                 if(map.get(neighbor.label) != null) {
-                    //¼ÓÈëÅcÔ“¹ücµÄß…
+                    //åŠ å…¥èˆ‡è©²ç¯€é»çš„é‚Š
                     cloneNode.neighbors.add(map.get(neighbor.label));
-                    //²»ßMĞĞÏÂÃæ„Ó×÷
+                    //ä¸é€²è¡Œä¸‹é¢å‹•ä½œ
                     continue;
                 }
                 
-                //°Ñà¾Ó·ÅÈëqueueÖĞ
+                //æŠŠé„°å±…æ”¾å…¥queueä¸­
                 queue.add(neighbor);
                 
-                //¿ËÂ¡Ô“à¾Ó½Yüc
+                //å…‹éš†è©²é„°å±…çµé»
                 UndirectedGraphNode newNode = new UndirectedGraphNode(neighbor.label);
                 
-                //°ÑĞÂ½Yüc·ÅÈëmapÖĞ
+                //æŠŠæ–°çµé»æ”¾å…¥mapä¸­
                 map.put(neighbor.label, newNode);
                 
-                //°ÑĞÂ½Yüc¼ÓÈëà¾Ó¼¯ÖĞ
+                //æŠŠæ–°çµé»åŠ å…¥é„°å±…é›†ä¸­
                 cloneNode.neighbors.add(newNode);
             }
         }
         
-        //·µ»ØÑ}ÑuˆDµÄµÚÒ»‚€½Yüc
+        //è¿”å›è¤‡è£½åœ–çš„ç¬¬ä¸€å€‹çµé»
         return clone;
     }
 }
