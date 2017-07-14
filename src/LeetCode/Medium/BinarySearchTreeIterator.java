@@ -14,10 +14,10 @@ import LeetCode.Dependencies.TreeNode;
  */
 
 public class BinarySearchTreeIterator {
-    //�惦binary tree����A���stack(�������߅���������Ԫ��һ������С��)
+    //存儲binary tree的左傾樹的stack(因為最左邊且最下面的元素一定是最小的)
     Stack<TreeNode> stack = new Stack<TreeNode>();
     public BinarySearchTreeIterator(TreeNode root) {
-        //��ʼ����A��
+        //初始化左傾樹
         while(root != null) {
             stack.push(root);
             root = root.left;
@@ -25,7 +25,7 @@ public class BinarySearchTreeIterator {
     }
 
     /** @return whether we have a next smallest number */
-    //�z���Ƿ�����һ����С��ֵ�����Ǚz���@�Ø��Ƿ���
+    //檢查是否有下一個最小的值，就是檢查這棵樹是否為空
     public boolean hasNext() {
         if(stack.isEmpty() == false)
             return true;
@@ -34,26 +34,26 @@ public class BinarySearchTreeIterator {
     }
 
     /** @return the next smallest number */
-    //ݔ����һ����Сֵ
+    //輸出下一個最小值
     public int next() {
-        //ݔ����Сֵ(�������)��Ҳ����Ŀǰ���L�Ĺ��c
+        //輸出最小值(最上面的)，也就是目前拜訪的節點
         TreeNode node = stack.pop();
         
-        //��Сֵ�Ĕ�
+        //最小值的數
         int result = node.val;
         
-        //��Ŀǰ���L�Ĺ��c�Ƶ��˹��c�����Ә���(Ҳ���ǰ��L��һ����Сֵ)
+        //將目前拜訪的節點移到此節點的右子樹上(也就是拜訪下一個最小值)
         if(node.right != null) {
             node = node.right;
             
-            //�����Ә����A�������A��stack��
+            //將右子樹的左傾樹放入左傾樹stack中
             while(node != null) {
                 stack.push(node);
                 node = node.left;
             }
         }
         
-        //ݔ���Y��
+        //輸出結果
         return result;
     }
 }
