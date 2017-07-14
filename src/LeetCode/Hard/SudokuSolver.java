@@ -2,9 +2,9 @@ package LeetCode.Hard;
 
 public class SudokuSolver {
 /*
-µÚÒ»·´Ó¦¾ÍÊÇN»ÊºóÎÊÌâ¡£¾ÍÊÇÒ»µãµã³¢ÊÔ×ÅÌîÊý£¬²»ÐÐµÄ»°¾Í»ØËÝ£¬Ö±µ½¶¼ÌîÂú¾Í·µ»Ø¡£ 
-Èç¹û¶ÔÒ»¸ö¸ñ×Ó³¢ÊÔ´Ó0~9¶¼²»ÐÐ£¬ÄÇÃ´ËµÃ÷Õû¸ösudokuÎÞ½â£¬·µ»Øfalse¾ÍºÃ¡£
-¶ÔÕû¸öÆåÅÌËùÓÐ'.'¶¼ÌîÍêÁË£¬ÄÇÃ´¾Í¿ÉÒÔ·µ»ØtrueÁË¡£
+ç¬¬ä¸€ååº”å°±æ˜¯Nçš‡åŽé—®é¢˜ã€‚å°±æ˜¯ä¸€ç‚¹ç‚¹å°è¯•ç€å¡«æ•°ï¼Œä¸è¡Œçš„è¯å°±å›žæº¯ï¼Œç›´åˆ°éƒ½å¡«æ»¡å°±è¿”å›žã€‚ 
+å¦‚æžœå¯¹ä¸€ä¸ªæ ¼å­å°è¯•ä»Ž0~9éƒ½ä¸è¡Œï¼Œé‚£ä¹ˆè¯´æ˜Žæ•´ä¸ªsudokuæ— è§£ï¼Œè¿”å›žfalseå°±å¥½ã€‚
+å¯¹æ•´ä¸ªæ£‹ç›˜æ‰€æœ‰'.'éƒ½å¡«å®Œäº†ï¼Œé‚£ä¹ˆå°±å¯ä»¥è¿”å›žtrueäº†ã€‚
 */
     public void solveSudoku(char[][] board) {
         if(board == null || board.length == 0) {
@@ -17,23 +17,23 @@ public class SudokuSolver {
         for(int i = 0; i < board.length; i ++) {
             for(int j = 0; j < board[0].length; j ++) {
                 
-                //é_Ê¼ÕÒÆðÊ¼üc£¬Ä'.'é_Ê¼ÏòÏÂÉîËÑ
+                //é–‹å§‹æ‰¾èµ·å§‹é»žï¼Œå¾ž'.'é–‹å§‹å‘ä¸‹æ·±æœ
                 if(board[i][j] == '.') {
-                    //‡LÔ‡1~9µÄ”µ×ÖÌîÈë
+                    //å˜—è©¦1~9çš„æ•¸å­—å¡«å…¥
                     for(char num = '1'; num <= '9'; num ++) {
-                        //™z²éÊÇ·ñºÏ·¨£¬ÈôºÏ·¨„tÀ^ÀmÉîËÑ
+                        //æª¢æŸ¥æ˜¯å¦åˆæ³•ï¼Œè‹¥åˆæ³•å‰‡ç¹¼çºŒæ·±æœ
                         if(isValid(board, i, j, num)) {
                             board[i][j] = num;
                             
-                            //À^ÀmßfšwÉîËÑ
+                            //ç¹¼çºŒéžæ­¸æ·±æœ
                             if(helper(board) == true) {
                                 return true;
                             } else {
-                                board[i][j] = '.'; //ÈôÏÂÒ»²½²»ºÏ·¨„t»Øµ½ÉÏÒ»²½
+                                board[i][j] = '.'; //è‹¥ä¸‹ä¸€æ­¥ä¸åˆæ³•å‰‡å›žåˆ°ä¸Šä¸€æ­¥
                             }
                         }
                     }
-                    return false; //ÈôŸo·¨ÌîÈë1~9µÄ”µ×Ö±íÊ¾´Ë”µªš²»ºÏ·¨
+                    return false; //è‹¥ç„¡æ³•å¡«å…¥1~9çš„æ•¸å­—è¡¨ç¤ºæ­¤æ•¸ç¨ä¸åˆæ³•
                 }
             }
         }
@@ -41,23 +41,23 @@ public class SudokuSolver {
     }
     
     boolean isValid(char[][] board, int i, int j, char c) {
-        //™z²éÐÐ
+        //æª¢æŸ¥è¡Œ
         for(int col = 0; col < 9; col ++) {
-            //ÈôÐÐÑeÃæÓÐÅcÒªÌîÈëµÄ”µ×ÖÒ»˜ÓµÄ•rºò„t²»ºÏ·¨(ÓÐÖØÑ})
+            //è‹¥è¡Œè£¡é¢æœ‰èˆ‡è¦å¡«å…¥çš„æ•¸å­—ä¸€æ¨£çš„æ™‚å€™å‰‡ä¸åˆæ³•(æœ‰é‡è¤‡)
             if(board[i][col] == c) {
                 return false;
             }
         }
     
-        //™z²éÁÐ
+        //æª¢æŸ¥åˆ—
         for(int row = 0; row < 9; row ++) {
-            //ÈôÁÐÑeÃæÓÐÅcÒªÌîÈëµÄ”µ×ÖÒ»˜ÓµÄ•rºò„t²»ºÏ·¨(ÓÐÖØÑ})
+            //è‹¥åˆ—è£¡é¢æœ‰èˆ‡è¦å¡«å…¥çš„æ•¸å­—ä¸€æ¨£çš„æ™‚å€™å‰‡ä¸åˆæ³•(æœ‰é‡è¤‡)
             if(board[row][j] == c) {
                 return false;
             }
         }
         
-        //™z²éÌîÈë”µ×Ö¸½½üµÄ3*3µÄ·½‰KÊÇ·ñÓÐÖØÑ}
+        //æª¢æŸ¥å¡«å…¥æ•¸å­—é™„è¿‘çš„3*3çš„æ–¹å¡Šæ˜¯å¦æœ‰é‡è¤‡
         for(int row = i / 3 * 3; row < i / 3 * 3 + 3; row ++) {
             for(int col = j / 3 * 3; col < j / 3 * 3 + 3; col ++) {
                 if(board[row][col] == c) {
@@ -66,7 +66,7 @@ public class SudokuSolver {
             }
         }
         
-        //Í¨ß^™z²é
+        //é€šéŽæª¢æŸ¥
         return true;
     }
 }
