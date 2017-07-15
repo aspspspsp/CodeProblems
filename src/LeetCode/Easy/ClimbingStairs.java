@@ -6,7 +6,7 @@ package LeetCode.Easy;
     f(3) = 3:1+1+1,2+1,1+2
     f(4) = 5:1+1+1+1,2+2,1+2+1,1+1+2,2+1+1
     f(6) = 8:1+1+1+1+1+1,1+1+1+1+2....
-    �ó���ʽ�Ӿ���:ways[i] = ways[i-1] + ways[i-2]
+  結果類似於費伯納西數列(費氏數列): ways[i] = ways[i-1] + ways[i-2]
 */
 public class ClimbingStairs {
     public int climbStairs(int n) {
