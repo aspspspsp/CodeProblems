@@ -1,6 +1,4 @@
-package LeetCode.Hard;
-
-public class FirstMissingPositive {
+public class Solution {
 /*
 注意：题目要求是find the first missing positive integer 。
 也就是说，即便你给的数组是4 5 6 7，看似都一一排好序，但是
@@ -18,6 +16,7 @@ public class FirstMissingPositive {
             return 1;
         }
         
+        //桶排序
         int i = 0;
         while(i < nums.length) {
             if(nums[i] == i + 1 || nums[i] <= 0 || nums[i] > nums.length) {
@@ -31,6 +30,7 @@ public class FirstMissingPositive {
             }
         }
         
+        //find the first missing positive integer 
         i = 0;
         while(i < nums.length && nums[i] == i + 1) {
             i ++;
