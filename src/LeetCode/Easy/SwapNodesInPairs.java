@@ -14,11 +14,14 @@ public class SwapNodesInPairs {
     public ListNode swapPairs(ListNode head) {
         if(head == null)
             return null;
-            
+        
         if(head.next != null) {
+        	//與相鄰的另一個listNode交換
             swap(head, head.next);
+            
+            //若後面還有節點(後兩個)，則在重複呼叫這個方法
             if(head.next.next != null)
-            swapPairs(head.next.next);
+            	swapPairs(head.next.next);
         }
         return head;
     }
