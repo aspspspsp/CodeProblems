@@ -1,6 +1,6 @@
 package LeetCode.Easy;
 /*
-val = 3
+val = 3 <-要刪除的元素
 
 init.
 index = 0 1 2 3 
@@ -35,13 +35,13 @@ nums  = 2 2| 2 3*
 ������ʹ���������Ё�̎��ȫ���Ĳ�����Ҫ��ͬһ������С�
 ����е�Ԫ�ؿ����S������
 ������  
-nums = [3, 1, 2, 3, 2]�� val = 3  
-��ԓҪreturn ��е��L��3������e���3���Ƴ���ʣ[1,2,2].
+nums = [3, 1, 2, 3, 2] 要刪除的目標為 val = 3  
+經過歷遍之後 return ��е��L��3������e���3���Ƴ���ʣ[1,2,2].
 */
 
 public class RemoveElement {
     public int removeElement(int[] nums, int val) {
-        //�o��@����нY���Ĵ�С
+    	//將非要刪除的數字往前挪，蓋過要刪除的數字
         int count = 0;
         for(int i = 0; i < nums.length; i ++) {
             if(nums[i] != val) {
