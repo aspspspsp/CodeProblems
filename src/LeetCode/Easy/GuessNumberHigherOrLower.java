@@ -7,7 +7,7 @@ import LeetCode.Dependencies.GuessGame;
    @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
       int guess(int num); */
 
-//猜1~n鍾任一個數字
+//猜1~n中任一個數字
 public class GuessNumberHigherOrLower extends GuessGame {
     public int guessNumber(int n) {
         //若n為0就沒有必要猜了
