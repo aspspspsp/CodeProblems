@@ -1,13 +1,16 @@
 package LeetCode.Medium;
 
 /*
- * �ҵ�ɽ픵�index
+ * 山峰型，返回山頂數字的index
  * ex:12321
  * return 2
+ * ex:12323421
+ * return 5
  * 
- * ע��ƫб��ɽ
+ * 右偏斜型，返回第0個
  * ex:321
  * return 0
+ * 左偏斜型，返回最後一個
  * ex:123
  * return 2
  */
@@ -16,6 +19,8 @@ public class FindPeakElement {
         
         boolean isSkew = true;
         int peak_index = 0;
+        
+        //開始尋找山頂
         for(int i = 1; i < nums.length; i ++) {
             if(i + 1 >= nums.length) {
                 break;

@@ -1,6 +1,9 @@
 package LeetCode.Easy;
 
 public class PowerOfThree {
+/*
+ * 可以把該整數對3取對數，如果結果為整數，說明該數是3的冪次 
+ */
     public boolean isPowerOfThree(int n) {
         if(n == 0)
             return false;
