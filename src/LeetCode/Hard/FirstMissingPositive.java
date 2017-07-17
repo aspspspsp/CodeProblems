@@ -1,4 +1,6 @@
-public class Solution {
+package LeetCode.Hard;
+
+public class FirstMissingPositive {
 /*
 注意：题目要求是find the first missing positive integer 。
 也就是说，即便你给的数组是4 5 6 7，看似都一一排好序，但是
