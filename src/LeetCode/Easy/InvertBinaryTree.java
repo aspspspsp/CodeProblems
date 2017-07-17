@@ -3,7 +3,7 @@ package LeetCode.Easy;
 import LeetCode.Dependencies.TreeNode;
 
 /*
- * ���D�����
+ * 將這個二叉樹進行左右翻轉，如:
  * 
  *     4
  *   /   \
