@@ -14,6 +14,8 @@ import LeetCode.Dependencies.TreeNode;
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
+ * 
+ * 與Binary Tree Level Order Traversal這一題相似，把最後的結果倒過來就好了
  */
 public class BinaryTreeLevelOrderTraversalII {
     List<List<Integer>> result = new ArrayList<>();
