@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 //当字符串 s 中的字符可以被替换得到另一个字符串 t , 则表示字符串 s 和 t 是同构。
 /* ex:
-    Apple  ÿ���ֶ��Ќ�����һ���ַ�
+    apple  a對應到a,p對應到b,l對應到c,e對應到c
     |||||
     abbcd
 */
