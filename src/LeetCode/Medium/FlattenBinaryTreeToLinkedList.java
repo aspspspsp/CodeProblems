@@ -39,10 +39,10 @@ public class FlattenBinaryTreeToLinkedList {
         TreeNode left = root.left;
         TreeNode right = root.right;
         
-        //�����Ә���һ�ӵ�̎��
+        //遞歸地將左子樹攤平
         flatten(left);
         
-        //�����Ә���һ�ӵ�̎��
+        //遞歸地將右子樹攤平
         flatten(right);
     }
 }
