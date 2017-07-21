@@ -18,11 +18,11 @@ public class AddOneRowToTree {
         
         if(d == 1) {
             /*處理特殊case，替換最上層的節點，就像下面的例子的過程:
-              1           1
-             / \    to   /
-            2   3       1
-                       / \
-                      2   3
+              1             1
+             / \    to     /
+            2   3         1
+                         / \
+                        2   3
             */
             TreeNode orig = root;
             TreeNode new_left = new TreeNode(v);
