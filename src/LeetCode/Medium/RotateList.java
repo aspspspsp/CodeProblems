@@ -38,7 +38,7 @@ public class RotateList {
         //將頭尾相連
         node.next = head;
         
-        //Ӌ����Ҫ��size - (k % size)��(�ஔ�[size - [size - k]])
+        //n表示:需要向右走size - (k % size)步，也就是([size - [size - k]])
         int n = size - (k % size);
         
         //計算需要走size - (k % size)步
@@ -46,7 +46,7 @@ public class RotateList {
             node = node.next;
         }
         
-        //����n���ᵽ��β���c��������β���c֮������µ��^
+        //做出一個新的鏈表表頭，這個鏈表表頭指向目前節點的下一個
         ListNode newHead = node.next;
         
         //將結點斷開
