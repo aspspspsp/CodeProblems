@@ -1,8 +1,12 @@
 package LeetCode.Medium;
 
 import java.util.Random;
-
-public class ShuffleAnArray{
+/*
+ * 解法:
+ * 歷遍整個數組，在歷遍每一個元素的同時，也生成一個隨機的index(範圍:整個數組的長度)
+ * ，然後當前元素在與這個隨機的元素進行交換。
+*/
+public class ShuffleAnArray {
     int[] nums;
     public ShuffleAnArray(int[] nums) {
         this.nums = nums;
@@ -20,13 +24,15 @@ public class ShuffleAnArray{
         if(nums.length == 0)
             return null;
         
-	//�}�u�@�����M
+    //將整個數組複製一遍
+    //(因為reset這個方法必須要返回原始順序的數組，故需要複製數組)
         int[] numsForShuffle = nums.clone();
 	
-	//�v���������M
+    //歷遍整個數組
         for(int i = 0; i < numsForShuffle.length; i ++) {
-	    //ÿ�غ϶��M�н��Q(�ڔ��M���S�C��һ�����M�н��Q)���@�Ӳ����_�����ȫ�S�C
-            int rndIndex = rnd.nextInt(numsForShuffle.length);
+        //產生一個隨機的index，這個index會與當前歷遍的數字進行交換，達到隨機洗牌的目的
+        //這個index的範圍就是整個數組的大小
+        	int rndIndex = rnd.nextInt(numsForShuffle.length);
             numsForShuffle = swap(numsForShuffle, rndIndex, i);
         }
         return numsForShuffle;
