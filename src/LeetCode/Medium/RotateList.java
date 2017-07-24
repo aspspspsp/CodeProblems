@@ -49,7 +49,7 @@ public class RotateList {
         //做出一個新的鏈表表頭，這個鏈表表頭指向目前節點的下一個
         ListNode newHead = node.next;
         
-        //將結點斷開
+        //將成環狀的鏈表結點斷開
         node.next = null;
         
         return newHead;
