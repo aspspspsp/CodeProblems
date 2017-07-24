@@ -17,6 +17,7 @@ public class WordSearch {
             }
         }
         
+        //都沒有找到，故返回false
         return false;
     }
     
