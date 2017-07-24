@@ -45,6 +45,7 @@ public class WordSearch {
         //回退上一步
         board[i][j] = temp;
         
+        //返回找到的結果
         return isFound;
     }
 }
