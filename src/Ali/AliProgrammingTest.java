@@ -22,7 +22,7 @@ public class AliProgrammingTest {
 	    	length[i] = 1;
 	 
 	    for (int i=0; i<a; i++)
-	        for (int j=i+1; j<5; j++)
+	        for (int j=i+1; j<a; j++)
 	            if (s[i] < s[j])
 	                length[j] = Math.max(length[j], length[i] + 1);
 	 
