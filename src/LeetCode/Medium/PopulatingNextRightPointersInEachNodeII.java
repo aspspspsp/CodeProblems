@@ -47,7 +47,7 @@ public class PopulatingNextRightPointersInEachNodeII {
             root.right.next = tem;
         }
         
-        //若當前節點有左子節點，則連接
+        //若當前節點有左子節點，則連接(左邊子節點要做的處理比較多)
         if(root.left != null) {
             if(root.right != null) {
                 root.left.next = root.right;
