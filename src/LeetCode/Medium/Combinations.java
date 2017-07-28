@@ -27,7 +27,7 @@ public class Combinations {
         //暫存結果
         List<Integer> temp = new ArrayList<>();
         
-        //進行深度搜索
+        //進行深度搜索，從1開始(m=1)
         dfs(result, temp, n, k, 1);
         
         return result;
@@ -36,7 +36,7 @@ public class Combinations {
     temp 暫存結果
     n 共多少個
     k n取k個
-    m 目前從m個開始
+    m 目前從第m個數字開始
     */
     void dfs(List<List<Integer>> result, List<Integer> temp, int n, int k, int m) {
         //結果可以了ex:[1,2]，加入結果
@@ -45,7 +45,7 @@ public class Combinations {
             return;
         }
         
-        //類似於排列，逐個數字拜訪
+        //開始於m，類似於排列，逐個數字拜訪
         for(int i = m; i <= n; i ++) {
             temp.add(i);
             dfs(result, temp, n, k - 1, i + 1);
