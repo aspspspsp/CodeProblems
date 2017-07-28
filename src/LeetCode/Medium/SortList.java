@@ -69,7 +69,7 @@ public class SortList {
             previous = previous.next;
         }
         
-        //避免漏掉最後一個
+        //避免右邊的鏈表斷鏈(連接剩餘的右邊鏈表)
         if(right != null) {
             previous.next = right;
         }
