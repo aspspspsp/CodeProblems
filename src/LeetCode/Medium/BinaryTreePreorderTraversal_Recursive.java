@@ -13,16 +13,16 @@ import LeetCode.Dependencies.TreeNode;
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
- * 左中右
+ * 中左右
  */
-public class BinaryTreeInorderTraversal_Recursive  {
-    public List<Integer> inorderTraversal(TreeNode root) {
+public class BinaryTreePreorderTraversal_Recursive {
+    public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if(root == null)
             return result;
         
         helper(root, result);
-        
+   
         return result;
     }
     
@@ -31,13 +31,15 @@ public class BinaryTreeInorderTraversal_Recursive  {
         if(root == null)
             return;
         
-        //進行左子樹的歷遍
-        helper(root.left, result);
-        
         //將此節點放入結果當中
         result.add(root.val);
         
+        //進行左子樹的歷遍
+        if(root.left != null)
+            helper(root.left, result);
+        
         //進行右子樹的歷遍
-        helper(root.right, result);
+        if(root.right != null)
+            helper(root.right, result);
     }
 }

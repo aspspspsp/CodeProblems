@@ -33,10 +33,24 @@ public class GenerateParentheses {
         //1.放左括號
         //2.放右括號
         if(left > 0) {
-            helper(left - 1, right + 1, result, tmp + "(");
+            //下一個狀態
+            tmp = tmp + "(";
+            
+            //進行歷遍
+            helper(left - 1, right + 1, result, tmp);
+            
+            //回覆目前狀態
+            tmp = tmp.substring(0, tmp.length() - 1);
         }
         if(right > 0) {
-            helper(left, right - 1, result, tmp + ")");
+            //下一個狀態
+            tmp = tmp + ")";
+            
+            //進行歷遍
+            helper(left, right - 1, result, tmp);
+            
+            //回覆目前狀態
+            tmp = tmp.substring(0, tmp.length() - 1);
         }
     }
 }

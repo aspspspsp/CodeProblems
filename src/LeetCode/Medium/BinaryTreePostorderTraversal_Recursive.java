@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import LeetCode.Dependencies.TreeNode;
-
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -15,8 +14,8 @@ import LeetCode.Dependencies.TreeNode;
  * }
  * 左中右
  */
-public class BinaryTreeInorderTraversal_Recursive  {
-    public List<Integer> inorderTraversal(TreeNode root) {
+public class BinaryTreePostorderTraversal_Recursive {
+    public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if(root == null)
             return result;
@@ -32,12 +31,14 @@ public class BinaryTreeInorderTraversal_Recursive  {
             return;
         
         //進行左子樹的歷遍
-        helper(root.left, result);
+        if(root.left != null)
+            helper(root.left, result);
+        
+        //進行右子樹的歷遍
+        if(root.right != null)
+            helper(root.right, result);
         
         //將此節點放入結果當中
         result.add(root.val);
-        
-        //進行右子樹的歷遍
-        helper(root.right, result);
     }
 }
