@@ -2,7 +2,23 @@ package LeetCode.Medium;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 
+ * @author ZiHan
+ * 從n取k，不重複
+ * 
+ * ex: n = 4, k = 2
+ * [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
+ * 有3個變量 n, k, m
+ * dfs1                dfs2
+ * ========================================================
+ * m = 1   temp = [1], m = 2   temp = [1,2]
+ *                     m = 3   temp = [1,2]
+ *                     m = 4   temp = [1,4]
+ * m = 2   temp = [2], m = 3   temp = [2,3]
+ *                     m = 4   temp = [2,4]
+ * m = 3   temp = [3], m = 4   temp = [3,4]
+ */
 public class Combinations {
     public List<List<Integer>> combine(int n, int k) {
         //結果
