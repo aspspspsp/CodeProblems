@@ -31,7 +31,7 @@ public class LetterCombinationsOfAPhoneNumber {
         int cur_digit = Integer.parseInt(String.valueOf(digits.charAt(cur_digit_index)));
         char[] words = combinations[cur_digit - 2].toCharArray();
         
-        //�M��dfs
+        //再往下進行dfs
         for(int i = 0; i < words.length; i ++) {
             sub_result.add(String.valueOf(words[i]));
             helpper(digits, cur_digit_index + 1, sub_result, result);

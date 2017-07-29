@@ -28,18 +28,18 @@ public class LowestCommonAncestorOfABinaryTree {
 
     */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        // 如果当前节点(root)为空，返回null
+        // 如果当前节点(root)为空，返回null(到達葉子節點的下面或是沒有節點訪問時)
         if(root == null)
             return null;
         
         // 如果当前节点(root)與目标节点之一相同，则返回当前节
-        //(找到p與q則返回自己)
+        //(在找到p或q的時候，則返回自己)
         if(root == p || root == q)
             return root;
     
         // Divide
-        TreeNode left = lowestCommonAncestor(root.left, p, q); //�����Ә�
-        TreeNode right = lowestCommonAncestor(root.right, p, q); //�����Ә�
+        TreeNode left = lowestCommonAncestor(root.left, p, q); //拜訪左子樹
+        TreeNode right = lowestCommonAncestor(root.right, p, q); //拜訪右子樹
         
         // Conquer
         //左右子樹都非null表示此節點為lca(從左右子樹都找到p與q的時候)
