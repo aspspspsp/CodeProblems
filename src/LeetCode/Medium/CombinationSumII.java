@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CombinationSumII {
+	/*
+	 * 因為這題的數組是無序的，故需要先排序才能進行dfs(避免答案重複) 
+	 */
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
         if(candidates == null || candidates.length == 0)
