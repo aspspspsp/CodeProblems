@@ -49,13 +49,14 @@ public class ThreeSum {
                         while(j < k && nums[j] == nums[j - 1]) {
                             j ++;
                         }
-                        //����kָ��Ƶ����}Ԫ��
+                        //避免指針移到重複元素
                         while(j < k && nums[k] == nums[k + 1]) {
                             k --;
                         }
-                        
+                    //移動右指針k
                     } else if(nums[i] + nums[j] + nums[k] > 0) {
                         k --;
+                    //移動右指針j
                     } else if(nums[i] + nums[j] + nums[k] < 0) {
                         j ++;
                     }
