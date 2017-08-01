@@ -34,6 +34,11 @@ public class ThreeSum {
                 int j = i + 1;
                 int k = nums.length - 1;
                 
+                //進行左右指針夾逼的動作
+                /*     i j     k
+                 * ex: 1 2 3 4 5
+                 *  => i   j k
+                 */
                 while(j < k) {
                     if(nums[i] + nums[j] + nums[k] == 0) {
                         List<Integer> sub_result = new ArrayList<Integer>();
@@ -45,11 +50,11 @@ public class ThreeSum {
                         j ++;
                         k --;
                         
-                        //避免指針移到重複元素
+                        //避免指針移到重複元素，並確保j < k避免指針錯誤
                         while(j < k && nums[j] == nums[j - 1]) {
                             j ++;
                         }
-                        //避免指針移到重複元素
+                        //避免指針移到重複元素，並確保j < k避免指針錯誤
                         while(j < k && nums[k] == nums[k + 1]) {
                             k --;
                         }
