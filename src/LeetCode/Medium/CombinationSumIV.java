@@ -15,7 +15,7 @@ public class CombinationSumIV {
         
         results[0] = 1;
 
-        for(int i = 0; i <= target; i++){
+        for(int i = 0; i <= target; i ++){
             for(int j = 0; j < nums.length; j ++) {
                 int num = nums[j];
                 if(i + num <= target) {
