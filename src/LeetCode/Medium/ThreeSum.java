@@ -47,6 +47,7 @@ public class ThreeSum {
                         sub_result.add(nums[k]);
                         result.add(sub_result);
                         
+                        //做完之後一定要移動指針(表示做過了)
                         j ++;
                         k --;
                         
