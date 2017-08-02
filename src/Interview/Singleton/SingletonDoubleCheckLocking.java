@@ -6,7 +6,7 @@ public class SingletonDoubleCheckLocking {
 		
 	}
 	
-	private static SingletonDoubleCheckLocking getInstance() {
+	public static SingletonDoubleCheckLocking getInstance() {
 		if(instance == null)
 			if(instance == null)
 				synchronized (SingletonDoubleCheckLocking.class) {
