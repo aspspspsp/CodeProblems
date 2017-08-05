@@ -1,36 +1,44 @@
 package LeetCode.Easy;
-/*
- * ˼·���������͵Ķ�̬�滮�����������������е����ƣ�
- * ansTable[i] ��ʾnum[0...i]֮������Ž⣬��ôDP���̿���д��
- * ansTable[i] = Max(global[i-2] +  num[i], global[i-1])
- * ,�ֱ��Ӧ��ȡnum[i]����ʱ����ȡnum[i-1]���Ͳ�ȡnum[i]������
- * �⣬Ȼ��ȡmax���ɡ���һ��һάDP��ʱ��Ϳռ临�Ӷȶ���O��n����
- */
+
 public class HouseRobber {
+    /*
+    這題可以用動態規劃來解題，遞歸式如下：
+    results[0] = nums[0]
+    results[0] = max(nums[0], nums[1])
+    results[i] = max(results[i - 1], results[i - 2] + nums[i])    if  i >= 2
+                       往前第一個        往前第二個  +  目前
+
+    例如：
+    step      0 1 2 3 4
+    ====================
+    nums    = 1 2 3 4 5
+    results = 1 2 4 6 9
+    
+    */
     public int rob(int[] nums) {
-        int n = nums.length; //���ݿ���
-        
-        if(n == 0)
+        if(nums == null || nums.length == 0) {
             return 0;
+        }
+        
+        int n = nums.length;
         
         if(n == 1)
             return nums[0];
-            
-        int [] ansTable = new int[n];
         
-        ansTable[0] = nums[0];
+        //存儲結果
+        int[] results = new int[n + 1];
         
-        ansTable[1] = Math.max(nums[0], nums[1]);
+        //定義初始狀態
+        results[0] = nums[0];
+        results[1] = Math.max(nums[0], nums[1]);
         
-        
-        //�ĵ������_ʼ����(������|߅��)
         for(int i = 2; i < n; i ++) {
-            //��ǰ�� = max(��ǰ2���� + ��ǰ���݃rֵ, ��ǰ1����)       
-            ansTable[i] = Math.max(ansTable[i - 2] + nums[i], ansTable[i - 1]);
-            //                     ͵ǰ2�� + ��ǰ�@��, ͵ǰ1�� + ��͵��ǰ
+            int rob_house_1 = results[i - 2] + nums[i]; //搶前面第二個+目前這個
+            int rob_house_2 = results[i - 1]; //搶前面一個
+
+            results[i] = Math.max(rob_house_1, rob_house_2); //比較兩者誰較大
         }
         
-        return ansTable[n - 1];
+        return results[n - 1];
     }
-
 }

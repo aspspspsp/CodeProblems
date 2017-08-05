@@ -35,7 +35,7 @@ public class Permutations {
             return;
         }
         
-        
+        //每次進行下一步時，都要從數組的第一個元素拜訪(因為排列位置都不一樣)
         for(int i = 0; i < nums.length; i ++) {
             //若當前組合包含此數字則略過
             if(path.contains(nums[i])) {

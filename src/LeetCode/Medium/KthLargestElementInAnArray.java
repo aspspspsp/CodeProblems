@@ -5,9 +5,11 @@ import java.util.Queue;
 
 public class KthLargestElementInAnArray {
     /*
-      利用PriorityQueue(優先隊列)來實現在數組中找到第k大的元素
-   在优先队列中，元素被赋予优先级，通常是由小到大。当访问元素时，具有最高优先级的元素最先删除。
-   优先队列具有最高级先出 （first in, largest out）的行为特征。
+ 本題是利用PriorityQueue(優先隊列)來實現在數組中找到第k大的元素
+在優先隊列這種數據結構中，每一個元素都會被賦予一個優先級，通常是
+由小到大(依照元素內容排序)。當訪元素時，具有最高優先級的元素將會
+最先删除。優先隊列具有最高級別(最大元素)先出 
+（first in, largest out）的行為特徵。
    
     下面就是本代碼運行的過程:
     Ex: 8 5 6 7 2 3 4, k = 4
