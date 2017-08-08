@@ -21,11 +21,13 @@ public class LongestIncreasingPathInAMatrix {
     }
     
     int helper(int i, int j, int[][] matrix, int[][] memo) {
-        if(memo[i][j] > 0) //走過了
+        if(memo[i][j] > 0) //走過了(因為該格已經有答案，可以直接套用，也在走到起點這一格時，直接使用起點這一格的答案)
             return memo[i][j];
         
+        //走訪方向
         int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
         
+        //依序對4個方向進行走訪
         for(int[] dir : dirs) {
             int x = i + dir[0];
             int y = j + dir[1];
