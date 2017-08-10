@@ -16,6 +16,12 @@ import LeetCode.Dependencies.TreeNode;
  */
 public class BinaryTreePreorderTraversal {
 	/*
+	 * 1.將首節點加入stack中
+	 * =====(直到stack為空)========
+	 * 2.將stack排出一個，並指定為root
+	 * 3.將root的值加入結果
+	 * 4.將root.right放入stack(有左比右先拜訪的效果)
+	 * 5.將root.left放入stack
 	ex:
 	   1          stack     result
 	  / \   =========================
@@ -56,7 +62,6 @@ public class BinaryTreePreorderTraversal {
             if(root.left != null) {
                 stack.push(root.left);
             }
-            
         }
         
         //返回答案
