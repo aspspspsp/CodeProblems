@@ -1,7 +1,7 @@
-package Interview.Singleton;
+package Interview.Singleton.LazyInitialization;
 
 public class SingletonDoubleCheckLocking {
-	private static SingletonDoubleCheckLocking instance = null;
+	private static volatile SingletonDoubleCheckLocking instance = null;
 	private SingletonDoubleCheckLocking() {
 		
 	}

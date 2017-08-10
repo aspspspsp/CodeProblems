@@ -13,45 +13,53 @@ import LeetCode.Dependencies.TreeNode;
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
- * The key is using a stack to store left and right children, and push right child first so that it is processed after the left child.
- * �@�}������ǰ���vһ�wtree
  */
 public class BinaryTreePreorderTraversal {
+	/*
+	ex:
+	   1          stack     result
+	  / \   =========================
+	 2   3  step0  1         null
+	/ \     step1  3,2       1
+   4   5    step2  3,5,4     1,2
+            step3  3,5       1,2,4
+            step4  3         1,2,4,5
+            step5  null      1,2,4,5,3
+	*/
     public List<Integer> preorderTraversal(TreeNode root) {
+        //用來存儲結果
+        List<Integer> result = new ArrayList<Integer>();
         
-        //�Y��list
-        List<Integer> ans = new ArrayList<Integer>();
-        
-        //��root��null��ʾһ�_ʼ���
+        //對於root == null的情況
         if(root == null)
-            return ans;
+            return result;
         
-        //����һ��stack��ŕ���Y��(��)
+        //利用stack來進行樹的歷遍
         Stack<TreeNode> stack = new Stack<TreeNode>();
         
-        //��root����stack��ʾroot���L��
+        //一定要將第一個節點放入stack中
         stack.push(root);
         
         while(stack.empty() == false) {
-            //��Ŀǰ���v�Ĺ��c�ų�
-            TreeNode node = stack.pop();
+            //先推出stack最後一個加入的TreeNode
+            root = stack.pop();
             
-            //��Ŀǰ���v�Ĺ��c����Y��lost��(��)
-            ans.add(node.val);
+            //加入結果當中
+            result.add(root.val);
             
-            //���ҹ��c����stack(�ҹ��c���L��)
-            if(node.right != null) {
-                stack.push(node.right);
+            //將右節點放入stack中(因為先進後出，故右邊會比左邊慢被排出來)
+            if(root.right != null) {
+                stack.push(root.right);
             }
             
-            //���ҹ��c����stack(���c���L��)
-            if(node.left != null) {
-                stack.push(node.left);
+            //將左節點放入stack中(因為先進後出，故左邊會比右邊快被排出來)
+            if(root.left != null) {
+                stack.push(root.left);
             }
             
         }
         
-        //���ش�
-        return ans;
+        //返回答案
+        return result;
     }
 }
