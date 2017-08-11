@@ -13,6 +13,7 @@ import LeetCode.Dependencies.TreeNode;
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
+ * 中左右(迭代版)
  */
 public class BinaryTreePreorderTraversal {
 	/*
@@ -22,6 +23,8 @@ public class BinaryTreePreorderTraversal {
 	 * 3.將root的值加入結果
 	 * 4.將root.right放入stack(有左比右先拜訪的效果)
 	 * 5.將root.left放入stack
+	 * =====(stack為空後)==========
+	 * 6.輸出結果
 	ex:
 	   1          stack     result
 	  / \   =========================
