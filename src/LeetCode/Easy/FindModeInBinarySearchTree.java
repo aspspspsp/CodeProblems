@@ -7,7 +7,7 @@ import java.util.Map;
 
 import LeetCode.Dependencies.TreeNode;
 
-public /**
+/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
