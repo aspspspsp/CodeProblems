@@ -12,9 +12,11 @@ public class ReshapeTheMatrix {
         int m = nums.length;
         int n = nums[0].length;
         
+        //兩個矩陣形狀無法進行轉換
         if(r * c != m * n)
             return nums;
         
+        //若兩個矩陣長寬都一樣就不用變形了
         if(r == m && c == n)
             return nums;
         
@@ -39,7 +41,6 @@ public class ReshapeTheMatrix {
                 cnt ++;
             }
         }
-        
         
         return ans;
     }
