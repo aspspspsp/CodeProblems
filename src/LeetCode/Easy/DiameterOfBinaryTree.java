@@ -27,7 +27,8 @@ public class DiameterOfBinaryTree {
         int right = helper(root.right);
         
         //left + right 為左右路徑相加(最常路徑)
-        global_max_path = Math.max(global_max_path, left + right);
+        int cur_max_path = left + right;
+        global_max_path = Math.max(global_max_path, cur_max_path);
         
         //取得當前最大深度
         int cur_max_depth = Math.max(left, right) + 1;
