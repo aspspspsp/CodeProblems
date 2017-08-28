@@ -20,7 +20,6 @@ public class ContinuousSubarraySum {
                 //子序列為加總為k或是為k的倍數，則為true
                 if(sub_sum == k || sub_sum % k == 0)
                     return true;
- 
             }
         }
         
