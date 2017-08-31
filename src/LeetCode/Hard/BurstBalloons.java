@@ -24,8 +24,7 @@ public class BurstBalloons {
                 int right = left + i;
                 for(int k = left + 1; k < right; k ++) {
                     /*
-                    dp公式 = 找到left到right區間最大硬幣數
-                    又可以分割從left到k與k到right兩個子問題
+                    dp公式 = 找到left到right區間最大硬幣數，在這其中又可以分割從left到k與k到right兩個子問題
                     */
                     result[left][right] = Math.max(result[left][right],
                                     nums_[left] * nums_[k] * nums_[right] + result[left][k] + result[k][right]);
