@@ -22,6 +22,7 @@ public class BurstBalloons {
         for(int i = 1; i < length; i ++) { //左邊界
             for(int left = 0; left < length - i; left ++) { //右邊界
                 int right = left + i;
+                //left -> k -> right
                 for(int k = left + 1; k < right; k ++) {
                     /*
                     dp公式 = 找到left到right區間最大硬幣數，在這其中又可以分割從left到k與k到right兩個子問題
