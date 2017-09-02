@@ -13,7 +13,7 @@ import LeetCode.Dependencies.TreeNode;
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
- * 中左右
+ * 中左右(遞歸版)
  */
 public class BinaryTreePreorderTraversal_Recursive {
     public List<Integer> preorderTraversal(TreeNode root) {

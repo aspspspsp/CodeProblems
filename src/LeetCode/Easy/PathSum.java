@@ -10,26 +10,34 @@ import LeetCode.Dependencies.TreeNode;
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
- * ���}������Cĳһ��������Ƿ���һ�l·���ļӿ��Ϻ�Ҫ��
+ * 給定一棵樹，還有目標數，若其中有一條路徑符合目標數，則返回true，若都沒有
+ * 則返回false
  */
 public class PathSum {
     public boolean hasPathSum(TreeNode root, int sum) {
-        return pathSum(root, 0, sum);
+        if(root == null) {
+            return false;
+        }
+        return helper(root, sum);
     }
     
-    boolean pathSum(TreeNode root, int curSum, int sum) {
-        //��ʾ�˹��c��oЧ���c���ӿ�����^��������sum
-        if(root == null)
+    boolean helper(TreeNode root, int sum) {
+        boolean hasPath = false;
+        //若已經到子節點下方，表示此路徑無法再繼續下去了，則返回false
+        if(root == null) {
             return false;
-        
-        curSum = curSum + root.val;
-        //�������~���c���t�z��sum�Ƿ���A���ֵ
-        if(root.left == null && root.right == null) {
-            return curSum == sum;
-        } else {
-            //�����������c�t�^�m��ԓ���c�����ҹ��c�M�а��L
-            //�������Ә�ļӿ�����һ���Ϻ�Ҫ�󣬴��������Ә���ǺϷ��ģ�����OR
-            return pathSum(root.left, curSum, sum) || pathSum(root.right, curSum, sum);
         }
+        
+        sum = sum - root.val;
+        //若到子節點，sum為0，表示此條路徑加總符合sum，則返回ture
+        if(sum == 0 && root.left == null && root.right == null) {
+            return true;
+        }
+        
+        //歷遍左右子樹
+        hasPath = hasPath || helper(root.left, sum);
+        hasPath = hasPath || helper(root.right, sum);
+        
+        return hasPath;
     }
 }

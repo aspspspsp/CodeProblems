@@ -15,7 +15,7 @@ public class AdditiveNumber {
         1(��0~i), 2(��i+1~j) .....(����)
         */
         for(int i = 1; i < num.length(); i ++) {
-            //���˔���0�_�^�s���0�Ĕ� ex:010���t���^
+            // 避免出現0為首的數字 例如:010
             if(num.charAt(0) == '0' && i > 1)
                 continue;
             
@@ -31,14 +31,14 @@ public class AdditiveNumber {
         return false;
     }
     
-    // �жϴ� [i, j) �� [j, k) ����,�ܷ��ߵ���ͷ
+	// 判斷從[i,j)和[j,k)出發，能否走到盡頭
     boolean dfs(String num, int i, int j, int k) {
-        //[i, j)
+        // [i, j)
         long num1 = Long.parseLong(num.substring(i, j));
-        //[j, k)
+        // [j, k)
         long num2 = Long.parseLong(num.substring(j, k));
         
-        //����ӷ���ĽY�����K���ִ���ʽ�ʬF
+        // 兩數進行相加
         String addition = String.valueOf(num1 + num2);
         
         //num.substring(k)�@ʾ��k�_ʼ���Yβ������

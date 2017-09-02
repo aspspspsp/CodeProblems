@@ -1,97 +1,80 @@
 package LeetCode.Medium;
-/*
-先修课问题本质上是一个有向图
-如果这个图无环:我们可以根据拓扑排序遍历到所有节点
-如果这个图有环:则拓扑排序无法完成，遍历到的节点将少于总节点数，因为有的节点是孤岛。
-
-步驟:
-1.先根据边的关系，建一个图，并计算每个节点的入度，这里用的是数组来建图。
-2.从入度为0的节点，也就是入口开始广度优先搜索，按照拓扑排序的顺序遍历
-3.看遍历过的节点数和总节点数的关系就行了。
-*/
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CourseSchedule {
-	//欲修課程(prerequisites[i][0])
-    //欲修課程的先修課程(prerequisites[i][1])
+/*
+這題可以用鄰接表來建立所有課程的修課圖。鄰接表為下面結構:
+課程1:預修課程0,預修課程1,預修課程2...
+課程2:預修課程3,預修課程4,預修課程5...
+然後歷遍這個圖，若歷遍到重複的點則為無法修得所有課程(不能有環)。
+下面我們則會簡介我們的解題過程:
+歷遍給定的課程及預修課程對，建立鄰接表
+拜訪課程圖中的所有課程，對該課程的預修課程進行dfs，若該點已經拜訪過則返回false
+若完整拜訪所有點並不重複時，說明這些課程都是可以完整修得，則返回true
+*/
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-    	//圖
-        ArrayList[] graph = new ArrayList[numCourses];
-        //入度指有向图中某点作为图中边的终点的次数之和。
-        //(將某點作為終點的次數之和)
-        //入度數組
-        int[] inDegrees = new int[numCourses];
-        
-        //先初始化圖，每個賦予空列表
-        for(int i = 0; i < numCourses; i ++) {
-            graph[i] = new ArrayList<Integer>();
-        }
-        
-        //根據邊建立圖，並計算每個欲修課程的入度
-        for(int i = 0; i < prerequisites.length; i ++) {
-            //將欲修課程的先修課程與欲修課程連接起來
-            //[0,1]要上0必須先上1，故1->0
-            graph[prerequisites[i][1]].add(prerequisites[i][0]);
+        //用來儲存存放課程的圖
+    	Map<Integer, List<Integer>> courseGraph = new HashMap<>();
+    	
+    	//歷遍所有課程的邊，並建立圖
+        for(int[] edge : prerequisites) {
+            int index = edge[0]; //課程編號
+            int pre = edge[1]; //要修習該課程必須要先修的課程
             
-            //計算每個欲修課程的入度
-            //因為:1->0，故
-            //0入度: 1(作為終點)
-            //1入度: 0
-            inDegrees[prerequisites[i][0]] ++;
-        }
-        
-      //找到有向圖的入口(會有很多入口)，而圖中的每個點對(pair)不一定相連
-        Queue<Integer> entrances = new LinkedList<Integer>();
-        for(int i = 0; i < inDegrees.length; i ++) {
-        	//入度为0指有向图中的点不作为任何边的终点，
-            //也就是说，这一点所连接的边都把这一点作为起点。
-            if(inDegrees[i] == 0) {
-                entrances.add(i);
+            //若圖中不包含該課程，則建立一個
+            if(courseGraph.containsKey(index) == false) {
+                List<Integer> edges = new ArrayList<>();
+                //添加該課程的邊
+                edges.add(pre);
+                courseGraph.put(index, edges);
+            
+            //若圖中有包含該課程，則將該預修課程添加至該課程的邊
+            } else {
+                List<Integer> edges = courseGraph.get(index);
+                edges.add(pre);
+                courseGraph.put(index, edges);
             }
         }
         
-        //拓樸排序方法:
-        /*
-        1.从 DAG 图中选择一个 没有前驱（即入度为0）的顶点并输出。
-        2.从图中删除该顶点和所有以它为起点的有向边。
-        3.重复 1. 和 2. 直到当前的 DAG 图为空或当前图中不存在无前驱的顶点为止。
-        后一种情况说明有向图中必然存在环。
-        
-        * 根据上面讲的方法，我们关键是要维护一个入度为0的顶点的集合。
-        */
-        
-        //按照拓扑排序的顺序，进行广度优先搜索
-        int counter = 0;
-        while(entrances.isEmpty() == false) {
-            //从 DAG 图中选择一个 没有前驱（即入度为0）的顶点
-            Integer cur = entrances.poll();
-            counter ++;
+        //對所有課程進行dfs
+        for(int i = 0; i < courseGraph.size(); i ++) {
+        	//紀錄圖的拜訪情況，true已拜訪，false未拜訪
+            boolean[] visited = new boolean[numCourses];
             
-            //从图中删除该顶点和所有以它为起点的有向边。
-            ArrayList<Integer> nexts = graph[cur];
-            for(int i = 0; i < nexts.size(); i ++) {
-                // 将所有cur指向的所有顶点的入度减1
-                int next = nexts.get(i);
-                inDegrees[next] --;
-                
-                // 并将入度减为0的顶点入栈
-                //(因為要確保圖中不存在无前驱的顶点，故將該點入棧進行下一次的歷遍)
-                if(inDegrees[next] == 0) {
-                    entrances.offer(next);
-                }
-            }
+            //若出現有重複拜訪的課程(有環)，則返回false
+            if(dfs(courseGraph, i, visited) == false)
+                return false;
         }
         
-        // 没有输出全部顶点，有向图中有回路
-        if(numCourses > counter) {
+        //若歷遍完整個課程圖，則返回true
+        return true;
+    }
+    
+    boolean dfs(Map<Integer, List<Integer>> courseGraph, int course, boolean[] visited) {
+        //若已經拜訪過了，表示拜訪的重複的點(有環)
+    	if(visited[course] == true)
             return false;
-            
-        // 拓扑排序成功
-        } else {
-            return true;
+        
+        //標記為已拜訪
+        visited[course] = true;
+        
+        //歷遍該課程所有的邊，然後再進行dfs
+        if(courseGraph.containsKey(course) == true) {
+            List<Integer> edges = courseGraph.get(course);
+            for(int i = 0; i < edges.size(); i ++) {
+               if(dfs(courseGraph, edges.get(i), visited) == false)
+                   return false;
+            }
         }
+        
+        //dfs都要將狀態回復
+        visited[course] = false;
+        
+        //若都拜訪完都不出現重複，則返回true
+        return true;
     }
 }
