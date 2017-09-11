@@ -3,11 +3,11 @@ package LeetCode.Medium;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImplementTire_PrefieTree {
+public class AddAndSearchWord_DataStructureDesign {
     //定義Trie節點的數據結構
     class TrieNode {
         private char val;
-        private List<TrieNode> children;
+        public List<TrieNode> children;
         private boolean isFianl;
         
         //建構子
@@ -72,13 +72,13 @@ public class ImplementTire_PrefieTree {
     
     /** Initialize your data structure here. */
     private TrieNode root;
-    public ImplementTire_PrefieTree() {
+    public AddAndSearchWord_DataStructureDesign() {
         //新增一個Tries樹
         root = new TrieNode('.');
     }
     
-    /** Inserts a word into the trie. */
-    public void insert(String word) {
+    /** Adds a word into the data structure. */
+    public void addWord(String word) {
         char[] w_c = word.toCharArray();
         
         //把指針指到root節點
@@ -102,54 +102,64 @@ public class ImplementTire_PrefieTree {
         cur.addChild(new TrieNode());
     }
     
-    /** Returns if the word is in the trie. */
+    /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
     public boolean search(String word) {
-        TrieNode cur = root;
+        char[] c_array = word.toCharArray();
         
-        char[] w_c = word.toCharArray();
+        boolean isFinded = isFind(c_array, 0, root);
         
-        //對這個字符串進行歷遍(逐字符)
-        for(char c : w_c) {
-            //若這個節點的子節點含有當前字符則將指針移到子節點
-            if(cur.hasChild(c) == true) 
-                cur = cur.getChild(c);
-            //否則返回false(表示沒有這個字)
-            else
-                return false;
-        }
-        
-        //若最後的節點是字符末，表示這個字是含在Tries樹當中，返回true
-        if(cur.isFinalChar() == true)
-            return true;
-        
-        //否則，返回false(只有當前字符的前綴)
-        return false;
+        return isFinded;
     }
     
-    /** Returns if there is any word in the trie that starts with the given prefix. */
-    public boolean startsWith(String prefix) {
-        TrieNode cur = root;
-
-        char[] w_c = prefix.toCharArray();
-
-        for(char c : w_c) {
-            //若這個節點的子節點含有當前字符則將指針移到子節點
-            if(cur.hasChild(c) == true) 
-                cur = cur.getChild(c);
-            //否則返回false(表示沒有這個字)
-            else
-                return false;
+    /**
+    * c_list: 字符串的所有字元
+    * pos: 當前拜訪的字符位置
+    * cur: 當前拜訪的tries樹的節點
+    */
+    //利用dfs拜訪tries樹
+    boolean isFind(char[] c_array, int pos, TrieNode cur) {
+        //若整個字串拜訪完，則檢查這個節點是否有最末節點的子節點
+        if(c_array.length == pos) {
+            if(cur.getIsFinal() == false && cur.isFinalChar() == true)
+                return true;
+            
+            return false;
         }
         
-        //若最後的節點是字符末，表示這個字的前綴是含在Tries樹當中，返回true
-        return true;
+        //若此節點為最末節點則返回false(後面不會有節點了)
+        if(cur.getIsFinal() == true)
+            return false;
+        
+        //標示是否已經找到該字元
+        boolean isFind = false;
+        
+        //表示當前拜訪字元
+        char cur_c = c_array[pos];
+        
+        //若當前字符為'.'，表示為任意字元，故要將所有子節點都拜訪一遍
+        if(cur_c == '.') {
+            for(TrieNode child : cur.children) {
+                if(cur.getIsFinal() == true)
+                    continue;
+                
+                isFind |= isFind(c_array, pos + 1, child);
+            }
+        //否則只拜訪含有該字元的子節點
+        } else {
+            if(cur.hasChild(cur_c) == true) {
+                isFind |= isFind(c_array, pos + 1, cur.getChild(cur_c));
+            } else {
+                return false;
+            }
+        }
+        
+        return isFind;
     }
 }
 
 /**
- * Your Trie object will be instantiated and called as such:
- * Trie obj = new Trie();
- * obj.insert(word);
+ * Your WordDictionary object will be instantiated and called as such:
+ * WordDictionary obj = new WordDictionary();
+ * obj.addWord(word);
  * boolean param_2 = obj.search(word);
- * boolean param_3 = obj.startsWith(prefix);
  */
