@@ -3,7 +3,7 @@ package LeetCode.Medium;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImplementTire_PrefieTree {
+public class ImplementTire_PrefixTree {
     //定義Trie節點的數據結構
     class TrieNode {
         private char val;
