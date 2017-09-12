@@ -72,7 +72,7 @@ public class ImplementTire_PrefixTree {
     
     /** Initialize your data structure here. */
     private TrieNode root;
-    public ImplementTire_PrefieTree() {
+    public ImplementTire_PrefixTree() {
         //新增一個Tries樹
         root = new TrieNode('.');
     }
