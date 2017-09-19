@@ -48,6 +48,7 @@ public class DataStreamAsDisjointIntervals {
             Interval newInterval = new Interval(val, higherInterval.end);
             tree.put(val, newInterval);
             tree.remove(higherKey);
+        //離區間太遠，則新增一個區間
         } else {
             Interval newInterval = new Interval(val, val);
             tree.put(val, newInterval);
