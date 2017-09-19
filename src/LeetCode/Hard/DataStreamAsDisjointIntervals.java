@@ -39,7 +39,7 @@ public class DataStreamAsDisjointIntervals {
         if(lowerKey != null)
             lowerInterval = tree.get(lowerKey);
         
-        if(lowerKey != null & higherKey != null && lowerInterval.end + 1 == val && higherKey == val + 1) {
+        if(lowerKey != null && higherKey != null && lowerInterval.end + 1 == val && higherKey == val + 1) {
             lowerInterval.end = higherInterval.end;
             tree.remove(higherKey);
         } else if(lowerKey != null && lowerInterval.end + 1 >= val) {
