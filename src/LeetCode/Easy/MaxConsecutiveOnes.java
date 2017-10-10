@@ -23,6 +23,4 @@ public class MaxConsecutiveOnes {
         
         return max;
     }
-}fdsfdsf {
-
 }
