@@ -1,4 +1,6 @@
-class Solution {
+package src.LeetCode.Medium;
+
+public class DiagonalTraverse {
     /*
  我们可以跟随例子中的路线来遍历矩阵，路线无非就是从左下到右上，到顶后又从右上到坐下，一直到最右下角一个点。
 
