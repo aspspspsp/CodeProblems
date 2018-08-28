@@ -1,4 +1,8 @@
-class ZigZagConversion {
+package LeetCode.Medium;
+
+import java.util.HashMap;
+
+public class ZigZagConversion {
     /*
     K = 3
     A   E   I

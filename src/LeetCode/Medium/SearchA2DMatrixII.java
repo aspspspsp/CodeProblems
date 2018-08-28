@@ -34,7 +34,7 @@ public class SearchA2DMatrixII {
                 index_row ++;
         }
         
-        //�����Y������o�Y��
+        //若都找不到目標數，則返回false
         return false;
     }
 }
