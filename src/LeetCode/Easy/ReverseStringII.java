@@ -1,4 +1,8 @@
-class Solution {
+package LeetCode.Easy;
+
+import java.util.HashMap;
+
+public class ReverseStringII {
     public String reverseStr(String s, int k) {
         /*
          k(需要翻轉)    + 2k(不需翻轉)   + 3k(需要翻轉)   + 4k(不需翻轉)

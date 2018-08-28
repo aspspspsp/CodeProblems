@@ -1,4 +1,11 @@
-class SlidingWindowMaximum {
+package LeetCode.Hard;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class SlidingWindowMaximum {
     public int[] maxSlidingWindow(int[] nums, int k) {
         // this section is handle edge cases
         if(nums == null || nums.length == 0 || k == 0) {

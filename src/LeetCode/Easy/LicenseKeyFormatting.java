@@ -1,4 +1,5 @@
-class Solution {
+package LeetCode.Easy;
+public class LicenseKeyFormatting {
     public String licenseKeyFormatting(String S, int K) {
         
         char[] cs = S.toCharArray();

@@ -14,9 +14,11 @@ public class FindAllNumbersDisappearedInAnArray {
             hash[nums[i]] ++;
         }
         
-        //�����F�Δ���0�ķ���𰸮���(��1�_ʼ)
+        //result是記錄答案
         List<Integer> result = new ArrayList<Integer>();
         for(int i = 1; i <= length; i ++) {
+
+            //若hash[i]為0，表示該數字沒有出現
             if(hash[i] == 0)
                 result.add(i);
         }
