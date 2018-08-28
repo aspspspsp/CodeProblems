@@ -1,4 +1,4 @@
-class Solution {
+class IsSubsequence {
     public boolean isSubsequence(String s, String t) {
         if(s == null || s.equals(""))
             return true;
