@@ -1,4 +1,9 @@
-class Solution {
+package LeetCode.Medium;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FindAllDuplicatesInAnArray {
     public List<Integer> findDuplicates(int[] nums) {
         List<Integer> result = new ArrayList<>();
 
