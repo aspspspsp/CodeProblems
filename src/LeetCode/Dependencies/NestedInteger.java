@@ -1,6 +1,7 @@
 package LeetCode.Dependencies;
 
 import java.util.List;
+import LeetCode.Dependencies.INestedInteger;
 
 public class NestedInteger implements INestedInteger {
     public NestedInteger() {}

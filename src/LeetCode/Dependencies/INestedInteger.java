@@ -1,6 +1,7 @@
 package LeetCode.Dependencies;
 
 import java.util.List;
+import LeetCode.Dependencies.NestedInteger;
 
 public interface INestedInteger {
     // @return true if this NestedInteger holds a single integer, rather than a nested list.
