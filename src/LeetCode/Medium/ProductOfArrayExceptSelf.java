@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 /*
  * 數字數組有[1,2,3,4],他們的乘積組合可以構造為[24,12,8,6].
  * �����ó���߀Ҫ��O(n)�ķ���

@@ -1,6 +1,6 @@
 package src.LeetCode.Medium;
 
-import LeetCode.Dependencies.TreeNode;
+import src.LeetCode.Dependencies.TreeNode;
 
 /**
  * Definition for a binary tree node.

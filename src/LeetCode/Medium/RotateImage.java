@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 public class RotateImage {
     //先按对角线反转，再按水平中轴线反转。

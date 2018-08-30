@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 /*
 1. System.out.println(sqrt(90));
 star    end

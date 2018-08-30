@@ -2,7 +2,7 @@ package src.LeetCode.Medium;
 
 import java.util.ArrayList;
 import java.util.List;
-import LeetCode.Dependencies.TreeNode;
+import src.LeetCode.Dependencies.TreeNode;
 /**
  * 利用中序歷遍即可得到第k小的元素，經過k次歷遍過程，返回答案即可
  */

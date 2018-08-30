@@ -1,6 +1,6 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
-import LeetCode.Dependencies.ListNode;
+import src.LeetCode.Dependencies.ListNode;
 
 public class OddEvenLinkedList {
     public ListNode oddEvenList(ListNode head) {

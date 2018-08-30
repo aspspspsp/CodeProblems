@@ -2,7 +2,7 @@ package src.LeetCode.Medium;
 
 public class IntegerToRoman {
     /*
-    �f�w����
+    直接利用減法來做，由大(1000)減到小(1)
     */
     public String intToRoman(int num) {
         if(num >= 1000) return "M" + intToRoman(num - 1000);
