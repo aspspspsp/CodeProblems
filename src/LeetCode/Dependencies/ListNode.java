@@ -1,4 +1,4 @@
-package LeetCode.Dependencies;
+package src.LeetCode.Dependencies;
 
 public class ListNode {
 	public int val; //��ǰλ��

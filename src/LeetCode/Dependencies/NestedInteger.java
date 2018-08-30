@@ -1,7 +1,7 @@
-package LeetCode.Dependencies;
+package src.LeetCode.Dependencies;
 
 import java.util.List;
-import LeetCode.Dependencies.INestedInteger;
+import src.LeetCode.Dependencies.INestedInteger;
 
 public class NestedInteger implements INestedInteger {
     public NestedInteger() {}

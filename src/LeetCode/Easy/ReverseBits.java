@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 public class ReverseBits {
     // you need treat n as an unsigned value

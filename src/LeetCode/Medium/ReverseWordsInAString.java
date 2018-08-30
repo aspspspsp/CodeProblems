@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 public class ReverseWordsInAString {
     public String reverseWords(String s) {
         String [] splits = s.split(" ");

@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 public class CoinChange {
     /*
 我們可以利用動態規劃來解這一道題，d[i]代表用金額i最少用多少硬幣所組成，動態規劃公式如下:

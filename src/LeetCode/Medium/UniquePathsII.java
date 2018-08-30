@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 public class UniquePathsII {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {

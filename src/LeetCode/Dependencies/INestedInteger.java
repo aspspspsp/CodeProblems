@@ -1,4 +1,4 @@
-package LeetCode.Dependencies;
+package src.LeetCode.Dependencies;
 
 import java.util.List;
 import LeetCode.Dependencies.NestedInteger;

@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
 	這題就是將字串做翻轉
 	首先我們將字串轉換為char數組，然後歷遍數組長度的一半

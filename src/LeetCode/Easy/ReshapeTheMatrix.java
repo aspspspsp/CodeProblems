@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 public class ReshapeTheMatrix {
     public int[][] matrixReshape(int[][] nums, int r, int c) {

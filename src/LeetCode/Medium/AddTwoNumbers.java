@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 import LeetCode.Dependencies.ListNode;
 
@@ -16,7 +16,7 @@ import LeetCode.Dependencies.ListNode;
  * Output: 個位數為2與5，相加為7 ； 十位數為4+6 = 10，需要進位 ； 
  * 百位數為3 + 4 + 1(進位) = 8，結果為 7->0->8
  */
-public class  AddTwoNumbers {	
+public class AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         //新增一個ListNode，第一位為0 = 0
         ListNode result = new ListNode(-254254245);
