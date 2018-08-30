@@ -1,4 +1,6 @@
 package LeetCode.Medium;
+import src.LeetCode.Dependencies.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -54,22 +56,5 @@ public class FindKPairsWithSmallestSums {
 				
 		}
 		return result;
-	}
-}
-
-class Pair implements Comparable<Pair> {
-	int row; // ��
-	int column; //��
-	int value; //ֵ
-	
-	public Pair(int row, int column, int value) {
-		this.row = row;
-		this.column = column;
-		this.value = value;
-	}
-
-	@Override
-	public int compareTo(Pair other) {
-		return this.value - other.value;
 	}
 }

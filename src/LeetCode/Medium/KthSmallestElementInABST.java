@@ -12,7 +12,7 @@ import LeetCode.Dependencies.TreeNode;
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
- * �M������v�飬����k���r���ǵ���kС�Ĕ�
+ * 利用中序歷遍即可得到第k小的元素，經過k次歷遍過程，返回答案即可
  */
 public class KthSmallestElementInABST {
     public int kthSmallest(TreeNode root, int k) {
@@ -25,13 +25,14 @@ public class KthSmallestElementInABST {
             } else {
                 TreeNode temp = stack.pop();
                 k --;
-                //����kС�ĕr��
+                // 歷遍到k次時，得到第k小的元素
                 if(k == 0)
                     return temp.val;
                 cur = temp.right;
             }
         }
-        //�]���ҵ��Y��
+
+        // 沒有解答的情況
         return -1;
     }
 }
