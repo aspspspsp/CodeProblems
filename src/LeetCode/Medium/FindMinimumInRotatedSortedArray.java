@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 public class FindMinimumInRotatedSortedArray {
     //這題使用修改過的二分查找法

@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 public class ContinuousSubarraySum {
     public boolean checkSubarraySum(int[] nums, int k) {

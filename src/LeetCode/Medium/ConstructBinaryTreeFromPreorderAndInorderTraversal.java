@@ -1,8 +1,8 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 import java.util.HashMap;
 
-import LeetCode.Dependencies.TreeNode;
+import src.LeetCode.Dependencies.TreeNode;
 
 /**
  * ��Ŀ���⣺���ڸ�����һ�ö�������ǰ������������������ԭ��ö�����

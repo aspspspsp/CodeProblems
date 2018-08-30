@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 import java.util.Stack;
 import java.util.regex.Matcher;

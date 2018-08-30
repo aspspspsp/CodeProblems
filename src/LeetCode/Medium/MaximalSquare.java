@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 public class MaximalSquare {
     public int maximalSquare(char[][] matrix) {

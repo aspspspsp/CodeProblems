@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 public class ValidateIPAddress {
     public String validIPAddress(String IP) {

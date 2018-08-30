@@ -3,7 +3,7 @@ package src.LeetCode.Medium;
 import java.util.ArrayList;
 import java.util.List;
 
-import LeetCode.Dependencies.TreeNode;
+import src.LeetCode.Dependencies.TreeNode;
 
 /**
  * Definition for a binary tree node.

@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 import src.LeetCode.Dependencies.Pair;
 
 import java.util.ArrayList;

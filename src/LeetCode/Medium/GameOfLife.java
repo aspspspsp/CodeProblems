@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 /*
  * 
  * ���à�Bģ�M��һ���ֵļ������L����������

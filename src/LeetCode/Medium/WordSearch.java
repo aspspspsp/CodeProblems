@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 public class WordSearch {
     public boolean exist(char[][] board, String word) {
         char[] word_chars = word.toCharArray();

@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 /*
 A[0] = 0. Case 1. There are no active lists, create one.
 0.

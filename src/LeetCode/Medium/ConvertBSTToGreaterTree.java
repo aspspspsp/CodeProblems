@@ -1,8 +1,8 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 import java.util.Stack;
 
-import LeetCode.Dependencies.TreeNode;
+import src.LeetCode.Dependencies.TreeNode;
 
 /**
  * Definition for a binary tree node.

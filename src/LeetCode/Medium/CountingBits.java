@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 /*��̖	2�M�Ɣ�		1�Ă���	���
  * -----------------------------------
  *0		0			0		��0���Y��

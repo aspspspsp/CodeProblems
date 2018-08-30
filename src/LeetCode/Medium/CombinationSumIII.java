@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 import java.util.ArrayList;
 /*
 Input: k = 3, n = 9

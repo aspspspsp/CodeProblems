@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 /*
  * ���⣺����һ�����飬���������ڶ����г��ȡ��ڶ����ж���Ϊ�������������ڵ���������abc������ a < b , b >c ����a>b b<c
  * Ex: 1 3 2 5 4

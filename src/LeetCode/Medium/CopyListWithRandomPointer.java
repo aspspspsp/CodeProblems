@@ -1,6 +1,6 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
-import LeetCode.Dependencies.RandomListNode;
+import src.LeetCode.Dependencies.RandomListNode;
 
 /**
  * Definition for singly-linked list with a random pointer.

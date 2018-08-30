@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 /*
  * 山峰型，返回山頂數字的index

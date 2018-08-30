@@ -1,8 +1,8 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 import java.util.Stack;
 
-import LeetCode.Dependencies.NestedInteger;
+import src.LeetCode.Dependencies.NestedInteger;
 
 /**
  * // This is the interface that allows for creating nested lists.

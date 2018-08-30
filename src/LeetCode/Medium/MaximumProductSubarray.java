@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 /*
 最大乘積要考慮到負數的問題，故使用兩個數組來記錄動態規劃的結果

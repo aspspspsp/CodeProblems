@@ -1,9 +1,9 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
-import LeetCode.Dependencies.NestedInteger;
+import src.LeetCode.Dependencies.NestedInteger;
 
 /**
  * // This is the interface that allows for creating nested lists.
@@ -33,7 +33,7 @@ public class FlattenNestedListIterator implements Iterator<Integer> {
     void contructStack(List<NestedInteger> nestedList) {
         // 從結尾至開頭
         for(int i = nestedList.size() - 1; i >= 0; i --) {
-            LeetCode.Dependencies.NestedInteger cur = nestedList.get(i);
+            NestedInteger cur = nestedList.get(i);
             if(cur.isInteger() == false) {
                 contructStack(cur.getList());
             } else {

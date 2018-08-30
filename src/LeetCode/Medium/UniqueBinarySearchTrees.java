@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 /*
  * 大思想是动态规划。找出递推公式。
  * 思路就是：反正就是BST，每个元素
@@ -25,18 +25,18 @@ public class UniqueBinarySearchTrees {
 	public int numTrees(int n) {
 		if(n == 0 || n == 1)
 			return 1;
-		
+
 		//result[0]是有0个数的时候
 		//result[1]是有1个数的时候
 		int[] result = new int[n + 1];
-		 
-        result[0] = 1;
+
+		result[0] = 1;
 		for(int i = 1; i <= n; i ++) {
 			for(int j = 0; j < i; j ++) {
 				result[i] += result[j] * result[i - j - 1];
 			}
 		}
-		
+
 		return result[n];
 	}
 }

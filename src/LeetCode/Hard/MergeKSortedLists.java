@@ -1,6 +1,6 @@
-package LeetCode.Hard;
+package src.LeetCode.Hard;
 
-import LeetCode.Dependencies.ListNode;
+import src.LeetCode.Dependencies.ListNode;
 
 /**
  * Definition for singly-linked list.
