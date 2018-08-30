@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 public class NextPermutation {
     /* 以下步驟可以解決這一題:
