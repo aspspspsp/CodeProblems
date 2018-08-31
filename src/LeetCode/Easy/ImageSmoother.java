@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 public class ImageSmoother {
     public int[][] imageSmoother(int[][] M) {
