@@ -1,0 +1,27 @@
+package src.LeetCode.Algorithms.Easy;
+/*
+ * ex 0 1 2 0 3
+ * 1. 1 0 2 0 3
+ * 2. 1 2 0 0 3
+ * 3. 1 2 3 0 0
+ */
+public class MoveZeroes {
+    public void moveZeroes(int[] nums) {       
+        int length = nums.length;
+
+        //順向排序
+        for(int i = 0; i < length; i ++) {
+            if(nums[i] == 0) {
+                for(int j = i + 1; j < length; j ++) {
+                    if(nums[j] != 0) {
+                        int tmp = nums[i];
+                        nums[i] = nums[j];
+                        nums[j] = tmp; 
+                        break;
+                    }
+                }
+            }
+            
+        }
+    }
+}
