@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 public class LicenseKeyFormatting {
     public String licenseKeyFormatting(String S, int K) {
         

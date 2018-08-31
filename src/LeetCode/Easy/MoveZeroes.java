@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
  * ex 0 1 2 0 3
  * 1. 1 0 2 0 3

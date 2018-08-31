@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 public class ArrangingCoins {
     public int arrangeCoins(int n) {

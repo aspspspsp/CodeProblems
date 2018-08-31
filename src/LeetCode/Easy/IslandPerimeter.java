@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 public class IslandPerimeter {
     public int islandPerimeter(int[][] grid) {
         int ans = 0;

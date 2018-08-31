@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 public class SearchA2DMatrix {
 	   public boolean searchMatrix(int[][] matrix, int target) {
 	        //̎處理例外

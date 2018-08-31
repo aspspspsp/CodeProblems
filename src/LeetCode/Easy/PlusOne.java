@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 public class PlusOne {
     public int[] plusOne(int[] digits) {
         if(digits == null || digits.length == 0) {

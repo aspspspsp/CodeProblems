@@ -1,6 +1,6 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
-import LeetCode.Dependencies.TreeNode;
+import src.LeetCode.Dependencies.TreeNode;
 
 /*
  * 將這個二叉樹進行左右翻轉，如:

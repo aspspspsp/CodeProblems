@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
 將nums1與num2兩個數組合併到一個數組上，num1即為兩個數組合併的結果
 因為nums1的空間可以容納合併後的結果，所以nums1的空間為m + n - 1

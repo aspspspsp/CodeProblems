@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
 �������(XOR)���㣬�քe��s�ct�еČ�ÿ��char�M��xor���Ϳ��ҳ����һ����һ�ӵ�char
 */

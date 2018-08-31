@@ -1,7 +1,7 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
-import LeetCode.Dependencies.ListNode;
-import LeetCode.Dependencies.TreeNode;
+import src.LeetCode.Dependencies.ListNode;
+import src.LeetCode.Dependencies.TreeNode;
 
 /**
  * Definition for singly-linked list.

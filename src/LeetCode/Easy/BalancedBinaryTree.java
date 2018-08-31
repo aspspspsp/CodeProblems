@@ -1,6 +1,6 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
-import LeetCode.Dependencies.TreeNode;
+import src.LeetCode.Dependencies.TreeNode;
 
 /**
  * 不是很难，思路大家可能都会想到用递归，分别判断左右两棵子树是不是平衡二叉树，如果都是并且左右两颗子树的高度相差不超过1，那么这棵树就是平衡二叉树。

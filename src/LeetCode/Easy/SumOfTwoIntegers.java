@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 public class SumOfTwoIntegers {	
 	// a ^ b 直接算出a + b 每位上mod 2後的结果， 进位的话可以直接 (a & b)<<1得到（只有两个位均为1才会进位嘛，左移表示进到下一位啊）

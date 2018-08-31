@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 public class RangeSumQueryImmutable {
     int[] numbers;
     public RangeSumQueryImmutable(int[] nums) {

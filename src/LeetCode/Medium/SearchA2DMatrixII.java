@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 public class SearchA2DMatrixII {
 /*
 题解 - 自右上而左下

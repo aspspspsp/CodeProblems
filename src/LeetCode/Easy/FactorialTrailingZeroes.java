@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 /*
 考虑n!的质数因子。后缀0总是由质因子2和质因子5相乘得来的。

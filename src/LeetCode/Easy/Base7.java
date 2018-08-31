@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 public class Base7 {
     public String convertToBase7(int num) {

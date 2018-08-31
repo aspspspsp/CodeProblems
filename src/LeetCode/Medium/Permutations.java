@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 /*
 使用回溯法，想像每一個數都是一個狀態
 ex:123

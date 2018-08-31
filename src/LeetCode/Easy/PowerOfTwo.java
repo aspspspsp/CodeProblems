@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
  * 可以把該整數對2取對數，如果結果為整數，說明該數是2的冪次 
  */

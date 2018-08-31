@@ -1,6 +1,6 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
-import LeetCode.Dependencies.ListNode;
+import src.LeetCode.Dependencies.ListNode;
 /*
  * 
 歷遍整個List，因為元素都是已經排序好的，故遇到一樣的元素就是重複的元素，則可以略過，

@@ -1,6 +1,6 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
-import LeetCode.Dependencies.GuessGame;
+import src.LeetCode.Dependencies.GuessGame;
 
 /* The guess API is defined in the parent class GuessGame.
    @param num, your guess

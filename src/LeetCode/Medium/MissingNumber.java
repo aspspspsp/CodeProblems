@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 /*
 題目翻譯

@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 public class ReverseInteger {
     public int reverse(int x) {

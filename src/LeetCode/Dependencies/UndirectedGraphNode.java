@@ -1,4 +1,4 @@
-package LeetCode.Dependencies;
+package src.LeetCode.Dependencies;
 
 import java.util.ArrayList;
 import java.util.List;

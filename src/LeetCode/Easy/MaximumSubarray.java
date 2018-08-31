@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
 總和最大的區間。從數列當中取出一連串數字，求總和；找出最大的總和。
 最糟糕的情況，就是不取任何數字，總和為零。

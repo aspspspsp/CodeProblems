@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
 ��̬�滮����
 Ϊ�˽���ʱ�临�Ӷȣ�������Ҫ��������ķ������Աȸ�����ʾ��:

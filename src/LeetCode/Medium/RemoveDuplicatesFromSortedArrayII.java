@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 public class RemoveDuplicatesFromSortedArrayII {
     /*
 這題是將數組中一樣的元素去除，故有兩個指針:

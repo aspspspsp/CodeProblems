@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 public class PalindromeNumber {
     public boolean isPalindrome(int x) {
         char digis [] = (x + "").toCharArray();

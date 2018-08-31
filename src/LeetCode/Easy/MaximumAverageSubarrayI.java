@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 public class MaximumAverageSubarrayI {
     public double findMaxAverage(int[] nums, int k) {

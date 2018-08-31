@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 public class ImplementRand10WithRand7 {
     public boolean isSubsequence(String s, String t) {

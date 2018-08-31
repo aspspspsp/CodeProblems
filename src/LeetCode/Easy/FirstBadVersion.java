@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 import LeetCode.Dependencies.VersionControl;
 

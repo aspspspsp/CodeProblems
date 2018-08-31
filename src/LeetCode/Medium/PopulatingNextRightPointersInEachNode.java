@@ -1,6 +1,6 @@
 package src.LeetCode.Medium;
 
-import LeetCode.Dependencies.TreeLinkNode;
+import src.LeetCode.Dependencies.TreeLinkNode;
 
 /**
  * Definition for binary tree with next pointer.

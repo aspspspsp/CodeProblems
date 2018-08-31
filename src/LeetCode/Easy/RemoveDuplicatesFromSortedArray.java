@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
  * 這題是將數組中一樣的元素去除，故有兩個指針:
  * 1.指向目前元素(i)

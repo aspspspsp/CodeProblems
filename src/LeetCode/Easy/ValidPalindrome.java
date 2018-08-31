@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
 這題因為有極大的字符串，故要使用前後指針的方式防止運行時間過長
 */

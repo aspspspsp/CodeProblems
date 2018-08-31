@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
  * “汉明距离”，一个较为著名的问题，给定两个整数，求出这两个数字的
  * 二进制中位数不同的个数。比如例子中的1和4，在第0位和第2位数字不

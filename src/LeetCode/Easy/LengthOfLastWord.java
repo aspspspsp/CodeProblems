@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 public class LengthOfLastWord {
     public int lengthOfLastWord(String s) {
         String[] allWords = s.split(" ");

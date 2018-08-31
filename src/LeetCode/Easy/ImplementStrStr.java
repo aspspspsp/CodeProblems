@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 //strstr()函数用来检索子串在字符串中首次出现的位置，其原型为：
 public class ImplementStrStr {

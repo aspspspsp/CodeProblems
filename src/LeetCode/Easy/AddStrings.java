@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 import java.math.BigInteger;
 public class AddStrings {
     public String addStrings(String num1, String num2) {

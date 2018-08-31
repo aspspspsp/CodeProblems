@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 public class SearchForARange {
     public int[] searchRange(int[] nums, int target) {
         int [] result = {-1, -1};

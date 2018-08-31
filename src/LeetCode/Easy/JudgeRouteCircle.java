@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 public class JudgeRouteCircle {
 	public boolean judgeCircle(String moves) {

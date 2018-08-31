@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 public class RomanToInteger {
     public int romanToInt(String s) {
         int ans = 0;

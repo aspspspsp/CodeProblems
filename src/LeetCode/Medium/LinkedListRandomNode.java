@@ -1,8 +1,8 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 import java.util.Random;
 
-import LeetCode.Dependencies.ListNode;
+import src.LeetCode.Dependencies.ListNode;
 
 /**
  * Definition for singly-linked list.

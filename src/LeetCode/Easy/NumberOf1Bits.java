@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
  * 通过与运算符判断最低位是否是1，然后再右移。
  * 重复此步骤直到原数归零。

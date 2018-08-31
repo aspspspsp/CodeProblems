@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
  * �Q�׹�ʽ loga b = lognb / logn a
  */

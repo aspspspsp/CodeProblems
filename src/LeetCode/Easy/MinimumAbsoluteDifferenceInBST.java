@@ -1,9 +1,9 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import LeetCode.Dependencies.TreeNode;
+import src.LeetCode.Dependencies.TreeNode;
 
 /**
  * Definition for a binary tree node.

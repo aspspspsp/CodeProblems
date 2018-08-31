@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 public class TargetSum {
     public int findTargetSumWays(int[] nums, int S) {
         if(nums == null || nums.length == 0)

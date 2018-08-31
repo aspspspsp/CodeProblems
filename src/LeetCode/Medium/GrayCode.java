@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 /*
 在题目说明中已经说明了“只支持一种格雷码的编码方案”，
 因此我们只需要搞清楚出题人希望我们实现的格雷码编码方案的生成规律就可以了。

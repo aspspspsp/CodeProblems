@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 /*
  * ���ٌ�N��֞�ɂ������Kʹ֮�˷e���
  * Ex 7 = 3 + 4 -> 3 * 4 = 12
