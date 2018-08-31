@@ -18,11 +18,12 @@ public class RemoveLinkedListElements {
         
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        
-        //һ�_ʼ��ָ�ָ��dummy�������^Ԫ����Ҫ�h�����o���h������r
+
+        //利用dummy來做為頭指標來返回
         ListNode cur = dummy;
         
         while(cur.next != null) {
+            //將指標鍊接到要刪除的節點的下一個(不連到它，代表刪除)
             if(cur.next.val == val) {
                 cur.next = cur.next.next;
             } else {
