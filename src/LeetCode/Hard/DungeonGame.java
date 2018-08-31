@@ -1,4 +1,4 @@
-package LeetCode.Hard;
+package src.LeetCode.Hard;
 
 public class DungeonGame {
 	//從最後一格(右下角)開始到第0格(左上角)結束

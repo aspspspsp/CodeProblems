@@ -1,4 +1,4 @@
-package LeetCode.Hard;
+package src.LeetCode.Hard;
 /*
  * 
  * 当s1到达第i个元素，s2到达第j个元素:

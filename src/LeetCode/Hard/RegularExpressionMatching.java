@@ -1,4 +1,4 @@
-package LeetCode.Hard;
+package src.eetCode.Hard;
 /*
  *
 首先要理解题意:

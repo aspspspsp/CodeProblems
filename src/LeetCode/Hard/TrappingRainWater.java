@@ -1,4 +1,4 @@
-package LeetCode.Hard;
+package src.LeetCode.Hard;
 
 /*
 下面我们说说优化的算法。这种方法是基于动态规划的，基本思路就是维护一个长度为n的数组，进行两次扫描，

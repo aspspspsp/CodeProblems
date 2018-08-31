@@ -1,4 +1,4 @@
-package LeetCode.Hard;
+package src.LeetCode.Hard;
 
 public class LongestIncreasingPathInAMatrix {
     public int longestIncreasingPath(int[][] matrix) {

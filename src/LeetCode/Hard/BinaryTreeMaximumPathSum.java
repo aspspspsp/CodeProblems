@@ -1,6 +1,6 @@
-package LeetCode.Hard;
+package src.LeetCode.Hard;
 
-import LeetCode.Dependencies.TreeNode;
+import src.LeetCode.Dependencies.TreeNode;
 
 /**
  * Definition for a binary tree node.

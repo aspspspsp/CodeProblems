@@ -1,4 +1,4 @@
-package LeetCode.Hard;
+package src.LeetCode.Hard;
 /*
 可以先尝试做一个二维的表int[][] results，用来记录匹配子序列的个数
 （以s ="rabbbit",t = "rabbit"为例）：
