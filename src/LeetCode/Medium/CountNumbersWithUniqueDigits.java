@@ -1,4 +1,4 @@
-package LeetCode.Medium;
+package src.LeetCode.Medium;
 
 /*
 n=0  f(0) = 2(0,1) 

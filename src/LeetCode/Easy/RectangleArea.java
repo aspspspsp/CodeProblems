@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
  * �ȿ��]�ɂ��L���β����B����r��ֻҪ�μ���Ӌ����e��Ӽ���
  * AB,EF�քe��������c��CD,GH�քe��������c�����A>=G��ʾ��һ���L�����ڵڶ����L�����҂ȶ�����e���دB
