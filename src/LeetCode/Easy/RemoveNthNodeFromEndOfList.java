@@ -14,24 +14,24 @@ public class RemoveNthNodeFromEndOfList {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         
-        //�o�ListNode���^
+        //設置一個假結點，代表頭節點
         firstOfListNodes = new ListNode(0);
         firstOfListNodes.next = head;
         
-        //Ӌ��list node�L��
+        //先歷遍整個ListNode，取得ListNode的長度
         int sizeOfListNode = 1;
         while(head.next != null) {
             head = head.next;
             sizeOfListNode ++;
         }
         
-        //�ص��^
+        //指標，來歷遍
         head = firstOfListNodes;
         
-        //�ُ��v������list node
+        //開始再次歷遍節點
         for(int i = 0; i < sizeOfListNode; i ++) {
             head = head.next;
-            //����ָ��̖�a��Ԫ�أ����^��
+            //若指標取得預刪除的前一個節點，則將指標鍊結到域刪除的節點的下一個節點
             if(sizeOfListNode - n == i + 1) {
                 head.next = head.next.next;
                 i = i + 1;
@@ -40,7 +40,7 @@ public class RemoveNthNodeFromEndOfList {
                 head.next = head.next;
         }
         
-        //����case��̎����Ҫ�h���^Ԫ�صĠ�r
+        //若式刪除的節點為頭節點，則返回頭節點的下一個
         if(sizeOfListNode == n)
             return firstOfListNodes.next.next;
         
