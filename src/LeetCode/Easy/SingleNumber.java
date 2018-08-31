@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /**
  * ���������λ��������
  * �������ͬΪ0����ͬΪ1��

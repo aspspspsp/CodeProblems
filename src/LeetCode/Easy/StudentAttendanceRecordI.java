@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 public class StudentAttendanceRecordI {
     public boolean checkRecord(String s) {

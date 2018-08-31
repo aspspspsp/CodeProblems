@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 public class NumberOfSegmentsInAString {
     public int countSegments(String s) {
         //��ȥ���^β�հף����↖�}
