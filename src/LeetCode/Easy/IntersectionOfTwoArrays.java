@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 /*
  * �҃ɂ����M���}�Ĳ���
  * ex:1 2 2 3 4 5, 2 3 5

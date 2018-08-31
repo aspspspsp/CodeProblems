@@ -1,4 +1,4 @@
-package LeetCode.Easy;
+package src.LeetCode.Easy;
 
 /*
 问题：找出所有小于 n 的素数。

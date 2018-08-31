@@ -32,7 +32,7 @@ public class NaryTreeLevelOrderTraversal {
             return result;
 
         // 這個map是記錄每一層的情況
-        Map<Integer, List<Integer>> map = new HashMap<>();
+        Map<Integer, List<Integer>> map =  new HashMap<>();
 
         // 歷遍這棵樹
         helper(root, map, 0);

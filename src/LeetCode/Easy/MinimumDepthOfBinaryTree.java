@@ -1,5 +1,5 @@
-package LeetCode.Easy;
-import LeetCode.Dependencies.TreeNode;
+package src.LeetCode.Easy;
+import src.LeetCode.Dependencies.TreeNode;
 
 /**
  * Definition for a binary tree node.
