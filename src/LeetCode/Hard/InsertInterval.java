@@ -3,7 +3,7 @@ package src.LeetCode.Hard;
 import java.util.ArrayList;
 import java.util.List;
 
-import LeetCode.Dependencies.Interval;
+import src.LeetCode.Dependencies.Interval;
 
 /**
  * Definition for an interval.
