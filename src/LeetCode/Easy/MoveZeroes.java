@@ -8,8 +8,8 @@ package src.LeetCode.Easy;
 public class MoveZeroes {
     public void moveZeroes(int[] nums) {       
         int length = nums.length;
-        
-        //����0�t��ǰ�c��һ����0���Q
+
+        //順向排序
         for(int i = 0; i < length; i ++) {
             if(nums[i] == 0) {
                 for(int j = i + 1; j < length; j ++) {
