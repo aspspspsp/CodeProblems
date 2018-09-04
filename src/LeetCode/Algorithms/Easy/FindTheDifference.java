@@ -1,6 +1,7 @@
 package src.LeetCode.Algorithms.Easy;
 /*
-�������(XOR)���㣬�քe��s�ct�еČ�ÿ��char�M��xor���Ϳ��ҳ����һ����һ�ӵ�char
+我们可以使用位操作Bit Manipulation来做，利用异或的性质，相同位返回0，
+这样相同的字符都抵消了，剩下的就是后加的那个字符
 */
 
 public class FindTheDifference {
