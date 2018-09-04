@@ -1,4 +1,4 @@
-package src.LeetCode.Algorithms.Easy;
+package src.LeetCode.Algorithms.Medium;
 /*
 ��̬�滮����
 Ϊ�˽���ʱ�临�Ӷȣ�������Ҫ��������ķ������Աȸ�����ʾ��:
