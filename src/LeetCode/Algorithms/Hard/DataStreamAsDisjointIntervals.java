@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-import LeetCode.Dependencies.Interval;
+import src.LeetCode.Algorithms.Dependencies.Interval;
 
 /**
  * Definition for an interval.
