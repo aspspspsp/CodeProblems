@@ -41,4 +41,3 @@ public class MaximumDepthOfNaryTree {
         return max;
     }
 }
-}
