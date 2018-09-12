@@ -2,6 +2,9 @@ package src.LeetCode.Algorithms.Medium;
 
 import src.LeetCode.Algorithms.Dependencies.TreeNode;
 
+/*
+ 這題可以參考當作由底向上重新構造Tree的樣板
+ */
 public class BinaryTreePruning {
     public TreeNode pruneTree(TreeNode root) {
         // 到葉節點下面則不做任何事(表示這個子樹已經歷遍完畢)
