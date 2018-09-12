@@ -18,8 +18,8 @@ public class WiggleSubsequence {
 			return 0;
 		
 		int length = nums.length;
-		
-		//����һ�����֣��t�L�����ٞ�1
+
+		//若有一個數字，則長度至少為1
 		int answer = 1;
 		
 		for(int i = 1; i < length; i ++) {
