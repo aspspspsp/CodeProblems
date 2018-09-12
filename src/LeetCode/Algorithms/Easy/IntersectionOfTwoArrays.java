@@ -1,6 +1,6 @@
 package src.LeetCode.Algorithms.Easy;
 /*
- * �҃ɂ����M���}�Ĳ���
+ * 輸出兩個數組之間重疊的元素
  * ex:1 2 2 3 4 5, 2 3 5
  * output 2 3 5
  */
@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class IntersectionOfTwoArrays {
     public int[] intersection(int[] nums1, int[] nums2) {
-    	//���ɂ����M������
+        // 對num1與num2兩個數組進行排序
         Arrays.sort(nums1);
         Arrays.sort(nums2);
         
