@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import LeetCode.Dependencies.Interval;
+import src.LeetCode.Algorithms.Dependencies.Interval;
 
 /**
  * Definition for an interval.
