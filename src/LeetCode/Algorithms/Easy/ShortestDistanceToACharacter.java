@@ -35,7 +35,8 @@ public class ShortestDistanceToACharacter {
                     int tmp = Math.abs(i - c_pos.get(cur_c_pos - 1));
                     r[i] = Math.min(r[i], tmp);
                 }
-                // 若為C，則移動指針(針對存儲所有C位置陣列的指針)
+
+            // 若為C，則移動指針(針對存儲所有C位置陣列的指針)
             } else if(r[i] == 0) {
                 cur_c_pos ++;
             }
