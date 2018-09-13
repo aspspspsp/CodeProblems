@@ -27,7 +27,7 @@ public class MaximumWidthOfBinaryTree {
             return 0;
 
         int depth = 0;
-        int id = 0;
+        int id = 1;
 
         int max_width = helper(root, depth, id, new HashMap<Integer, Integer>());
 
