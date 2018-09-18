@@ -2,6 +2,8 @@ package src.LeetCode.Algorithms.Medium;
 
 import java.util.*;
 /*
+    ＊＊＊＊戴克斯特拉模板題＊＊＊＊
+
     這題用戴克斯特拉算法紀錄從K節點到每一個節點的距離，然後再找到從K出發的最大的距離即可
     步驟:
     1.建立鄰接表
