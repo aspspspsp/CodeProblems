@@ -1,7 +1,15 @@
 package src.LeetCode.Algorithms.Medium;
 
 import java.util.*;
+/*
+    這題用戴克斯特拉算法紀錄從K節點到每一個節點的距離，然後再找到從K出發的最大的距離即可
+    步驟:
+    1.建立鄰接表
+    2.戴克斯特拉算法歷遍所有點，並記錄從K到所有點的距離
+      (利用優先對列可以保證所有點的距離為最小)
+    3.找到從K出發的最大距離
 
+ */
 public class NetworkDelayTime {
     public int networkDelayTime(int[][] times, int N, int K) {
         if (times == null || times.length == 0) {
