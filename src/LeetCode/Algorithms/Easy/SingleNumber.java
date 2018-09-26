@@ -18,10 +18,10 @@ package src.LeetCode.Algorithms.Easy;
 
 public class SingleNumber {
     public int singleNumber(int[] nums) {
-        // 沒有重複的元素
+        // result紀錄沒有重複的元素
         int result = 0;
 
-        // 對每個元素都進行XOR
+        // result對每個元素都進行XOR
         for(int i = 0; i < nums.length; i ++) {
             result = result ^ nums[i];
         }
