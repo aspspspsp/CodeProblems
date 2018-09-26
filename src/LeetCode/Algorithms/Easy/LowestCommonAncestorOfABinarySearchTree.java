@@ -26,9 +26,11 @@ import src.LeetCode.Algorithms.Dependencies.TreeNode;
 節點2與4的LCA為:2
 LCA(2,4) = 2
 
+
 節點0與5的LCA為:2
 LCA(0,5) = 2
 
+因為這題有假設p與q都有於此樹出現的情況，所以才可以使用這種做法，不然可能只會返回p或q
  */
 public class LowestCommonAncestorOfABinarySearchTree {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -45,11 +47,11 @@ public class LowestCommonAncestorOfABinarySearchTree {
         if(left != null && right != null)
             return root;
 
-        // 只找到左邊的子樹的情況
+        // 只找到左邊的子樹的情況，只返回左邊
         if(left != null)
             return left;
 
-        // 只找到右邊的子樹的情況　
+        // 只找到右邊的子樹的情況，只返回右邊
         if(right != null)
             return right;
 
