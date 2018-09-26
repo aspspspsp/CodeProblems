@@ -13,9 +13,8 @@ import src.LeetCode.Algorithms.Dependencies.TreeNode;
  */
  /*
  Lowest Common Ancestor
-һ���и��䣬���σ��c�Ĺ�ͬ���Ȯ��У��x�����h������������һ����ͬ���ȣ�
-�Q������͹�ͬ���ȡ��������Q�� LCA ��
-�ȴ���򵥵Ķ���������BST���𣬸���һ�� BST���£�
+一棵有根樹，樹上兩點的共同祖先當中，離根最遠、深度最深的那一個共同祖先，稱作「最低共同祖先」，常簡稱為 LCA 。
+下面有一棵二叉樹:
         _______6______
        /              \
     ___2__          ___8__
@@ -23,35 +22,38 @@ import src.LeetCode.Algorithms.Dependencies.TreeNode;
    0      _4       7       9
          /  \
          3   5
-��������2��8��LCA����ôΪ6���򵥼�ΪLCA(2,8) = 6
-
-�������ӣ�
+從上面的二叉樹我們可以舉下面例子:
+節點2與4的LCA為:2
 LCA(2,4) = 2
+
+節點0與5的LCA為:2
 LCA(0,5) = 2
 
-�ܼ򵥵�˼·���ǿ�����ֵ��root���ıߣ�
-����ֵ������ߣ���LCA�����
-����ֵ�����ұߣ���LCA���ұ�
-һ������һ�����ң���˵��LCA���ǵ�ǰ��root�ڵ㡣
  */
 public class LowestCommonAncestorOfABinarySearchTree {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        // 至尾節點或是歷遍到要尋找的節點時，則返回
         if(root == null || root == p || root == q) {
             return root;
         }
         
-        // Divide
+        // 取得左子樹與右子樹的結果
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
         
-        // Conquer
+        // 找到LCA的情況(左子樹、右子樹都不為空)
         if(left != null && right != null)
             return root;
+
+        // 只找到左邊的子樹的情況
         if(left != null)
             return left;
+
+        // 只找到右邊的子樹的情況　
         if(right != null)
             return right;
-        
+
+        // 其他情況則返回null
         return null;
     }
 }
