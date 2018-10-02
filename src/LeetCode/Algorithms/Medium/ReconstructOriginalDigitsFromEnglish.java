@@ -15,6 +15,7 @@ public class ReconstructOriginalDigitsFromEnglish {
             map.put(c, map.get(c) + 1);
         }
 
+        // 用以存儲數字的數量，以方便輸出答案
         Map<Integer, Integer> resultMap = new HashMap<>();
         /************************************
          * 解決第一重特徵 0->z, 2->w, 4->u, 6->x, 8->g
@@ -123,7 +124,7 @@ public class ReconstructOriginalDigitsFromEnglish {
         }
 
         /************************************
-         * 刪除完第二重特徵後，即可進行第二重特徵的解析
+         * 刪除完第二重特徵後，即可進行第三重特徵的解析
          * 解決第三重特徵 9->i
          */
         // 解決9的部分
