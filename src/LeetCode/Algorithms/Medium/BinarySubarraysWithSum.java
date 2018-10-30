@@ -2,20 +2,16 @@ package src.LeetCode.Algorithms.Medium;
 
 public class BinarySubarraysWithSum {
     public int numSubarraysWithSum(int[] A, int S) {
-        int[] tmp = new int[A.length];
         int result = 0;
-        if(A[0] == 1)
-            tmp[0] = 1;
-
-        for(int i = 1; i < A.length; i ++) {
-            if(A[i] == 1) {
-                tmp[i] = tmp[i - 1] + 1;
-            } else {
-                tmp[i] = tmp[i - 1];
+        for(int i = 0; i < A.length; i ++) {
+            int sub = 0;
+            for(int j = i; j < A.length; j ++) {
+                sub += A[j];
+                if(sub == S)
+                    result ++;
+                if(sub > S)
+                    break;
             }
-
-            if(tmp[i] % S == 0)
-                result ++;
         }
 
         return result;
